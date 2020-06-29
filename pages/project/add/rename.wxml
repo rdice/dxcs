@@ -1,0 +1,11 @@
+<!--pages/project/details/rename.wxml-->
+<view class="re1">
+  <form report-submit="true" bindsubmit="submitForm">
+    <view class="flex">
+      <input class="flex-1" name="name" value="{{name}}" placeholder="请输入文件名"></input>
+    </view>
+    <view class="re2">
+      <button form-type="submit">提交</button>
+    </view>
+  </form>
+</view>

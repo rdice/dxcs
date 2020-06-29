@@ -1,0 +1,15 @@
+<!--pages/project/project.wxml-->
+<wxs src="../../wxs/common.wxs" module="tools" />
+<import src="/template/tabBar.wxml" />
+<view class="container">
+  <include src="/template/tabTop.wxml"/>
+  <view class="tabPge2">
+    <view class="proList">
+      <navigator url="projectDetails?id={{item.lawCaseId}}" class="proItem flex-items" wx:for="{{pgList}}">
+        <text class="flex-1">{{tools.substring(item.serviceTitle)}}</text>
+        <image src="/images/project/arrow.png"></image>
+      </navigator>
+    </view>
+  </view>
+  <template is="tabBar" data="{{active2:true}}" />
+</view>

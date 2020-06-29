@@ -1,0 +1,70 @@
+/* pages/personal/personalDatas.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.avatar-container {
+  position: relative;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.upitem .avatar {
+  width: 3rem;
+  height: 3rem;
+  background-color: #e5e5e5;
+  border-radius: 50%;
+}
+
+.item {
+  line-height: 3rem;
+}
+
+.input {
+  border: none;
+}
+
+.upitem {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upitem image {
+  width: 18rpx;
+  height: 32rpx;
+}
+
+.upitem>view:first-child {
+  color: #888;
+  width: 160rpx;
+}
+
+.text_item {
+  display: flex;
+  flex: 1;
+}
+
+.text_item text {
+  display: inline-block;
+  width: 160rpx;
+  color: #999;
+}
+
+
+.subBtn {
+  font-size: 32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  width: 60%;
+  line-height: 60rpx;
+}

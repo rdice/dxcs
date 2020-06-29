@@ -1,0 +1,46 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/index/index",
+    "pages/index/details/authorizeMember",
+    "pages/index/details/serviceLawyer",
+    "pages/project/project",
+    "pages/project/projectDetails",
+    "pages/project/more/workRecord",
+    "pages/project/more/dbsxList",
+    "pages/project/more/memberList",
+    "pages/project/more/fileList",
+    "pages/project/details/workRecordDetails",
+    "pages/project/details/dbsxDetails",
+    "pages/project/details/dbsxDetails1",
+    "pages/project/details/ajjzDetails",
+    "pages/project/details/editAjfj",
+    "pages/project/add/rename",
+    "pages/project/add/addFolder",
+    "pages/discover/discover",
+    "pages/personal/personal",
+    "pages/personal/personalDatas",
+    "pages/personal/upload/upload",
+
+    "pages/project/checkbox/checkboxQyry",
+    "pages/project/checkbox/checkbox",
+
+    "pages/chatroom/index/chat",
+    "pages/chatroom/index/index",
+    "pages/chatroom/contact/index",
+    "pages/chatroom/contact/search",
+    "pages/chatroom/index/login",
+    "pages/chatroom/contact/createGroup",
+    "pages/chatroom/contact/groups",
+    "pages/chatroom/contact/contactDetails"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#25286b",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

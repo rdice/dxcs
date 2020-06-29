@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-avatar":"../component/avatar/avatar"
+  },
+  "enablePullDownRefresh": true
+}

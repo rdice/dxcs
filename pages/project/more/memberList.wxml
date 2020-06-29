@@ -1,0 +1,21 @@
+<!--pages/project/more/memberList.wxml-->
+<view class=" subBox">
+  <view class="tabPge2">
+    <switchTab-component list="{{cyxz}}" bindmyevent="switchCyxz" />
+    <view style="margin-top:40rpx;">
+      <view class="cyry2 flex-items" wx:for="{{pgList}}">
+        <image src="{{item.headImage}}" class="headImg flex-none"></image>
+        <view class="cyry2_1 flex-1">
+          <view>
+            <text class="t1">{{item.name}}</text>
+            <text class="t2">{{item.identity}}</text>
+          </view>
+          <view>{{item.phone}}</view>
+        </view>
+        <image class="cyry2_2" src="/images/project/phone.png"></image>
+        <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}" style="display:{{cyxzIdx==0?'block':'none'}}" data-id="{{item.id}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<image class="addfile" src="/images/addFile.png" catchtap="editMenu" wx:if="{{manager}}"  style="display:{{cyxzIdx==0?'block':'none'}}"></image>

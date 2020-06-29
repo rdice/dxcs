@@ -1,0 +1,247 @@
+/**app.wxss**/
+
+page {
+  color: #737479;
+  font-size: 28rpx;
+  
+}
+.subBox{
+  background:#25286b;
+}
+.f12{
+  font-size: 24rpx;
+}
+.pl5{
+  padding-left: 10rpx;
+}
+/* 主页面布局 */
+
+.tabPge1 {
+  position: relative;
+  padding-top: 260rpx;
+}
+
+.tabPge1 .tabBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.tabPge1 image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.tabPge2 {
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  background: #fff;
+  position: relative;
+  z-index: 10;
+  padding: 40rpx;
+}
+
+.tabPge1_1 {
+  position: absolute;
+  top: 50rpx;
+  color: #fff;
+  left: 50rpx;
+  right: 50rpx;
+}
+
+.tabPge1_user1 {
+  background: #131429;
+  border-radius: 50px;
+  padding: 5rpx 20rpx;
+}
+
+.tabPge1_user1 image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.tabPge1_user1 text {
+  padding-left: 20rpx;
+}
+
+.tabPge1_news {
+  position: relative;
+}
+
+.tabPge1_news image {
+  width: 40rpx;
+  height: 50rpx;
+}
+
+.tabPge1_news text {
+  position: absolute;
+  right: -28rpx;
+  top: -10rpx;
+  color: #fff;
+  background: red;
+  display: block;
+  border-radius: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  border: 1px solid #fff;
+}
+
+/* tabBar样式 */
+
+.tab-bar {
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  width: 100%;
+  background: #252868;
+  padding: 30rpx 0;
+  line-height: 30rpx;
+  bottom: 0;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+
+.tab-bar .tab-item {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 22rpx;
+  color: #6e6d6b;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.tab-bar image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tab-bar .tab-active {
+  color: #3a7df0;
+}
+
+.tab-bar view {
+  display: none;
+}
+
+.tab-active image {
+  display: none;
+}
+
+.tab-active view {
+  display: block;
+}
+
+/*暂时无记录图标  */
+
+.empty {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.empty image {
+  width: 100%;
+  height: 100%;
+}
+
+/*flex布局样式*/
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-items {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.flex-around {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.flex-end {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.justify-end {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.justify-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.flex-none {
+  -webkit-flex: none;
+  flex: none;
+}
+
+.flex-1 {
+  -webkit-flex: 1;
+  flex: 1;
+}
+/* 聊天室tabBar样式 */
+.tab-bar1{
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  width: 100%;
+  background: #f7f7fa;
+  border-top: 1px solid #ddd;
+  padding: 10rpx 0;
+  line-height: 30rpx;
+  bottom: 0;
+}
+.tab-bar1 .tab-item1{
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: center;
+  font-size: 22rpx;
+  color: #6e6d6b;
+}
+.tab-bar1 image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.tab-bar1 .active1{
+  color: #3a7df0;
+}

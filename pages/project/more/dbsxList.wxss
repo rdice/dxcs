@@ -1,0 +1,2 @@
+/* pages/project/more/dbsxList.wxss */
+@import "../projectDetails.wxss";

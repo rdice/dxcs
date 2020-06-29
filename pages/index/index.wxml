@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<import src="/template/tabBar.wxml" />
+<view class="container">
+  <include src="/template/tabTop.wxml"/>
+  <view class="tabPge2">
+    <view class="index2">
+      <view class="index2_1">
+        待办事项
+        <text>{{totleNum}}</text>
+      </view>
+      <navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item" url="/pages/project/details/dbsxDetails?taskId={{item.taskId}}&lawCaseId={{pageData.bean.lawCaseId}}&is=0">
+        <view class="dbItem flex">
+          <view class="dbItem1">
+            <view style="background: #6b82f7"></view>
+            <view></view>
+          </view>
+          <view class="dbItem2">
+            <view>{{item.created}}
+            <text class="dbsxTime" style="color:#6b82f7">进行中</text>
+            </view>
+            <view class="dbsxTitle">{{item.name}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <template is="tabBar" data="{{active1:true}}" />
+</view>

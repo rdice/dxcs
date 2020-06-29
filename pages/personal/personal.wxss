@@ -1,0 +1,56 @@
+/* pages/personal/personal.wxss */
+.personal1{
+  font-size: 40rpx;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+/* 通讯录 */
+.cyry1 {
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+}
+
+.cyry1 text {
+  padding-left: 20rpx;
+}
+
+.cyry1 image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.cyry2 {
+  background: #f7f8fa;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.cyry2 .headImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.cyry2>view {
+  padding: 0 30rpx;
+}
+
+.cyry2_2 {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.t1 {
+  color: #333;
+  font-size: 32rpx;
+}
+
+.t2 {
+  color: #b1b4c5;
+  padding-left: 20rpx;
+}

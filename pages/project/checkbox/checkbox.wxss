@@ -1,0 +1,18 @@
+/* pages/project/checkbox/checkbox.wxss */
+
+.check1 {
+  padding: 30rpx 30rpx 18rpx;
+  font-size: 28rpx;
+  color: #888;
+  width: 100%;
+  box-sizing: border-box;
+}
+.check2{
+  padding: 20rpx 30rpx;
+}
+.check2_1{
+  padding: 20rpx;
+}
+.check3{
+  padding: 30rpx;
+}

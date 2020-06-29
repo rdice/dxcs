@@ -1,0 +1,67 @@
+/* pages/project/details/dbsxDetails.wxss */
+@import "../fileTem.wxss";
+.wrd1{
+  font-size: 36rpx;
+  text-align: center;
+  word-wrap:break-word;width:580rpx;
+  margin: 0 auto
+}
+.wrd2{
+  text-align: right;
+  padding: 30rpx 0;
+}
+.wrd4{
+  padding-top: 30rpx;
+}
+.wrd4 image{
+  width: 60rpx;
+  height: 80rpx;
+  vertical-align: middle
+}
+.wrd4>view{
+  padding-bottom: 20rpx;
+}
+/* 可编辑 */
+.dbcont{
+  padding: 30rpx;
+}
+.dbItem{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.dbItem text{
+  padding-right: 20rpx;
+}
+.dbItem textarea{
+  height: 200rpx;
+}
+
+.dbItem1{
+  padding: 20rpx 0;
+}
+.dbItem1>view{
+  font-size:32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  display: inline-block; 
+}
+.subBtn{
+  font-size:32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  width: 200rpx;
+  line-height: 60rpx;
+}
+.delBtn{
+   font-size:32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #d8dbdf;
+  color: #666;
+  width: 200rpx;
+  line-height: 60rpx;
+}

@@ -1,0 +1,46 @@
+<!--pages/personal/personalDatas.wxml-->
+<view class="container">
+  <view style="background:#fff;">
+    <view class="flex-between  upitem">
+      <view class="" bindtap="upload">头像</view>
+      <image src="{{src}}" class="avatar" bindtap="upload"></image>
+    </view>
+    <form bindsubmit="formsubmit" report-submit="true">
+      <view class="upitem">
+        <view class="text_item">
+          <text>姓名</text>
+          <input class="flex-1" type="text" name="name" value="{{name}}" />
+        </view>
+      </view>
+      <view class="upitem">
+        <view class="text_item flex">
+          <text>性别</text>
+          <view class="flex-1">
+            <radio-group name="sex">
+              <label>
+                <radio value="女" checked="{{sex=='女'}}" />女</label>
+              <label style="margin-left:50rpx;">
+                <radio value="男" checked="{{sex=='男'}}" />男</label>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+      <view class=" upitem flex">
+        <view class="text_item">
+          <text>电话号码</text>
+          <input class="flex-1" type="text" name="phone" value="{{phone}}" />
+        </view>
+      </view>
+      <view class=" upitem">
+        <view class="text_item flex">
+          <text>邮箱</text>
+          <input class="flex-1" type="text" name="email" value="{{email}}" />
+        </view>
+      </view>
+      <view style="margin-top:30rpx;">
+        <button class="subBtn" form-type="submit">提交</button>
+      </view>
+    </form>
+  </view>
+
+</view>

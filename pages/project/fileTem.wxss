@@ -1,0 +1,13 @@
+.fileList{
+  padding: 30rpx 0;
+}
+.fileList image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.fileList text{
+  padding-left: 20rpx;
+}
+.fileItem{
+  margin-bottom: 20rpx;
+}

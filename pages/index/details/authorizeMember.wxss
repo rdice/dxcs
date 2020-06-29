@@ -1,0 +1,194 @@
+/* pages/index/details/authorizeMember.wxss */
+
+.headImg {
+  width: 80rpx;
+  height: 80rpx;
+}
+.meList{
+  margin-top: 30rpx;
+}
+.meItem {
+  color: #333;
+  position: relative;
+  height: 148rpx;
+  margin-bottom: 30rpx;
+}
+
+.meItem1 {
+  background: #f7f7f9;
+  height: 148rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active {
+  -webkit-transform: translateX(-260rpx);
+  transform: translateX(-260rpx);
+}
+
+.meItem1_1 {
+  padding-left: 30rpx;
+}
+
+.meItem1_1>view {
+  padding-left: 30rpx;
+}
+
+.meItem1_1_1 {
+  color: #fff;
+  background: #859cfa;
+  border-radius: 50px;
+  padding: 4rpx 15rpx;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.meItem1_2 {
+  color: #859cfa;
+  padding-right: 30rpx;
+}
+
+.meItem2 {
+  position: absolute;
+  right: 0;
+  height: 148rpx;
+}
+
+.meItem2>view {
+  background: #f7f7f9;
+  line-height: 148rpx;
+  width: 120rpx;
+  text-align: center;
+}
+
+.meItem2>view:first-child {
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+}
+
+.meItem2>view:last-child {
+  color: #e43;
+  margin-left: 10rpx;
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+/* 新增-修改 */
+
+.editBox {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  z-index: 1000;
+}
+
+.editBg {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.3;
+}
+
+.editCont {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: #25276a;
+  padding: 30rpx;
+}
+
+.edit1 {
+  text-align: center;
+  font-size: 36rpx;
+  position: relative;
+}
+
+.edit1 image {
+  position: absolute;
+  right: 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.edit2 {
+  margin-top: 30rpx;
+}
+
+.edit2>view {
+  padding: 20rpx;
+}
+
+.edit2 text {
+  padding-right: 20rpx;
+}
+
+.edit2 input {
+  background: #42447c;
+  border-radius: 100px;
+  padding: 10rpx 30rpx;
+}
+
+.edSelect {
+  position: relative;
+  height: 75rpx;
+}
+
+.edSelect input {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+}
+
+.edSelect1 {
+  position: absolute;
+  top: 34rpx;
+  background: #fff;
+  width: 100%;
+  z-index: 10;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  color: #25286b;
+  padding-top: 40rpx;
+}
+.edSelect1 .powerActive{
+  color: #859cfa;
+}
+.edSelect1>view{
+  padding: 15rpx 30rpx;
+}
+.edit2_1 {
+  text-align: center;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.edit2_1 button {
+  background: #fe6969;
+  color: #fff;
+  border: none;
+}
+/* 添加 */
+.addfile{
+  position: fixed;
+  bottom: 14%;
+  right: 44%;
+  width: 96rpx;
+  height: 96rpx;
+  z-index: 10;
+  border-radius: 50%;
+}

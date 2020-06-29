@@ -1,0 +1,19 @@
+<!--pages/project/checkbox/checkbox.wxml-->
+<view class="check">
+  <view class="check1">多选</view>
+  <form bindsubmit="formSubmit">
+    <view class="check2">
+      <checkbox-group bindchange="checkboxChange" name="checkbox">
+        <view class="check2_1" wx:for="{{lawyerList}}">
+          <label >
+            <checkbox value="{{index}}" checked="{{item.checked}}" />{{item.realname}}
+          </label>
+        </view>
+      </checkbox-group>
+
+    </view>
+    <view class="check3">
+      <button form-type='submit' type='primary'>提交</button>
+    </view>
+  </form>
+</view>

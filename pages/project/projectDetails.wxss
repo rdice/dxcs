@@ -1,0 +1,240 @@
+/* pages/project/projectDetails.wxss */
+
+.prd1 {
+  font-size: 32rpx;
+  color: #333;
+  padding: 20rpx 10rpx;
+}
+
+.prd2 {
+  border-radius: 20rpx;
+  background: #f7f8fa;
+  padding: 20rpx 30rpx;
+}
+
+.prd2_1 {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+
+.prd2_1>view text:first-child {
+  color: #b8b9bf;
+}
+
+.prd_ti {
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 40rpx 20rpx;
+}
+
+.bline {
+  border-left: 2px solid #6b82f7;
+  height: 30rpx;
+  padding-right: 20rpx;
+}
+
+.prd_ti>view:last-child {
+  font-size: 24rpx;
+}
+
+.prd_ti>view:last-child text {
+  padding-right: 10rpx;
+}
+
+.prd_ti>view:last-child image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.prd_ti .sMore {
+  font-size: 24rpx;
+}
+
+/* 案件进展 */
+
+.index2_2 {
+  margin-top: 30rpx;
+}
+
+.dbItem {
+  color: #b8b9bf;
+}
+
+.dbItem1 {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.dbItem1>view:first-child {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #b1b4c5;
+  margin-bottom: 10px;
+  margin-top: 14rpx;
+}
+
+.index2_2:first-child .dbItem1>view:first-child {
+  background: #6a82ff;
+}
+
+.dbItem1>view:last-child {
+  border-left: 1px solid #ddd;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.dbItem2 {
+  padding-left: 20rpx;
+}
+
+.dbItem2>view:first-child {
+  font-size: 32rpx;
+}
+
+.dbItem2>view:last-child {
+  color: #737479;
+  line-height: 50rpx;
+  background: #fff;
+  padding: 15rpx 20rpx;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+}
+
+/* 成员列表 参与人员 */
+
+.cyry1 {
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+}
+
+.cyry1 text {
+  padding-left: 20rpx;
+}
+
+.cyry1 image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.cyry2 {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.cyry2 .headImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.cyry2>view {
+  padding: 0 30rpx;
+}
+
+.cyry2_2 {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.t1 {
+  color: #333;
+  font-size: 32rpx;
+}
+
+.t2 {
+  color: #b1b4c5;
+  padding-left: 20rpx;
+}
+
+.cyry2_1>view:last-child {
+  padding-top: 10rpx;
+  font-size: 32rpx;
+  color: #555;
+}
+
+/* 待办事项 */
+
+.dbsx {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}
+
+.dbsxRound {
+  background: #fe0000;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-top: 12rpx;
+  margin-right: 30rpx;
+}
+
+.dbsxItem2 {
+  text-align: right;
+  font-size: 24rpx;
+  color: #b1b4c5;
+  padding-top: 20rpx;
+}
+
+.dbsxItem {
+  border-bottom: 1px solid #ddd;
+  padding: 20rpx 0;
+}
+
+.fwlsd {
+  border-bottom: 1px solid #ddd;
+  padding: 20rpx 0;
+}
+
+.dbsx1 .dbsxItem:last-child {
+  border: none;
+}
+.dbsxTitle{
+  word-wrap:break-word;width:510rpx;
+}
+/* 案件附件 */
+
+.ajfj {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+ .fileImg {
+  width: 75rpx;
+  height: 65rpx;
+  margin-right: 30rpx;
+}
+.els{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 0;
+}
+.ajfj>view view:last-child {
+  color: #b8b9bf;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+
+.addXm {
+  position: absolute;
+  right: 20rpx;
+  top:18rpx;
+}
+
+.addXm>image {
+  width: 60rpx;
+  height: 60rpx;
+}

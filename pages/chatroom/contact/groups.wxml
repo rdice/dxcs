@@ -1,0 +1,11 @@
+<!--pages/chatroom/contact/groups.wxml-->
+<view class=" container">
+	<view class=" group" bindtap="handleProxy" wx:for="{{groupList}}" data-id="{{item.groupID}}">
+		<view class=" avatar">
+			<i-avatar i-class="img" src="{{item.avatar}}" class="_i-avatar "></i-avatar>
+		</view>
+		<view class=" name">
+			{{item.name}}
+		</view>
+	</view>
+</view>

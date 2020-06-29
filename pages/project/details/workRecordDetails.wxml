@@ -1,0 +1,11 @@
+<!--pages/project/details/workRecordDetails.wxml-->
+<wxs src="../../../wxs/common.wxs" module="tools" />
+<view class="container subBox">
+  <view class="tabPge2">
+    <view class="wrd1">{{pageData.title}}</view>
+    <view class="wrd2">{{pageData.created}}</view>
+    <view class="wrd3">{{pageData.content}}</view>
+    
+    <include src="../fileTem.wxml"/>
+  </view>
+</view>

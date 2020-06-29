@@ -1,0 +1,9 @@
+<!--pages/discover/discover.wxml-->
+<import src="/template/tabBar.wxml" />
+<view class="container">
+  <include src="/template/tabTop.wxml"/>
+  <view class="tabPge2">
+    
+  </view>
+  <template is="tabBar" data="{{active3:true}}" />
+</view>

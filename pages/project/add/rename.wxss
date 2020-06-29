@@ -1,0 +1,26 @@
+/* pages/project/details/rename.wxss */
+
+.re1 {
+  padding: 40rpx;
+}
+
+.re1 input {
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  padding: 10rpx 30rpx;
+}
+
+.re2 {
+  text-align: center;
+  padding-top: 30rpx;
+}
+
+.re2 button {
+  font-size: 32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  width: 60%;
+  line-height: 60rpx;
+}

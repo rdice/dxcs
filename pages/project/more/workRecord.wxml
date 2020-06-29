@@ -1,0 +1,23 @@
+<!--pages/project/more/workRecord.wxml-->
+<view class="subBox">
+  <view class="tabPge2">
+    <view class="index2_2" wx:for="{{pgList}}" wx:key="item">
+      <navigator class="dbItem flex" url="/pages/project/details/workRecordDetails?id={{item.id}}">
+        <view class="dbItem1">
+          <view></view>
+          <view></view>
+        </view>
+        <view class="dbItem2">
+          <view class="flex-between">
+            <view>
+              <text>8/11</text>
+              <text class="f12 pl5">{{item.created}}</text>
+            </view>
+            <!-- <view class="f12" style="color:#6a82ff">标签</view> -->
+          </view>
+          <view class="dbsxTitle">{{item.content}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

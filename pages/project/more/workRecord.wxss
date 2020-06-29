@@ -1,0 +1,5 @@
+/* pages/project/more/workRecord.wxss */
+@import "../projectDetails.wxss";
+.dbItem2>view:last-child{
+  background: #f7f8fa;
+}

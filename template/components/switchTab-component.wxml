@@ -1,0 +1,9 @@
+<!--template/components/switchTab-component.wxml-->
+<scroll-view scroll-x="true">
+  <view class="switchTab">
+    <view wx:for="{{list}}" class="flex-none " bindtap="onTap" data-idx="{{index}}">
+      <view class="{{index==idx?'activeTab':''}}">{{item}}</view>
+    </view>
+  </view>
+
+</scroll-view>

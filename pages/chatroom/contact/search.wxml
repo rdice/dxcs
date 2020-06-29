@@ -1,0 +1,9 @@
+<!--pages/chatroom/contact/search.wxml-->
+<view class="_div data-v-ba8a7d9c container">
+	<view class="_div data-v-ba8a7d9c search-bar">
+		<image src="/images/static/search.png" class="_img data-v-ba8a7d9c"></image>
+		<input value="{{id}}" confirm-type="search" placeholder="{{placeholder}}" bindconfirm="handleProxy" class="_input data-v-ba8a7d9c" />
+	</view>
+	<button bindtap="sendMsg" hidden="{{!searched}}" hover-class="clicked"  class="_button data-v-ba8a7d9c">{{buttonText}}</button>
+
+</view>

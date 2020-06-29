@@ -1,0 +1,17 @@
+<!--pages/chatroom/contact/createGroup.wxml-->
+<view class=" container">
+
+	<view class=" form-item {{[isAVChatRoom ? 'required' : '']}}">
+		<view class=" label">
+			群ID
+		</view>
+		<input value="{{groupID}}" bindinput="handleProxy" data-id="1" placeholder="请输入群ID" />
+	</view>
+	<view class=" form-item name required">
+		<view class=" label">
+			群名称
+		</view>
+		<input value="{{groupName}}" bindinput="handleProxy" data-id="2" placeholder="请输入群名称" />
+	</view>
+	<button hover-class="clicked" bindtap="createGroup"  disabled="{{disabled}}" class="_button {{disabled?'button-disabled':''}} ">创建群组</button>
+</view>

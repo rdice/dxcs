@@ -1,0 +1,18 @@
+/* pages/project/project.wxss */
+.proList{
+ 
+}
+.proItem{
+  border-radius: 20rpx;
+  background: #f7f8fa;
+  color: #4b555d;
+  padding: 20rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+.proItem image{
+  width: 20rpx;
+  height: 40rpx;
+}
+.proItem text{
+  padding-right: 20rpx;
+}

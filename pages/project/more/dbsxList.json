@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "switchTab-component": "/template/components/switchTab-component"
+  },
+  "navigationBarTitleText": "待办事项",
+  "enablePullDownRefresh": true
+}

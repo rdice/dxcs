@@ -1,0 +1,16 @@
+<!--pages/project/details/ajjzDetails.wxml-->
+<wxs src="../../../wxs/common.wxs" module="tools" />
+<view class="container subBox">
+  <view class="tabPge2">
+    <view class="wrd1">{{pageData.name}}</view>
+    <view class="wrd2">{{pageData.created}}</view>
+    <view class="wrd3">{{pageData.content}}</view>
+    <view class="wrd4">
+      <view wx:for="{{pageData.fileList}}">
+        <image src="{{item.format}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <include src="../fileTem.wxml"/>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "switchTab-component": "/template/components/switchTab-component"
+  },
+  "enablePullDownRefresh": true
+}

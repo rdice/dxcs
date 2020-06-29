@@ -1,0 +1,9 @@
+<view style='padding-bottom:100rpx;'></view>
+<view class="tab-bar1">
+	<block wx:for="{{tabBar}}" wx:key="pagePath">
+		<navigator open-type="redirect" hover-class="none" url="{{item.url}}" class="tab-item1 {{idx==index?'active1':''}}" >
+			<image src="{{item.icon}}{{idx==index?'-theme.png':'.png'}}"></image>
+			<view>{{item.name}}</view>
+		</navigator>
+	</block>
+</view>

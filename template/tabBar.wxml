@@ -1,0 +1,21 @@
+<template name="tabBar">
+  <view style='height:120rpx;'></view>
+  <view class="tab-bar">
+    <navigator hover-class="none" url="/pages/index/index" open-type="redirect" class="tab-item {{active1? 'tab-active':''}}">
+      <image src="/images/menu1.png" ></image>
+      <view>首页</view>
+    </navigator>
+    <navigator hover-class="none" url="/pages/project/project" open-type="redirect" class="tab-item {{active2? 'tab-active':''}}">
+      <image src="/images/menu2.png" ></image>
+      <view>项目管理</view>
+    </navigator>
+    <navigator hover-class="none" url="/pages/discover/discover" open-type="redirect" class="tab-item {{active3? 'tab-active':''}}">
+      <image src="/images/menu3.png" ></image>
+      <view>发现</view>
+    </navigator>
+    <navigator hover-class="none" url="/pages/personal/personal" open-type="redirect" class="tab-item {{active4? 'tab-active':''}}">
+      <image src="/images/menu4.png" ></image>
+      <view>我的</view>
+    </navigator>
+  </view>
+</template>

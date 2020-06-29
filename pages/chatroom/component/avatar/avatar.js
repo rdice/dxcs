@@ -1,0 +1,33 @@
+// pages/chatroom/component/avatar.js
+Component({
+  externalClasses: ['i-class'],
+
+  data: {
+    isError: false
+  },
+  properties: {
+    // circle || square
+    shape: {
+      type: String,
+      value: 'square'
+    },
+    // small || large || default
+    size: {
+      type: String,
+      value: 'default'
+    },
+    src: {
+      type: String,
+      value: ''
+    },
+    defaultAvatar: {
+      type: String,
+      value: '/images/static/avatar.png'
+    }
+  },
+  methods: {
+    handleError () {
+      this.setData({ isError: true })
+    }
+  }
+})

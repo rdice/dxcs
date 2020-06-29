@@ -1,0 +1,6 @@
+<view class="fileList">
+  <view class="fileItem flex-items" bindtap="openFile" wx:for="{{pageData.fileList}}" data-id="{{item.allFileId}}" >
+    <image src="{{item.iconUrl}}"></image>
+    <text>{{tools.substring(item.name)}}</text>
+  </view>
+</view>

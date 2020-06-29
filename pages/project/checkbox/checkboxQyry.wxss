@@ -1,0 +1,2 @@
+/* pages/project/checkbox/checkboxQyry.wxss */
+@import "./checkbox.wxss";

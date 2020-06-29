@@ -1,0 +1,26 @@
+<!--pages/project/more/fileList.wxml-->
+<wxs src="../../../wxs/common.wxs" module="tools" />
+<view class="subBox">
+  <view class="tabPge2" style="position:relative;">
+    <!-- <switchTab-component list="{{ajfj}}" bindmyevent="switchajfj" /> -->
+    <view class='flex-items search-input'>
+      <view class=" flex-1">
+        <image src="/images/search.png" class="searchImg"></image>
+        <input type="text" placeholder-class="c9" placeholder="搜索文件名字" confirm-type="search" bindconfirm="searchSubject" bindblur="seachBlurSubject" />
+
+      </view>
+    </view>
+    <view style="margin-top:30rpx;">
+    
+      <view class="ajfj flex-items" wx:for="{{pgList}}"  catchtap="openFile" data-isfile="{{item.isFile}}" data-id="{{item.id}}">
+        <image src="{{item.iconUrl}}" class="fileImg flex-none"></image>
+        <view class="flex-1">
+          <view>{{tools.substring(item.name)}}</view>
+          <view>{{item.created}}</view>
+        </view>
+        <image wx:if="{{tp==2}}" class="els flex-none" src="/images/els.png" catchtap="showAjfjMenu" data-idx="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<image class="addfile" src="/images/addFile.png" catchtap="addAjfjMenu" wx:if="{{tp==2}}"></image>

@@ -1,0 +1,2 @@
+/* pages/project/add/addFolder.wxss */
+@import "./rename.wxss";

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-cell":"../component/cell/cell",
+    "i-cell-group":"../component/cell-group/index",
+    "van-index-bar": "../component/vant/index-bar/index",
+    "van-index-anchor": "../component/vant/index-anchor/index"
+  },
+  "navigationBarTitleText": "通讯录"
+}

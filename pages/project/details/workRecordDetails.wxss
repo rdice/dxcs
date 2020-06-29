@@ -1,0 +1,21 @@
+/* pages/project/details/workRecordDetails.wxss */
+@import "../fileTem.wxss";
+.wrd1{
+  font-size: 36rpx;
+  text-align: center;
+}
+.wrd2{
+  text-align: right;
+  padding: 30rpx 0;
+}
+.wrd4{
+  padding-top: 30rpx;
+}
+.wrd4 image{
+  width: 60rpx;
+  height: 80rpx;
+  vertical-align: middle
+}
+.wrd4>view{
+  padding-bottom: 20rpx;
+}

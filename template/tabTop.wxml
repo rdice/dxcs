@@ -1,0 +1,26 @@
+<view class="tabPge1">
+  <image src="/images/topImg.jpg" mode="center" class="tabBg"></image>
+  <view class="tabPge1_1">
+    <view class="tabPge1_user flex-between">
+      <navigator url="/pages/personal/personalDatas" class="tabPge1_user1">
+        <image src="{{userInfo.headImage}}"></image>
+        <text>{{userInfo.name}}</text>
+      </navigator>
+      <navigator url="/pages/chatroom/index/index" class="tabPge1_news">
+        <image src="/images/news.png"></image>
+        <!-- <text>1</text> -->
+      </navigator>
+    </view>
+
+  </view>
+  <view class="index_add flex" wx:if="{{isIndex}}">
+    <navigator url="./details/authorizeMember" wx:if="{{manager}}">
+      <image src="/images/index/cysq.png"></image>
+      <view>成员授权</view>
+    </navigator>
+    <navigator url="./details/serviceLawyer">
+      <image src="/images/index/fwls.png"></image>
+      <view>服务律师</view>
+    </navigator>
+  </view>
+</view>

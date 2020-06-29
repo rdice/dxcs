@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-cell":"../component/cell/cell",
+    "i-cell-group":"../component/cell-group/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

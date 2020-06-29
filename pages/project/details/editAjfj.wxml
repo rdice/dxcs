@@ -1,0 +1,9 @@
+<!--pages/project/details/editAjfj.wxml-->
+<view class=" subBox">
+  <view class="tabPge2">
+    <view>文件名字</view>
+    <view>
+      
+    </view>
+  </view>
+</view>

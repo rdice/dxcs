@@ -1,0 +1,73 @@
+/* pages/project/details/dbsxDetails.wxss */
+@import "../fileTem.wxss";
+/* 可编辑 */
+.dbcont{
+  padding: 30rpx;
+}
+.dbItem{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.dbItem text{
+  padding-right: 20rpx;
+}
+.dbItem textarea{
+  height: 200rpx;
+}
+
+.dbItem1{
+  padding: 20rpx 0;
+}
+.dbItem1>view{
+  font-size:32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  display: inline-block; 
+}
+.subBtn{
+  font-size:32rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  background: #869afd;
+  color: #fff;
+  width: 400rpx;
+  line-height: 60rpx;
+}
+.imgList {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding: 20rpx;
+  padding-top: 0rpx;
+}
+
+.camera {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.camera image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.camera>view {
+  color: #aaa;
+  font-size: 20rpx;
+  line-height: 10rpx;
+}
+
+.temImg {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 15rpx;
+}
+
+.tempList {
+  padding: 5rpx 20rpx;
+}

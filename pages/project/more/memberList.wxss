@@ -1,0 +1,20 @@
+/* pages/project/more/memberList.wxss */
+@import "../projectDetails.wxss";
+.cyry2{
+  background: #f7f8fa;
+}
+.addfile{
+  position: fixed;
+  bottom: 14%;
+  right: 30%;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 100;
+  box-shadow: 0px 0px 10px #f7f8fa;
+  border-radius: 50%;
+}
+.del{
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 20rpx;
+}

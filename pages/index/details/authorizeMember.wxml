@@ -1,0 +1,79 @@
+<!--pages/index/details/authorizeMember.wxml-->
+<view class="container subBox">
+  <view class="tabPge2">
+    <switchTab-component list="{{dwlist}}" bindmyevent="switchDw" />
+    <view class="meList">
+
+      <view wx:for="{{pageData[dwidx].memberList}}" class="meItem">
+        <view data-idx="{{index}}" class="flex-none flex-items flex-between meItem1 {{itemIdx==index?isTouch?'touch-move-active':'':''}}" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd">
+          <view class="flex meItem1_1">
+            <image src="/images/headImg.png" class="headImg"></image>
+            <view>
+              <view>{{item.name}}</view>
+              <view class="meItem1_1_1">{{item.position}}</view>
+            </view>
+          </view>
+          <view class="meItem1_2">{{item.role!='admin'?'成员':'管理员'}}</view>
+
+        </view>
+        <view class="flex meItem2 ">
+          <view catchtap="showEdit" data-idx="{{index}}">编辑</view>
+          <view catchtap="delItem" data-idx="{{index}}" data-id="{{item.memberId}}">删除</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+<view class="editBox" style="display:{{isPop?'block':'none'}}">
+  <view class="editBg"></view>
+  <view class="editCont">
+    <view class="edit1">
+      <text>新增成员授权</text>
+      <image src="/images/index/memberclose.png" catchtap="closeEdit"></image>
+    </view>
+    <form report-submit="true" bindsubmit="formSubmit">
+      <view class="edit2">
+
+        <view class="flex-items">
+          <text>姓名</text>
+          <input class="flex-1" name="name" value="{{mbData.name}}"></input>
+        </view>
+        <view class="flex-items">
+          <text>手机号</text>
+          <input class="flex-1" name="phone" value="{{mbData.phone}}"></input>
+        </view>
+        <view class="flex-items">
+          <text>岗位</text>
+          <input class="flex-1" name="position" value="{{mbData.position}}"></input>
+        </view>
+        <view class="flex-items">
+          <text>企业</text>
+          <view class="edSelect flex-1 flex">
+            <input class="flex-1" value="{{pageData[qyIdx].name}}" catchtap="onfocusqy" disabled style="z-index:500"></input>
+            <input class="flex-1" value="{{pageData[qyIdx].advisoryUnitId}}" style="display:none;" name="advisoryUnitId"></input>
+            <view class="edSelect1" style="display:{{showQy?'block':'none'}};z-index:499">
+              <view wx:for="{{pageData}}" catchtap="chooseQy" data-idx="{{index}}" class="{{qyIdx==index?'powerActive':''}}">{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="flex-items">
+          <text>权限</text>
+          <view class="edSelect flex-1 flex">
+            <input class="flex-1" value="{{array[powerIdx]}}" catchtap="onfocusqx" disabled style="z-index:470"></input>
+            <input class="flex-1" value="{{powerIdx=='1'?'admin':''}}" name="role" style="display:none;"></input>
+            <view class="edSelect1" style="display:{{showPower?'block':'none'}};z-index:465">
+              <view wx:for="{{array}}" catchtap="choosePower" data-idx="{{index}}" class="{{powerIdx==index?'powerActive':''}}">{{item}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="edit2_1">
+          <button form-type="submit">提交</button>
+        </view>
+
+
+      </view>
+    </form>
+  </view>
+</view>
+<image class="addfile" src="/images/addFile.png" catchtap="addMember"></image>
