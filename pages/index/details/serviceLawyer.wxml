@@ -5,17 +5,17 @@
       <view class="lawyerItem" wx:for="{{pgList}}">
         <view class="flex-between lawyerItem1">
           <view class="flex-items lawyerItem1_1 ">
-            <image src="/images/headImg.png"></image>
+            <image src="{{item.headUrl}}"></image>
             <view class="lawyerItem1_2">
               <view>{{item.realname}}</view>
-              <view>{{item.officeName}}</view>
+              <view>{{item.officename}}</view>
             </view>
           </view>
           <view class="lawyerItem1_3">职业{{item.jobYear}}年</view>
         </view>
-        <view class="lawyerItem2 flex-around">
+        <!-- <view class="lawyerItem2 flex-around">
           <view wx:for="{{item.professionaldirectionArr}}">{{item}}</view>
-        </view>
+        </view> -->
       </view>
     </view>
   </view>

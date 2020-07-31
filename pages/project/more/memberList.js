@@ -16,7 +16,7 @@ function showData(that) {
     }, 500)
   }, 10, {
     lawCaseId: that.data.id,
-    roleType: that.data.cyxzIdx + 1
+    // roleType: that.data.cyxzIdx + 1
   })
 }
 Page({
@@ -31,6 +31,7 @@ Page({
     id: "", //项目id
     tp: 1,
     manager: false, //是不是管理员
+    currentMemberId:""
 
   },
   // 管理员才有的操作  增删企业人员
@@ -41,18 +42,24 @@ Page({
     })
 
   },
+  // 打电话
+  callPhone:function(e){
+   
+    utils.callPhoneback(e.currentTarget.dataset.phone)
+  },
   // 管理员---删除
   delqyMember: function (e) {
     console.log(e.currentTarget.dataset.id)
     var delid = e.currentTarget.dataset.id;
-
+    var that = this
     wx.showModal({
       title: '提示',
       content: '是否删除',
       success(a) {
         if (a.confirm) {
-          utils.request("/xcx/legalService/deleteMember", {
-            id: delid
+          utils.request(api.deleteMember, {
+            memberId: delid,
+            lawCaseId:that.data.id
           }, function (res) {
             console.log(res)
             if (res.data) {
@@ -86,10 +93,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     this.setData({
       id: options.id,
-      manager: app.manager
+      manager: app.manager,
+      currentMemberId:app.memberId
     })
   },
 

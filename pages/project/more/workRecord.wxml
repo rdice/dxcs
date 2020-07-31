@@ -10,7 +10,7 @@
         <view class="dbItem2">
           <view class="flex-between">
             <view>
-              <text>8/11</text>
+              <!-- <text>8/11</text> -->
               <text class="f12 pl5">{{item.created}}</text>
             </view>
             <!-- <view class="f12" style="color:#6a82ff">标签</view> -->

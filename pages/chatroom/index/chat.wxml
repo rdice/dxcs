@@ -1,6 +1,6 @@
 <!--pages/chat/chat.wxml-->
 <wxs src="../../../wxs/common.wxs" module="tools" />
-<view class="chat" style="padding-bottom:{{isShowMenu?'200':'70'}}px;">
+<view class="chat" >
 	<view bindtap="handleMenu" data-type="hideMenu">
 		<view class="_li" wx:for="{{msgList}}" wx:key="{{message.ID}}" wx:for-item="message" id="{{(index+1)==msgList.length?'end':''}}">
 			<view wx:if="{{message.isRevoked}}" wx:key="{{message.ID}}" class="">
@@ -155,4 +155,7 @@
 		<!-- <image src="/images/static/camera.png" class="_img  video-icon" wx:if="{{currentConversation.type === 'C2C'}}" bindtap="handleProxy" data-eventid="{{'34'}}" ></image> -->
 		<image src="/images/static/conversation-profile.png" bindtap="handleDetails" class="_img "></image>
 	</view>
+		<view wx:if="{{isShowMenu}}" style="height:200px"></view>
+		<view wx:if="{{isEmojiOpen==false&&isShowMenu==false}}" style="height:70px"></view>
+		<view wx:if="{{isEmojiOpen}}" style="height:230px"></view>
 </view>

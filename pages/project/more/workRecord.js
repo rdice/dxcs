@@ -4,7 +4,7 @@ var moreList = require("../../../utils/moreList.js");
 var api = require("../../../utils/API.js");
 var pagenum = 1;
 function showData(that) {
-  moreList.getList(that.data.pgList, that, api.workRecordList, pagenum, function (res) {
+  moreList.getList2(that.data.pgList, that, api.workRecordList, pagenum, function (res) {
     console.log(res)
     that.setData({
       pgList: res

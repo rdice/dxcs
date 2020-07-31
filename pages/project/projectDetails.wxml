@@ -3,9 +3,9 @@
 <view class=" subBox">
   <view class="tabPge2">
     <view class="prd1">{{pageData.bean.serviceTitle}}</view>
-    <view>
+    <!-- <view>
       <button bindtap="chatRoom">聊天室</button>
-    </view>
+    </view> -->
     <view class="prd2">
       <view class="prd2_1 ">
         <view class="">
@@ -96,17 +96,22 @@
         <text class="bline"></text>
         <text>成员列表</text>
       </view>
-      <navigator class="sMore" url="/pages/project/more/memberList?id={{pageData.bean.lawCaseId}}">
+      <!-- <navigator class="sMore" url="/pages/project/more/memberList?id={{pageData.bean.lawCaseId}}">
         <text>+MORE</text>
-      </navigator>
+      </navigator> -->
     </view>
     <view class="prd2">
-      <view class="cyry1">
-        <image src="/images/project/cyry.png"></image>
-        <text>企业人员（{{pageData.serviceMemberList1.length}}）</text>
+      <view class="flex-between">
+        <view class="cyry1">
+          <image src="/images/project/cyry.png"></image>
+          <text>企业人员（{{pageData.serviceMemberList1.length}}）</text>
+        </view>
+        <navigator class="sMore" url="/pages/project/more/memberList?id={{pageData.bean.lawCaseId}}">
+          <text>+MORE</text>
+        </navigator>
       </view>
       <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList1}}">
-        <image src="{{item.headImage}}" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
+        <image src="/images/index/fwls.png" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
         <view class="cyry2_1 flex-1">
           <view>
             <text class="t1">{{item.name}}</text>
@@ -123,7 +128,7 @@
         <text>律师团队（{{pageData.serviceMemberList2.length}}）</text>
       </view>
       <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList2}}">
-        <image src="{{item.headImage}}" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
+        <image src="{{item.headUrl}}" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
         <view class="cyry2_1 flex-1">
           <view>
             <text class="t1">{{item.realname}}</text>
@@ -140,7 +145,7 @@
         <text>其他人员（{{pageData.serviceMemberList3.length}}）</text>
       </view>
       <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList3}}">
-        <image src="{{item.headImage}}" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
+        <image src="/images/index/fwls.png" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}"></image>
         <view class="cyry2_1 flex-1">
           <view>
             <text class="t1">{{item.name}}</text>
@@ -156,7 +161,7 @@
         <text class="bline"></text>
         <text>待办事项</text>
       </view>
-      <navigator class="sMore" url="/pages/project/more/dbsxList?id={{pageData.bean.lawCaseId}}">
+      <navigator class="sMore" url="/pages/project/more/dbsxList?id={{pageData.bean.lawCaseId}}&idx={{dbsxIdx}}">
         <text>+MORE</text>
       </navigator>
     </view>
@@ -209,7 +214,7 @@
             <view class="dbItem2">
               <view class="flex-between">
                 <view>
-                  <text>8/11</text>
+                  <!-- <text>8/11</text> -->
                   <text class="f12 pl5">{{item.created}}</text>
                 </view>
                 <!-- <view class="f12" style="color:#6a82ff">标签</view> -->

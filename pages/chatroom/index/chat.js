@@ -433,6 +433,7 @@ Page({
         isEmojiOpen: false
       })
     }
+    pageScrollTo()
   },
   // 展示表情
   handleEmoji: function (e) {
@@ -449,6 +450,7 @@ Page({
         isShowMenu: false,
       })
     }
+    pageScrollTo()
   },
   // 预览图片
   previewImage: function (e) {

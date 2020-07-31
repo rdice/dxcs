@@ -1,5 +1,6 @@
 // pages/project/checkbox/checkboxQyry.js
 var utils = require("../../../utils/util.js");
+var api = require("../../../utils/API.js");
 var app = getApp();
 Page({
 
@@ -11,7 +12,8 @@ Page({
     lawyerList: [],
     reList: [], //回填的list
   },
-  formSubmit: function(e) {
+  formSubmit: function (e) {
+
     var that = this;
     var val = e.detail.value.checkbox;
     if (val.length == 0) {
@@ -22,33 +24,30 @@ Page({
       return
     }
     var list = this.data.lawyerList;
-    var list1 = "";
+    var list1 = [];
     for (var i = 0; i < val.length; i++) {
-    
-      if (i == val.length-1){
-        list1 += list[parseInt(val[i])].id
-      }else{
-        list1 += list[parseInt(val[i])].id + ','
-      }
+      list1.push(list[parseInt(val[i])].memberId)
     }
-   
-    utils.request("/xcx/legalService/addMember", {
-      legalServiceId: that.data.id,
-      servicePersonIds: list1
-    }, function(res) {
+  
+    var jsonList = JSON.stringify(list1)
+    console.log(jsonList)
+    utils.request(api.addLawCaseUser, {
+      lawCaseId: that.data.id,
+      userIdList: jsonList
+    }, function (res) {
       console.log(res)
 
       wx.navigateBack({
         delta: 1,
       })
     })
-   
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     console.log(options)
 
     this.setData({
@@ -59,12 +58,12 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
     var that = this
     var list = that.data.reList;
-    utils.request("/xcx/legalService/getEnterpriseUnitPerson", {
-      legalServiceId: that.data.id,
-    }, function(res) {
+    utils.request(api.getEnterpriseUnitPerson, {
+      lawCaseId: that.data.id,
+    }, function (res) {
       console.log(res)
 
       that.setData({
@@ -76,35 +75,35 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 })

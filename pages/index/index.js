@@ -5,8 +5,28 @@ var moreList = require("../../utils/moreList.js")
 
 const app = getApp()
 var pagenum = 1;
+
+
+
 function showData(that) {
-  getList(that.data.pgList, that, api.todoListList, pagenum, function (res) {
+  var idx = that.data.idx;
+  var url = "";
+  var obj = {};
+  if(idx==0){
+    url= api.todoListList;
+    obj = {
+      taskType:0
+    }
+  }else if(idx==1){
+    url= api.todoListList;
+    obj = {
+      taskType:2
+    }
+  }else{
+    url = api.workRecordList 
+    obj = {}
+  }
+  moreList.getList2(that.data.pgList, that, url, pagenum, function (res) {
     console.log(res)
     that.setData({
       pgList: res
@@ -14,20 +34,25 @@ function showData(that) {
     setTimeout(function () {
       wx.hideToast()
     }, 500)
-  }, 10, {
-      type: 2
-    })
+  }, 10, obj)
 }
 Page({
   data: {
     isIndex:true,
     userInfo:null,
     pgList:[],
-    totleNum:"",//待办事项未读个数
+    totleNum:{},//首页未读数
     manager:false,//是否是管理员
+    idx:0
     
   },
-  
+  // 切换导航
+  switchNav:function(e){
+    this.setData({
+      idx:e.currentTarget.dataset.id
+    })
+    showData(this)
+  },
   onLoad: function () {
     console.log(app.manager)
    this.setData({
@@ -41,7 +66,12 @@ Page({
   onShow:function(){
     var that = this;
     pagenum = 1;
-    showData(that)
+    showData(that);
+    utils.request(api.getIndexNumber, {}, function (res) {
+      that.setData({
+        totleNum:res.data
+      })
+    });
   },
   /**
   * 页面相关事件处理函数--监听用户下拉动作
@@ -82,35 +112,3 @@ Page({
   },
  
 })
-//加载更多
-function getList(dataList, that, url, page, success, page_size = 10, parameters = {}) {
-  if (page == 1) {
-    dataList = []
-  }
-  parameters.pageNum = page;
-  utils.request(url, parameters, function (res) {
-    var arr = res.data.list;
-    var list = dataList;
-    if (page == 0 && page_size < 9) {
-      if (page == 0 && page_size > arr.length) {
-        for (var i = 0; i < arr.length; i++) {
-          list.push(arr[i]);
-        }
-      } else {
-        for (var i = 0; i < page_size; i++) {
-          list.push(arr[i]);
-        }
-      }
-    } else {
-      for (var i = 0; i < arr.length; i++) {
-        list.push(arr[i]);
-      }
-    }
-    that.setData({
-      totleNum: res.data.totleNum
-    })
-    success(list)
-    page++
-  });
-
-}

@@ -15,13 +15,15 @@ const api = {
   getTencentyunConfig: app.roothd + 'legalService/getTencentyunConfig',
 
   // ----------------首页
+  // 获取待办事项，待办任务，工作记录数量
+  getIndexNumber: app.rootquery + '/xcx/legalService/index',
   // 获取待办事项列表
   todoListList: app.rootquery + '/xcx/legalService/todoListList',
   // 结束待办
   endTask: app.roothd + 'legalService/endTask',
   // 删除待办
   deleteTodoList: app.roothd + 'xcx/legalService/deleteTodoList',
-  
+
   // 提交待办
   editTask: app.roothd + '/legalService/editTask',
   // 更新
@@ -36,9 +38,15 @@ const api = {
   managePersonList: app.rootquery + 'xcx/legalService/managePersonList',
   // 企业成员列表
   memberList: app.rootquery + 'xcx/legalService/memberList',
+  // 删除企业成员
+  deleteMember: app.roothd + 'legalService/removeLawCaseUser',
+  // 新增企业成员列表
+  getEnterpriseUnitPerson: app.rootquery + '/xcx/legalService/getEnterpriseUnitPerson',
+  // 提交新增企业成员
+  addLawCaseUser: app.roothd + 'legalService/addLawCaseUser',
 
-  // -----服务律师
-  getLegalServiceLawyer: app.rootquery + 'xcx/legalService/getLegalServiceLawyer',
+  
+  
 
   // 项目管理
   legalServiceList: app.rootquery + 'xcx/legalService/legalServiceList',
@@ -50,14 +58,14 @@ const api = {
   // 项目详情----附件列表更多
   fileList: app.rootquery + 'xcx/legalService/fileList',
 
-  // 律师成员列表
+  // 律师成员列表// -----服务律师
   serviceLawyerList: app.rootquery + 'xcx/legalService/serviceLawyerList',
-  
+
   // 工作记录详情
   workRecordInfo: app.rootquery + 'xcx/legalService/workRecordInfo',
   // 工作记录列表更多
   workRecordList: app.rootquery + 'xcx/legalService/workRecordList',
-  
+
   // 打开附件---
   fileInfo: app.rootquery + 'xcx/legalService/fileInfo',
   // 附件重命名
@@ -71,6 +79,8 @@ const api = {
   // 上传附件-----案件附件上传
   uploadFiles: app.roothd + "legalService/uploadFiles",
 
+  // 我的----
+  lawyerList: app.rootquery + "/xcx/legalService/lawyerList",
 
 }
 

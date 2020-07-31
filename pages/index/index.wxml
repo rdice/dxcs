@@ -1,28 +1,60 @@
 <!--index.wxml-->
 <import src="/template/tabBar.wxml" />
 <view class="container">
-  <include src="/template/tabTop.wxml"/>
-  <view class="tabPge2">
-    <view class="index2">
-      <view class="index2_1">
-        待办事项
-        <text>{{totleNum}}</text>
+	<include src="/template/tabTop.wxml" />
+	<view class="tabPge2">
+		<view class="index2">
+			<view class="flex-around">
+      	<view class="index2_1 {{idx==0?'activeNav':''}}" bindtap="switchNav" data-id="0">
+					待办任务
+					<text>{{totleNum.caseTaskNum1}}</text>
+				</view>
+				<view class="index2_1 {{idx==1?'activeNav':''}}" bindtap="switchNav" data-id="1">
+					待办事项
+					<text>{{totleNum.caseTaskNum2}}</text>
+				</view>
+				<view class="index2_1 {{idx==2?'activeNav':''}}" bindtap="switchNav" data-id="2">
+					工作记录
+					<text>{{totleNum.workRecordNum}}</text>
+				</view>
+			</view>
+
+			<view wx:if="{{idx==0||idx==1}}">
+      <navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item" url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is=0">
+  
+				<view class="dbItem flex">
+					<view class="dbItem1">
+						<view style="background: #6b82f7"></view>
+						<view></view>
+					</view>
+					<view class="dbItem2">
+						<view>{{item.created}}
+							<text class="dbsxTime" style="color:#6b82f7">进行中</text>
+						</view>
+						<view class="dbsxTitle">{{item.name}}</view>
+					</view>
+				</view>
+			</navigator>
       </view>
-      <navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item" url="/pages/project/details/dbsxDetails?taskId={{item.taskId}}&lawCaseId={{pageData.bean.lawCaseId}}&is=0">
-        <view class="dbItem flex">
-          <view class="dbItem1">
-            <view style="background: #6b82f7"></view>
-            <view></view>
-          </view>
-          <view class="dbItem2">
-            <view>{{item.created}}
-            <text class="dbsxTime" style="color:#6b82f7">进行中</text>
-            </view>
-            <view class="dbsxTitle">{{item.name}}</view>
-          </view>
-        </view>
-      </navigator>
-    </view>
-  </view>
-  <template is="tabBar" data="{{active1:true}}" />
+			<view wx:if="{{idx==2}}">
+				<navigator  wx:for="{{pgList}}" wx:key="item" class="index2_2 dbItem flex" url="/pages/project/details/workRecordDetails?id={{item.id}}">
+					<view class="dbItem1">
+						<view></view>
+						<view></view>
+					</view>
+					<view class="dbItem2">
+						<view class="flex-between">
+							<view>
+								<!-- <text>8/11</text> -->
+								<text class="f12 pl5">{{item.created}}</text>
+							</view>
+							<!-- <view class="f12" style="color:#6a82ff">标签</view> -->
+						</view>
+						<view class="dbsxTitle">{{item.content}}</view>
+					</view>
+				</navigator>
+			</view>
+		</view>
+	</view>
+	<template is="tabBar" data="{{active1:true}}" />
 </view>

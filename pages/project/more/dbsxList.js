@@ -5,7 +5,8 @@ var api = require("../../../utils/API.js");
 var pagenum = 1;
 
 function showData(that) {
-  getList(that.data.pgList, that, api.todoListList, pagenum, function (res) {
+  
+  moreList.getList2(that.data.pgList, that, api.todoListList, pagenum, function (res) {
     console.log(res)
     that.setData({
       pgList: res
@@ -15,8 +16,7 @@ function showData(that) {
     }, 500)
   }, 10, {
     lawCaseId: that.data.id,
-    type: that.data.tp,
-    status:that.data.tp-1,
+    status:that.data.status,
   })
 }
 Page({
@@ -25,16 +25,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dbsx: ["我的待办", "律师待办"],
+    dbsx: ["待办", "已完成"],
     pgList: [],
     id: "", //项目id
-    dbsxIdx: 0,
-    tp: 1
+    qhidx: 0,//0我的待办1律师待办
+    tp: 1,//1我的待办2律师待办
+    dbidx:0,//0待办1已完成
+    status:0,
   },
   // 待办事项
   switchDbsx: function (e) {
-    console.log(e)
-    var idx = e.detail.idx;
+    console.log(e.detail.idx)
+    let idx = e.detail.idx
+    if(this.data.qhidx==0){
+      if(idx==0){
+        this.setData({
+          status:0
+        })
+      }else{
+        this.setData({
+          status:2
+        })
+      }
+    }else{
+      if(idx==0){
+        this.setData({
+          status:1
+        })
+      }else{
+        this.setData({
+          status:2
+        })
+      }
+    }
+    
+  
+    pagenum = 1;
+    moreList.showToast("加载中");
+    showData(this)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      id: options.id,
+      qhidx:options.idx
+    })
+    var idx = options.idx;
     if (idx == 0) { //服务律师的
       this.setData({
         tp: 1
@@ -44,19 +82,6 @@ Page({
         tp: 2
       })
     }
-    this.setData({
-      dbsxIdx: e.detail.idx
-    })
-    pagenum = 1;
-    showData(this)
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      id: options.id
-    })
   },
 
   /**
@@ -127,33 +152,3 @@ Page({
     }
   },
 })
-//加载更多
-function getList(dataList, that, url, page, success, page_size = 10, parameters = {}) {
-  if (page == 1) {
-    dataList = []
-  }
-  parameters.pageNum = page;
-  utils.request(url, parameters, function (res) {
-    var arr = res.data.list;
-    var list = dataList;
-    if (page == 0 && page_size < 9) {
-      if (page == 0 && page_size > arr.length) {
-        for (var i = 0; i < arr.length; i++) {
-          list.push(arr[i]);
-        }
-      } else {
-        for (var i = 0; i < page_size; i++) {
-          list.push(arr[i]);
-        }
-      }
-    } else {
-      for (var i = 0; i < arr.length; i++) {
-        list.push(arr[i]);
-      }
-    }
-
-    success(list)
-    page++
-  });
-
-}

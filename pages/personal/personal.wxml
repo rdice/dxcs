@@ -8,11 +8,11 @@
     <view>
       <view wx:if="{{idx==2}}" style="margin-top:40rpx;">
         <view class="cyry2 flex-items" wx:for="{{mailList}}">
-          <image src="{{item.headImage}}" class="headImg flex-none"></image>
+          <image src="{{item.headUrl}}" class="headImg flex-none"></image>
           <view class="cyry2_1 flex-1">
             <view>
-              <text class="t1">{{item.name}}</text>
-              <text class="t2">{{item.identity}}</text>
+              <text class="t1">{{item.realname}}</text>
+              <text class="t2">{{item.officename}}</text>
             </view>
             <view>{{item.phone}}</view>
           </view>

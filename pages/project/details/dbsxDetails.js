@@ -14,6 +14,9 @@ Page({
     isEdit: 0,
     lawyerStr: "", //选择律师
     lawyerStrId: "",//选择律师 id
+    showFileList:[],//要展示的附件
+    tempFilePaths:[],//要提交的附件
+    delFileIdList:[],//要删除的附件
 
   },
   // 待办结束
@@ -65,15 +68,19 @@ Page({
     data.userList = JSON.stringify(that.data.lawyerStrId.split(","))
     data.taskId = that.data.taskId;
     data.lawCaseId = that.data.lawCaseId;
+    data.delFileIdList = JSON.stringify(that.data.delFileIdList);
     utils.request(api.editTask, data, function(res) {
       console.log(res)
-
+      console.log(that.data.tempFilePaths)
       if (res.data.result) {
-        // 暂时取消
-        // utils.uploadTaskFiles(res.data.taskId,that.data.tempFilePaths)
+        // ==============
+        utils.uploadTaskFiles(that.data.taskId,that.data.tempFilePaths)
         wx.redirectTo({
           url: '/pages/project/details/dbsxDetails?id=' + that.data.taskId + '&legalid=' + that.data.lawCaseId+'&is=1',
         })
+        // setTimeout(function(){
+        //   updateData(that)
+        // },200)
       }
     })
     
@@ -93,19 +100,53 @@ Page({
   },
   // 删除或预览
   openFile: function(e) {
+    const num = e.currentTarget.dataset.num;
     var that =this
     wx.showActionSheet({
       itemList: ['预览', '删除'],
       itemColor: '#3cbd30',
       success: function(res) {
-        if (res.tapIndex == 0) {
-          utils.openFile(e.currentTarget.dataset.id)
-          
-        } else if (res.tapIndex == 1) {
-          utils.deleteFile(e.currentTarget.dataset.id,function(res){
-            console.log(res)
-            updateData(that)
-          })
+        
+        if(num==1){
+          if (res.tapIndex == 0) {
+            utils.openFile(e.currentTarget.dataset.id)
+            
+          } else if (res.tapIndex == 1) {
+            // utils.deleteFile(e.currentTarget.dataset.id,function(res){
+            //   console.log(res)
+            //   updateData(that)
+            // })
+            let list3 = that.data.showFileList;
+            let list4 = that.data.delFileIdList;
+            for(let i in list3){
+              if(list3[i].allFileId==e.currentTarget.dataset.id){
+                list4.push(list3[i].allFileId)
+                list3.splice(i,1)
+              }
+            }
+            that.setData({
+              showFileList:list3,
+              delFileIdList:list4
+            })
+          }
+        }else{
+          if (res.tapIndex == 0) {
+            wx.previewImage({
+              current: e.currentTarget.dataset.id, // 当前显示图片的http链接
+              urls: that.data.tempFilePaths // 需要预览的图片http链接列表
+            })
+            
+          } else if (res.tapIndex == 1) {
+            let list3 = that.data.tempFilePaths;
+            for(let i in list3){
+              if(list3[i]==e.currentTarget.dataset.id){
+                list3.splice(i,1)
+              }
+            }
+            that.setData({
+              tempFilePaths:list3
+            })
+          }
         }
       }
     })
@@ -119,10 +160,15 @@ Page({
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function(res) {
         console.log(res.tempFilePaths)
-        utils.uploadTaskFiles(that.data.taskId,res.tempFilePaths)
-        setTimeout(function(){
-          updateData(that)
-        },200)
+        let list = that.data.tempFilePaths;
+        list.push(res.tempFilePaths[0])
+        that.setData({
+          tempFilePaths:list
+        })
+        // utils.uploadTaskFiles(that.data.taskId,res.tempFilePaths)
+        // setTimeout(function(){
+        //   updateData(that)
+        // },200)
       }
     })
   },
@@ -202,11 +248,14 @@ Page({
   }
 })
 function updateData(that){
+  wx.showLoading({
+    title: '加载中',
+  })
   utils.request(api.todoListInfo, {
     taskId: that.data.taskId
   }, function (res) {
     console.log(res)
-    console.log(222)
+    wx.hideLoading();
     var userList = res.data.userList;
     if (userList.length>0){
       var strId = "";
@@ -226,6 +275,7 @@ function updateData(that){
     
     that.setData({
       pageData: res.data,
+      showFileList:res.data.fileList
       
     })
 

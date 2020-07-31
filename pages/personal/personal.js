@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 var utils = require("../../utils/util.js");
+var api = require("../../utils/API.js");
 var app = getApp();
 Page({
 
@@ -85,7 +86,7 @@ Page({
   // }
 })
 function showMailList(that){
-  utils.request("/xcx/legalService/lawyerList", { }, function (res) {
+  utils.request(api.lawyerList, { }, function (res) {
     console.log(res)
     that.setData({
       mailList: res.data

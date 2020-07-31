@@ -16,7 +16,7 @@ function getList(dataList, that, url, page, success, page_size=10, parameters = 
   }
   parameters.pageNum = page;
   utils.request(url, parameters, function (res) {
-
+    console.log(res)
     var list = dataList;
     if (page == 0 && page_size < 9) {
       if (page == 0 && page_size > res.data.length) {
@@ -38,7 +38,39 @@ function getList(dataList, that, url, page, success, page_size=10, parameters = 
   });
   
 }
+// 多获取一层list
+function getList2(dataList, that, url, page, success, page_size = 10, parameters = {}) {
+  if (page == 1) {
+    dataList = []
+  }
+  parameters.pageNum = page;
+  utils.request(url, parameters, function (res) {
+    console.log(res)
+    var arr = res.data.list;
+    var list = dataList;
+    if (page == 0 && page_size < 9) {
+      if (page == 0 && page_size > arr.length) {
+        for (var i = 0; i < arr.length; i++) {
+          list.push(arr[i]);
+        }
+      } else {
+        for (var i = 0; i < page_size; i++) {
+          list.push(arr[i]);
+        }
+      }
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        list.push(arr[i]);
+      }
+    }
+ 
+    success(list)
+    page++
+  });
+
+}
 module.exports = {
   getList: getList,
-  showToast:showToast
+  showToast:showToast,
+  getList2:getList2
 }

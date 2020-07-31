@@ -2,12 +2,12 @@
 <view class="subBox">
   <view class="tabPge2">
     <switchTab-component list="{{dbsx}}" bindmyevent="switchDbsx" />
-    <navigator url="/pages/project/details/dbsxDetails1?xmid={{id}}" style="display:{{dbsxIdx==1?'block':'none'}}" class="addXm">
+    <navigator url="/pages/project/details/dbsxDetails1?xmid={{id}}" style="display:{{qhidx==1?'block':'none'}}" class="addXm">
         <image src="/images/project/add.png"></image>
       </navigator>
     <view class="dbsx">
-      <view class="dbsx1" style="display:{{dbsxIdx==0?'block':'none'}}">
-        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{dbsxIdx}}" class=" dbsxItem" wx:for="{{pgList}}">
+      <view class="dbsx1" style="display:{{qhidx==0?'block':'none'}}">
+        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{qhidx}}" class=" dbsxItem" wx:for="{{pgList}}">
           <view class="dbsxItem1 flex ">
             <view class="dbsxRound flex-none"></view>
             <view>{{item.name}}</view>
@@ -15,14 +15,14 @@
           <view class="dbsxItem2">{{item.created}}</view>
         </navigator>
       </view>
-      <view class="dbsx1" style="display:{{dbsxIdx==1?'block':'none'}}">
-        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{dbsxIdx}}" class=" dbsxItem" wx:for="{{pgList}}">
+      <view class="dbsx1" style="display:{{qhidx==1?'block':'none'}}">
+        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{qhidx}}" class=" dbsxItem" wx:for="{{pgList}}">
           <view class="dbsxItem1 flex ">
             <view class="dbsxRound flex-none"></view>
             <view>{{item.name}}</view>
           </view>
           <view class="dbsxItem2 flex-between">
-              <view style="color:#6b82f7">{{item.status==0?'进行中':'已提醒'}}</view>
+              <view style="color:#6b82f7">{{item.status==0?'进行中':'已完成'}}</view>
               <view>{{item.created}}</view>
             </view>
         </navigator>

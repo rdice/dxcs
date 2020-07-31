@@ -37,7 +37,16 @@
           <view class="dbItem1" wx:if="{{pageData.status=='0'}}">
             <view bindtap="chooseFile">上传附件</view>
           </view>
-          <include src="../fileTem.wxml" />
+          <view class="fileList">
+            <view class="fileItem flex-items" bindtap="openFile" data-num="1" wx:for="{{showFileList}}" data-id="{{item.allFileId}}" >
+              <image src="{{item.iconUrl}}"></image>
+              <text>{{tools.substring(item.name)}}</text>
+            </view>
+            <view class="fileItem flex-items" bindtap="openFile" data-num="2" wx:for="{{tempFilePaths}}" data-id="{{item}}" >
+              <image src="{{item}}"></image>
+              <text>{{tools.substring(item)}}</text>
+            </view>
+          </view> 
         </view>
         <view style="margin-top:30rpx;" class="flex-around" wx:if="{{pageData.status=='0'}}">
           <button class="subBtn" form-type="submit">提交</button>
