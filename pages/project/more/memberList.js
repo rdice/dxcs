@@ -16,7 +16,7 @@ function showData(that) {
     }, 500)
   }, 10, {
     lawCaseId: that.data.id,
-    // roleType: that.data.cyxzIdx + 1
+    roleType: that.data.cyxzIdx + 1
   })
 }
 Page({

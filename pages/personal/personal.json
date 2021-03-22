@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "switchTab-component": "/template/components/switchTab-component"
+    "switchTab-component": "/template/components/switchTab-component",
+    "tab-bar":"/components/tabBar/tab-bar"
   }
 }

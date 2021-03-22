@@ -7,6 +7,10 @@ Component({
     list: {
       type: Array,
       value: []
+    },
+    idx:{
+      type:Number,
+      value:0
     }
   },
 
@@ -14,7 +18,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    idx:0
+   
   },
 
   /**

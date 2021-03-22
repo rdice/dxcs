@@ -5,7 +5,23 @@ var api = require("../../../utils/API.js");
 var pagenum = 1;
 
 function showData(that) {
-  
+  var qhidx = that.data.qhidx;
+  var dbidx = that.data.dbidx;
+  var status; // 0 我的待办    2 我的已完成     1律师待办    3律师已完成
+  if(qhidx==0){
+    if(dbidx==0){
+      status=0
+    }else{
+      status=2
+    }
+  }else{
+    if(dbidx==0){
+      status=1
+    }else{
+      status=3
+    }
+  }
+
   moreList.getList2(that.data.pgList, that, api.todoListList, pagenum, function (res) {
     console.log(res)
     that.setData({
@@ -16,7 +32,7 @@ function showData(that) {
     }, 500)
   }, 10, {
     lawCaseId: that.data.id,
-    status:that.data.status,
+    status: status,
   })
 }
 Page({
@@ -25,41 +41,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dbsx: ["待办", "已完成"],
     pgList: [],
     id: "", //项目id
-    qhidx: 0,//0我的待办1律师待办
-    tp: 1,//1我的待办2律师待办
-    dbidx:0,//0待办1已完成
-    status:0,
+
+    dbsx: ["我的待办", "律师待办"],
+    qhidx: 0, //0我的待办1律师待办
+
+    pgS: ["待办", "已完成"],
+    pgStitle: "待办",
+    dbidx: 0, //0待办1已完成
+    isPg:false,//是否显示
+
+    
   },
   // 待办事项
   switchDbsx: function (e) {
     console.log(e.detail.idx)
-    let idx = e.detail.idx
-    if(this.data.qhidx==0){
-      if(idx==0){
-        this.setData({
-          status:0
-        })
-      }else{
-        this.setData({
-          status:2
-        })
-      }
-    }else{
-      if(idx==0){
-        this.setData({
-          status:1
-        })
-      }else{
-        this.setData({
-          status:2
-        })
-      }
-    }
+    this.setData({
+      qhidx: e.detail.idx,
+      pgList:[]
+    })
+    pagenum = 1;
+    moreList.showToast("加载中");
+    showData(this)
+  },
+  // 是否显示下拉框
+  isPgShow:function(){
+    var i = this.data.isPg;
+    this.setData({
+      isPg:!i
+    })
+  },
+  // 待办-已完成
+  switchPg: function (e) {
+    var idx = e.currentTarget.dataset.idx;
     
-  
+    this.setData({
+      dbidx: e.currentTarget.dataset.idx,
+      pgStitle:idx==0?"待办":"已完成",
+      isPg:!this.data.isPg,
+      pgList:[]
+    })
     pagenum = 1;
     moreList.showToast("加载中");
     showData(this)
@@ -69,19 +91,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id,
-      qhidx:options.idx
+      id: options.id
     })
-    var idx = options.idx;
-    if (idx == 0) { //服务律师的
-      this.setData({
-        tp: 1
-      })
-    } else {
-      this.setData({
-        tp: 2
-      })
-    }
+
   },
 
   /**

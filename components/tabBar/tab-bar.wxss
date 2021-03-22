@@ -1,0 +1,32 @@
+/* components/tabBar/tab-bar.wxss */
+.tab-bar {
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 25rpx 0;
+  line-height: 30rpx;
+  bottom: 0;
+  border-top: 1px solid #eee;
+}
+
+.tab-bar .tab-item {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 22rpx;
+  color: #6e6d6b;
+  text-align: center;
+}
+
+.tab-bar image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tab-bar .tab-active {
+  color: #ed3225;
+}
+

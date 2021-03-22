@@ -15,7 +15,7 @@
 }
 
 .meItem1 {
-  background: #f7f7f9;
+  background: #fff;
   height: 148rpx;
   border-radius: 20rpx;
   position: absolute;
@@ -25,6 +25,7 @@
   transform: translateX(0px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+  box-shadow: 0 3px 5px #b2b5c0;
 }
 
 .touch-move-active {
@@ -34,6 +35,7 @@
 
 .meItem1_1 {
   padding-left: 30rpx;
+  border-right:1px solid #eee;
 }
 
 .meItem1_1>view {
@@ -41,17 +43,15 @@
 }
 
 .meItem1_1_1 {
-  color: #fff;
-  background: #859cfa;
-  border-radius: 50px;
-  padding: 4rpx 15rpx;
+  color: #b2b5c0;
+  padding: 8rpx 15rpx;
   margin-top: 10rpx;
   font-size: 24rpx;
 }
 
 .meItem1_2 {
   color: #859cfa;
-  padding-right: 30rpx;
+  padding:0 30rpx;
 }
 
 .meItem2 {
@@ -89,7 +89,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  color: #fff;
+  color: #555;
   z-index: 1000;
 }
 
@@ -107,7 +107,7 @@
   right: 0;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
-  background: #25276a;
+  background: #3e3c49;
   padding: 30rpx;
 }
 
@@ -115,6 +115,8 @@
   text-align: center;
   font-size: 36rpx;
   position: relative;
+  color: #fff;
+
 }
 
 .edit1 image {
@@ -134,10 +136,11 @@
 
 .edit2 text {
   padding-right: 20rpx;
+  color: #fff;
 }
 
 .edit2 input {
-  background: #42447c;
+  background: #f6f5fa;
   border-radius: 100px;
   padding: 10rpx 30rpx;
 }
@@ -162,7 +165,7 @@
   z-index: 10;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
-  color: #25286b;
+  color: #555;
   padding-top: 40rpx;
 }
 .edSelect1 .powerActive{
@@ -178,9 +181,10 @@
 }
 
 .edit2_1 button {
-  background: #fe6969;
+  background: #ee3c30;
   color: #fff;
   border: none;
+  border-radius: 10px;
 }
 /* 添加 */
 .addfile{

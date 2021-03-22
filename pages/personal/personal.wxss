@@ -8,6 +8,12 @@
   margin-bottom: 20rpx;
 }
 /* 通讯录 */
+.mailList{
+  background: #fff;
+  padding: 20rpx;
+  box-shadow: 0 2px 5px #b2b5c0;
+  border-radius: 10px;
+}
 .cyry1 {
   padding-bottom: 30rpx;
   font-size: 32rpx;
@@ -24,10 +30,9 @@
 }
 
 .cyry2 {
-  background: #f7f8fa;
-  border-radius: 20rpx;
   padding: 20rpx 30rpx;
   margin-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
 }
 
 .cyry2 .headImg {
@@ -53,4 +58,36 @@
 .t2 {
   color: #b1b4c5;
   padding-left: 20rpx;
+}
+
+/* 用户设置 */
+.usercont{
+  padding: 20rpx 30rpx;
+}
+.userSet{
+  padding: 20rpx 0;
+}
+.userSet1 image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.userSet1 text{
+  padding-left: 18rpx;
+}
+.userSet2 image{
+  width: 60rpx;
+}
+.userMenu{
+  background:#fff;
+  border-radius: 10px;
+  padding: 20rpx 30rpx;
+  margin: 20rpx 0;
+}
+.userMenu image{
+  width: 40rpx;
+  vertical-align: middle;
+}
+.userMenu text{
+  padding-left: 10rpx;
 }

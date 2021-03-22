@@ -1,0 +1,10 @@
+<!--components/tabBar/tab-bar.wxml-->
+<view style='height:120rpx;'></view>
+<view class="tab-bar">
+  <view wx:for="{{list}}" bindtap="navTabBar" data-url="{{item.url}}"
+    class="tab-item {{active==index? 'tab-active':''}}" >
+    <image wx:if="{{active!=index}}" src="/images/menu{{index}}.png"></image>
+    <image wx:if="{{active==index}}" src="/images/menu{{index}}_a.png"></image>
+    <view>{{item.title}}</view>
+  </view>
+</view>

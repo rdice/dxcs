@@ -17,7 +17,7 @@ Page({
     var val = e.detail.value;
     val.id = that.data.id;
     utils.request(api.updateFileName, val, function(res) {
-      console.log(res.data)
+      console.log(res)
       if(res.data){
         // ----采用onshow此方法暂时注释
         // var pages = getCurrentPages(); //获取页面栈
@@ -27,10 +27,11 @@ Page({
         //   //调用上一个页面的onShow方法
         //   prePage.editAjfjName(val.name, that.data.idx)
         // }
-        wx.navigateBack({
-          delta: 1
-        })
+        
       }
+      wx.navigateBack({
+        delta: 1
+      })
       
     })
   },

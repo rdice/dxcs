@@ -1,11 +1,61 @@
 /**index.wxss**/
 
 
-.tabPge1{
-  padding-top: 350rpx
+.index1{
+  padding: 30rpx 40rpx;
+  padding-bottom: 50rpx;
 }
-
-
+.index1_1{
+  color: #a2a7b9;
+  font-size: 26rpx;
+}
+.index1_1>view:first-child{
+  font-size: 36rpx;
+  color: #000;
+  padding-bottom: 20rpx;
+}
+.index1_2{
+  background:#ee3c30;
+  border-radius: 15px;
+  padding: 20rpx 0;
+  color: #fff;
+  font-size: 24rpx;
+  margin-top: 50rpx;
+  position: relative;
+}
+.index1_2 .index1_2item{
+  text-align: center;
+}
+.index1_2 .index1_2item>view:first-child{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.index1_2 .index1_2item>view:last-child{
+  background:#ef4b41;
+  border-radius: 50px;
+  padding: 4rpx 20rpx;
+}
+.index1_2img{
+  position: absolute;
+  right: 0;
+  top: -172rpx;
+  width: 230rpx;
+}
+.index1_3{
+  margin-top: 30rpx;
+}
+.index1_3 .index1_3item{
+  background: #fff;
+  border-radius:20px ;
+  padding: 8rpx 20rpx;
+  margin-right: 30rpx;
+}
+.index1_3 image{
+  width: 38rpx;
+}
+.index1_3 text{
+  padding-left: 10rpx;
+}
 
 .index_add{
   position: absolute;
@@ -31,24 +81,23 @@
   font-weight: bold;
   position: relative;
   display: inline-block;
-  padding: 20rpx 0;
+  color: #222;
+  
 }
-.activeNav{
-  color: #6a82ff;
-}
+
 .index2_1 text {
   color: #fff;
-  background: red;
+  background: #fb5d54;
   position: absolute;
   display: block;
   border-radius: 50%;
-  width: 40rpx;
-  height: 40rpx;
+  width: 38rpx;
+  height: 38rpx;
   text-align: center;
-  line-height: 40rpx;
-  font-size: 24rpx;
-  right: -40rpx;
-  top: 0;
+  line-height: 38rpx;
+  font-size: 20rpx;
+  right: -44rpx;
+  top: -10rpx;
   font-weight: normal;
 }
 /* 待办事项 */
@@ -70,10 +119,10 @@
 }
 
 .dbItem1>view:first-child {
-  width: 30rpx;
-  height: 30rpx;
+  width: 16rpx;
+  height: 16rpx;
   border-radius: 50%;
-  background: #6a82ff;
+  border:2px solid #fb5e57;
   margin-bottom: 10px;
   margin-top: 14rpx;
 }
@@ -100,10 +149,40 @@
   border-radius: 40rpx;
   margin-top: 20rpx;
 }
+.dbItem2_1v{
+  color: #b2b5c0;
+}
+.dbItem2_1v>view:last-child{
+  border:1px solid #ddd;
+  padding: 4rpx 10rpx;
+  border-radius: 20px;
+}
+.dbItem2_2v{
+  padding-top: 5px;
+}
+.dbItem2_2v image{
+  width: 30rpx;
+}
+.dbItem2_2v text{
+  padding-left: 5px;
+  font-size: 24rpx;
+  color: #b2b5c0;
+}
 .dbsxTime{
   font-size: 24rpx;
   padding-left: 15rpx;
 }
 .dbsxTitle{
   word-wrap:break-word;width:580rpx;
+}
+.dbsxTitle view:last-child{
+  padding-top: 5px;
+}
+.dbsxTitle  image{
+  width: 26rpx;
+}
+.dbsxTitle  text{
+  font-size: 26rpx;
+  color: #b2b5c0;
+  padding-left: 5px;
 }

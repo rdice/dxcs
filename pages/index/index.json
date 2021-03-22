@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "tab-bar":"/components/tabBar/tab-bar"
+  },
   "enablePullDownRefresh": true
 }

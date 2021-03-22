@@ -5,6 +5,7 @@
     "pages/index/index",
     "pages/index/details/authorizeMember",
     "pages/index/details/serviceLawyer",
+    "pages/index/details/toDoTask",
     "pages/project/project",
     "pages/project/projectDetails",
     "pages/project/more/workRecord",
@@ -38,9 +39,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#25286b",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#f7f8fc",
+    "navigationBarTitleText": "法智星掌上智能法务系统",
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,14 +1,14 @@
 <!--pages/index/details/authorizeMember.wxml-->
 <view class="container subBox">
-  <view class="tabPge2">
+  <view style="padding:0 20rpx">
     <switchTab-component list="{{dwlist}}" bindmyevent="switchDw" />
     <view class="meList">
 
       <view wx:for="{{pageData[dwidx].memberList}}" class="meItem">
         <view data-idx="{{index}}" class="flex-none flex-items flex-between meItem1 {{itemIdx==index?isTouch?'touch-move-active':'':''}}" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd">
-          <view class="flex meItem1_1">
+          <view class="flex meItem1_1 flex-1">
             <image src="/images/headImg.png" class="headImg"></image>
-            <view>
+            <view >
               <view>{{item.name}}</view>
               <view class="meItem1_1_1">{{item.position}}</view>
             </view>

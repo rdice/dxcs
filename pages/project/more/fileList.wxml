@@ -2,7 +2,9 @@
 <wxs src="../../../wxs/common.wxs" module="tools" />
 <view class="subBox">
   <view class="tabPge2" style="position:relative;">
-    <!-- <switchTab-component list="{{ajfj}}" bindmyevent="switchajfj" /> -->
+    <block wx:if="{{pid==''}}">
+      <switchTab-component list="{{ajfj}}" bindmyevent="switchajfj" idx="{{tp}}"/>
+    </block>
     <view class='flex-items search-input'>
       <view class=" flex-1">
         <image src="/images/search.png" class="searchImg"></image>
@@ -18,9 +20,9 @@
           <view>{{tools.substring(item.name)}}</view>
           <view>{{item.created}}</view>
         </view>
-        <image wx:if="{{tp==2}}" class="els flex-none" src="/images/els.png" catchtap="showAjfjMenu" data-idx="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}"></image>
+        <image wx:if="{{tp==1}}" class="els flex-none" src="/images/els.png" catchtap="showAjfjMenu" data-idx="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}"></image>
       </view>
     </view>
   </view>
 </view>
-<image class="addfile" src="/images/addFile.png" catchtap="addAjfjMenu" wx:if="{{tp==2}}"></image>
+<image class="addfile" src="/images/addFile.png" catchtap="addAjfjMenu" wx:if="{{tp==1}}"></image>

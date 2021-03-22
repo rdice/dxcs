@@ -26,7 +26,7 @@ Page({
     if (!utils.checkMobile(formdata.phone)){
       return
     }
-    utils.request('/xcx/legalService/udpateUserInfo', formdata, function (res) {
+    utils.request(app.roothd+'/xcx/legalService/udpateUserInfo', formdata, function (res) {
       console.log(res)
       if (res.data) {
         utils.showToast('修改成功')
@@ -89,7 +89,7 @@ Page({
     if (avatar) {
       console.log(avatar)
       wx.uploadFile({
-        url: app.rooturl + "/xcx/legalService/uploadHeadImage",
+        url: app.roothd + "/xcx/legalService/uploadHeadImage",
         filePath: avatar,
         name: 'file',
         formData: {
@@ -120,7 +120,7 @@ Page({
     closeBox(this);
     var that = this;
     setTimeout(function () {
-      utils.request('/xcx/legalService/userDetails', {}, function (res) {
+      utils.request(app.rootquery+'/xcx/legalService/userDetails', {}, function (res) {
         console.log(res)
         that.setData({
           src: res.data.headImage + "?i=" + Math.floor(Math.random() * 10),

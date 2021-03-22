@@ -1,15 +1,34 @@
 <!--pages/project/project.wxml-->
 <wxs src="../../wxs/common.wxs" module="tools" />
-<import src="/template/tabBar.wxml" />
 <view class="container">
-  <include src="/template/tabTop.wxml"/>
-  <view class="tabPge2">
-    <view class="proList">
-      <navigator url="projectDetails?id={{item.lawCaseId}}" class="proItem flex-items" wx:for="{{pgList}}">
-        <text class="flex-1">{{tools.substring(item.serviceTitle)}}</text>
-        <image src="/images/project/arrow.png"></image>
-      </navigator>
-    </view>
+  <view class="proList">
+    <navigator url="projectDetails?id={{item.lawCaseId}}" class="boxScont proItem " wx:for="{{pgList}}">
+      <view class=" proItem1 flex-items">
+        <image mode="widthFix" src="/images/index/qy.png"></image>
+        <text>企业名字</text>
+      </view>
+      <view class="proItem2 flex-between">
+        <view class="flex-items">
+          <text></text>
+          <text>接收材料</text>
+        </view>
+        <view class="f12">2012-12-12</view>
+      </view>
+      <view class="proItem3 flex-items">
+        <image mode="widthFix" src="/images/index/ls.png"></image>
+        <text>名字律师</text>
+      </view>
+      <view class="proItem4">{{item.serviceTitle}}</view>
+      <view class="proItem5 flex-between">
+        <view>
+          <text>{{item.created}}</text>
+          <text class="pl5"></text>
+          <text>2小时</text>
+        </view>
+        <view>进行中</view>
+      </view>
+    </navigator>
   </view>
-  <template is="tabBar" data="{{active2:true}}" />
+
 </view>
+<tab-bar active="1" />

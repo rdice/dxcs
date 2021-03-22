@@ -1,60 +1,94 @@
 <!--index.wxml-->
-<import src="/template/tabBar.wxml" />
 <view class="container">
-	<include src="/template/tabTop.wxml" />
+	<!-- <include src="/template/tabTop.wxml" /> -->
+	<view class="index1">
+		<navigator class="index1_1" url="/pages/personal/personalDatas">
+			<view>下午好，{{userInfo.name}}</view>
+			<view>{{userInfo.position}}</view>
+		</navigator>
+		<view class="flex-around index1_2">
+			<navigator class="index1_2item" url="/pages/chatroom/index/index">
+				<view>15</view>
+				<view>消息</view>
+			</navigator>
+			<navigator class="index1_2item" url="/pages/index/details/toDoTask">
+				<view>{{totleNum.caseTaskNum1}}</view>
+				<view>待办任务</view>
+			</navigator>
+			<navigator class="index1_2item">
+				<view>15</view>
+				<view>合同</view>
+			</navigator>
+			<image mode="widthFix" class="index1_2img" src="/images/index1img.png"></image>
+		</view>
+		<view class="index1_3 flex">
+			<navigator class="flex-items index1_3item" url="./details/serviceLawyer">
+				<image src="/images/index/fwls.png" mode="widthFix"></image>
+				<text>服务律师</text>
+			</navigator>
+			<navigator class="flex-items index1_3item" url="./details/authorizeMember" wx:if="{{manager}}">
+				<image src="/images/index/cysq.png" mode="widthFix"></image>
+				<text>成员授权</text>
+			</navigator>
+		</view>
+	</view>
 	<view class="tabPge2">
 		<view class="index2">
-			<view class="flex-around">
-      	<view class="index2_1 {{idx==0?'activeNav':''}}" bindtap="switchNav" data-id="0">
-					待办任务
-					<text>{{totleNum.caseTaskNum1}}</text>
-				</view>
-				<view class="index2_1 {{idx==1?'activeNav':''}}" bindtap="switchNav" data-id="1">
-					待办事项
-					<text>{{totleNum.caseTaskNum2}}</text>
-				</view>
-				<view class="index2_1 {{idx==2?'activeNav':''}}" bindtap="switchNav" data-id="2">
-					工作记录
-					<text>{{totleNum.workRecordNum}}</text>
-				</view>
-			</view>
-
-			<view wx:if="{{idx==0||idx==1}}">
-      <navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item" url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is=0">
-  
-				<view class="dbItem flex">
-					<view class="dbItem1">
-						<view style="background: #6b82f7"></view>
-						<view></view>
-					</view>
-					<view class="dbItem2">
-						<view>{{item.created}}
-							<text class="dbsxTime" style="color:#6b82f7">进行中</text>
-						</view>
-						<view class="dbsxTitle">{{item.name}}</view>
-					</view>
-				</view>
+			<navigator class="index2_1 " url="">
+				工作记录
+				<text>{{totleNum.workRecordNum}}</text>
 			</navigator>
-      </view>
-			<view wx:if="{{idx==2}}">
-				<navigator  wx:for="{{pgList}}" wx:key="item" class="index2_2 dbItem flex" url="/pages/project/details/workRecordDetails?id={{item.id}}">
+			<!-- 
+			<view wx:if="{{idx==0||idx==1}}">
+				<navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item"
+					url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is=0">
+
+					<view class="dbItem flex">
+						<view class="dbItem1">
+							<view style="background: #6b82f7"></view>
+							<view></view>
+						</view>
+						<view class="dbItem2">
+							<view>{{item.created}}
+								<text class="dbsxTime" style="color:#6b82f7">进行中</text>
+							</view>
+							<view class="dbsxTitle">{{item.name}}</view>
+						</view>
+					</view>
+				</navigator>
+			</view> -->
+			<view>
+				<navigator wx:for="{{pgList}}" wx:key="item" class="index2_2 dbItem flex"
+					url="/pages/project/details/workRecordDetails?id={{item.id}}">
 					<view class="dbItem1">
 						<view></view>
 						<view></view>
 					</view>
 					<view class="dbItem2">
-						<view class="flex-between">
-							<view>
-								<!-- <text>8/11</text> -->
-								<text class="f12 pl5">{{item.created}}</text>
+						<view class="dbItem2_1">
+							<view class="flex-between dbItem2_1v">
+								<view class="">
+									<!-- <text>8/11</text> -->
+									<text class="f12 pl5">{{item.created}}</text>
+								</view>
+								<view class="f12 ">2小时</view>
 							</view>
-							<!-- <view class="f12" style="color:#6a82ff">标签</view> -->
+							<view class="dbItem2_2v flex-items">
+								<image src="/images/index/qy.png" mode="widthFix"></image>
+								<text>公司名字</text>
+							</view>
 						</view>
-						<view class="dbsxTitle">{{item.content}}</view>
+						<view class="dbsxTitle">
+							<view>{{item.content}}</view>
+							<view class="flex-items">
+								<image mode="widthFix" src="/images/index/ls.png"></image>
+								<text>名字律师</text>
+							</view>
+						</view>
 					</view>
 				</navigator>
 			</view>
 		</view>
 	</view>
-	<template is="tabBar" data="{{active1:true}}" />
 </view>
+<tab-bar active="0" />

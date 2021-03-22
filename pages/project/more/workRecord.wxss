@@ -1,5 +1,44 @@
 /* pages/project/more/workRecord.wxss */
-@import "../projectDetails.wxss";
-.dbItem2>view:last-child{
-  background: #f7f8fa;
+.workList{
+  padding:20rpx;
+}
+.workItem{
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 5px 5px #b2b5c0;
+  padding: 20rpx 30rpx;
+  color: #b2b5c0;
+}
+.workItem1{
+  padding: 20rpx;
+}
+.workItem1 text{
+  padding-left: 10rpx;
+}
+.workItem image{
+  width: 26rpx;
+  vertical-align: middle;
+}
+.workItem2{
+  background: #F7F8FC;
+  padding: 20rpx;
+  color: #333;
+  border-radius: 8rpx;
+}
+.workItem3{
+  padding: 20rpx;
+}
+.workItem3_1 text{
+  padding-left: 10rpx;
+}
+.workItem3_2{
+  font-size: 26rpx;
+}
+.workItem3_2 text:last-child {
+  background: #f7f8fc;
+  padding: 4rpx 10rpx;
+  border-radius: 20px;
+}
+.workItem3_2 text:first-child{
+  padding-right: 10rpx;
 }

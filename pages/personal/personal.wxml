@@ -1,25 +1,41 @@
 <!--pages/personal/personal.wxml-->
-<import src="/template/tabBar.wxml" />
 <view class="container">
-  <include src="/template/tabTop.wxml" />
-  <view class="tabPge2">
-    <view class="personal1">我的</view>
-    <switchTab-component list="{{tabList1}}" bindmyevent="switchTab" />
-    <view>
-      <view wx:if="{{idx==2}}" style="margin-top:40rpx;">
-        <view class="cyry2 flex-items" wx:for="{{mailList}}">
-          <image src="{{item.headUrl}}" class="headImg flex-none"></image>
-          <view class="cyry2_1 flex-1">
-            <view>
-              <text class="t1">{{item.realname}}</text>
-              <text class="t2">{{item.officename}}</text>
-            </view>
-            <view>{{item.phone}}</view>
+  <view class="usercont">
+    <view class="flex-between flex-items userSet">
+      <view class="flex-items userSet1">
+        <image src="/images/headImg.png"></image>
+        <text>{{userInfo.name}}</text>
+      </view>
+      <navigator class="userSet2" url="/pages/personal/personalDatas">
+        <image src="/images/set.png" mode="widthFix"></image>
+      </navigator>
+    </view>
+    <view class="flex-around userMenu">
+      <view class="userMenu1">
+        <image src="/images/ll.png" mode="widthFix"></image>
+        <text>我的浏览</text>
+      </view>
+      <view class="userMenu2">
+        <image src="/images/sc.png" mode="widthFix"></image>
+        <text>我的收藏</text>
+      </view>
+    </view>
+    <view class="personal1">通讯录</view>
+    <view class="mailList">
+      <view class="cyry2 flex-items" wx:for="{{mailList}}">
+        <image src="{{item.headUrl}}" class="headImg flex-none"></image>
+        <view class="cyry2_1 flex-1">
+          <view>
+            <text class="t1">{{item.realname}}</text>
+            <text class="t2">{{item.officename}}</text>
           </view>
-          <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback"></image>
+          <view>{{item.phone}}</view>
         </view>
+        <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
+        </image>
       </view>
     </view>
   </view>
-  <template is="tabBar" data="{{active4:true}}" />
+
 </view>
+<tab-bar active="3" />

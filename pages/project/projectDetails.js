@@ -135,7 +135,7 @@ Page({
       utils.openFile(e.currentTarget.dataset.id)
     } else {
       wx.navigateTo({
-        url: '/pages/project/more/fileList?id=' + that.data.id + "&pid=" + fileid + "&idx=" + (that.data.ajfjIdx + 1),
+        url: '/pages/project/more/fileList?id=' + that.data.id + "&pid=" + fileid + "&idx=" + that.data.ajfjIdx,
       })
     }
   },

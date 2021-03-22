@@ -1,2 +1,67 @@
 /* pages/project/more/dbsxList.wxss */
-@import "../projectDetails.wxss";
+.dbSwitch{
+  position: fixed;
+  right: 20rpx;
+  font-size: 24rpx;
+}
+.dbSwitch0{
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  padding: 6rpx 20rpx;
+  background: #fff;
+  text-align: center;
+  color: #ee3c30;
+}
+.dbSwitch0 image{
+  width: 40rpx;
+}
+.dbSwitch0 text{
+  padding-right: 10rpx;
+}
+.dbSwitch1{
+  background: #fdf5f3;
+  position: relative;
+  padding: 10px;
+  border-radius: 3px;
+  top: -15px;
+  z-index: -1;
+  padding-top: 20px;
+  text-align: center;
+}
+.addLsdb{
+  position: fixed;
+  bottom: 14%;
+  right: 20%;
+  z-index: 100;
+}
+.addLsdb image{
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+/* ----- */
+.dbsx{
+  margin-top: 60rpx;
+  padding: 20rpx;
+}
+.dbsxItem{
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+.dbsxItem1{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20rpx;
+}
+.dbsxItem2{
+  padding-top: 20rpx;
+  font-size: 25rpx;
+}
+.dbsxItem2_1 image{
+  width: 36rpx;
+  vertical-align: middle;
+}
+.dbsxItem2_1 text{
+  color: #6a67e4;
+  padding-left: 10rpx;
+}
+

@@ -3,8 +3,8 @@
   <view class="tabPge1_1">
     <view class="tabPge1_user flex-between">
       <navigator url="/pages/personal/personalDatas" class="tabPge1_user1">
-        <image src="{{userInfo.headImage}}"></image>
-        <text>{{userInfo.name}}</text>
+        <view>下午好，{{userInfo.name}}</view>
+        <view>{{userInfo.position}}</view>
       </navigator>
       <navigator url="/pages/chatroom/index/index" class="tabPge1_news">
         <image src="/images/news.png"></image>

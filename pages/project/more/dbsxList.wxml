@@ -1,32 +1,35 @@
 <!--pages/project/more/dbsxList.wxml-->
 <view class="subBox">
-  <view class="tabPge2">
-    <switchTab-component list="{{dbsx}}" bindmyevent="switchDbsx" />
-    <navigator url="/pages/project/details/dbsxDetails1?xmid={{id}}" style="display:{{qhidx==1?'block':'none'}}" class="addXm">
-        <image src="/images/project/add.png"></image>
-      </navigator>
-    <view class="dbsx">
-      <view class="dbsx1" style="display:{{qhidx==0?'block':'none'}}">
-        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{qhidx}}" class=" dbsxItem" wx:for="{{pgList}}">
-          <view class="dbsxItem1 flex ">
-            <view class="dbsxRound flex-none"></view>
-            <view>{{item.name}}</view>
-          </view>
-          <view class="dbsxItem2">{{item.created}}</view>
-        </navigator>
-      </view>
-      <view class="dbsx1" style="display:{{qhidx==1?'block':'none'}}">
-        <navigator url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{qhidx}}" class=" dbsxItem" wx:for="{{pgList}}">
-          <view class="dbsxItem1 flex ">
-            <view class="dbsxRound flex-none"></view>
-            <view>{{item.name}}</view>
-          </view>
-          <view class="dbsxItem2 flex-between">
-              <view style="color:#6b82f7">{{item.status==0?'进行中':'已完成'}}</view>
-              <view>{{item.created}}</view>
-            </view>
-        </navigator>
-      </view>
+  <switchTab-component list="{{dbsx}}" bindmyevent="switchDbsx" />
+  <view class="dbSwitch">
+    <view class="dbSwitch0 flex-items" bindtap="isPgShow">
+      <text>{{pgStitle}}</text>
+      <image mode="widthFix" src="/images/project/{{isPg?'b':'t'}}Arrow.png"></image>
+    </view>
+    <view class="dbSwitch1" wx:if="{{isPg}}">
+      <view wx:for="{{pgS}}" bindtap="switchPg" data-idx="{{index}}" style="display:{{dbidx==index?'none':'block'}}">
+        {{item}}</view>
     </view>
   </view>
+  <navigator url="/pages/project/details/dbsxDetails1?xmid={{id}}" style="display:{{qhidx==1?'block':'none'}}"
+    class="addLsdb">
+    <image src="/images/project/addFile.png"></image>
+  </navigator>
+  <view class="dbsx">
+    <navigator class="boxScont dbsxItem" wx:for="{{pgList}}"
+      url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{id}}&is={{qhidx}}">
+      <view class="dbsxItem1">{{item.name}}</view>
+      <view class="dbsxItem2 flex-between">
+        <view class="dbsxItem2_1 flex-items">
+          <image mode="widthFix" src="/images/index/clock.png"></image>
+          <text>{{item.created}}</text>
+        </view>
+        <view class="dbsxItem2_2">
+          <text style="color:{{item.status==0?'#ee3c30':'#666'}}">{{item.status==0?'进行中':'已完成'}}</text>
+          
+        </view>
+      </view>
+    </navigator>
+  </view>
+
 </view>

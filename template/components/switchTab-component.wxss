@@ -6,13 +6,13 @@
   
 }
 .switchTab>view{
-  font-size: 34rpx;
+  font-size: 28rpx;
   width: 33.3%;
   text-align: center;
 }
 .activeTab{
-  color: #6b82f7;
-  border-bottom: 2px solid #6b82f7;
+  color: #ee3c30;
+  border-bottom: 2px solid #ee3c30;
   padding-bottom: 10rpx;
   display: inline-block;
 }

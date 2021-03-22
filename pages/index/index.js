@@ -9,7 +9,7 @@ var pagenum = 1;
 
 
 function showData(that) {
-  var idx = that.data.idx;
+  var idx = 2;
   var url = "";
   var obj = {};
   if(idx==0){
@@ -38,23 +38,16 @@ function showData(that) {
 }
 Page({
   data: {
-    isIndex:true,
     userInfo:null,
     pgList:[],
     totleNum:{},//首页未读数
     manager:false,//是否是管理员
-    idx:0
+    idx:2
     
   },
-  // 切换导航
-  switchNav:function(e){
-    this.setData({
-      idx:e.currentTarget.dataset.id
-    })
-    showData(this)
-  },
+
   onLoad: function () {
-    console.log(app.manager)
+    console.log(app.globalData.userInfo)
    this.setData({
      userInfo: app.globalData.userInfo,
      manager: app.manager
@@ -68,6 +61,7 @@ Page({
     pagenum = 1;
     showData(that);
     utils.request(api.getIndexNumber, {}, function (res) {
+      
       that.setData({
         totleNum:res.data
       })

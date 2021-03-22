@@ -1,18 +1,52 @@
 /* pages/project/project.wxss */
 .proList{
- 
+ padding: 20rpx;
 }
 .proItem{
   border-radius: 20rpx;
-  background: #f7f8fa;
   color: #4b555d;
-  padding: 20rpx 30rpx;
   margin-bottom: 30rpx;
 }
 .proItem image{
-  width: 20rpx;
-  height: 40rpx;
+  width: 26rpx;
 }
-.proItem text{
-  padding-right: 20rpx;
+.proItem1 text,.proItem3 text{
+  padding-left: 10rpx;
+}
+.proItem1{
+  color: #222;
+  font-size: 32rpx;
+}
+.proItem2{
+  color: #b2b5c0;
+  border-bottom: 1px solid #eee;
+  padding: 15rpx 0;
+}
+.proItem2 text:first-child{
+  display: inline-block;
+  background:#ee3c30;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.proItem2 text:last-child{
+  padding-left: 10rpx;
+}
+
+.proItem3{
+  color:  #b2b5c0;
+  padding: 15rpx 0;
+}
+.proItem5{
+  color: #b2b5c0;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+.proItem5>view text:last-child{
+  background:#f7f8fc;
+  padding: 4rpx 10rpx;
+  border-radius: 20px;
+}
+.proItem5>view:last-child{
+  color: #6a67e4;
 }

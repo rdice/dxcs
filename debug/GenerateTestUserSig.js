@@ -6,6 +6,7 @@ import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min.js'
  * 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav ) 创建应用，即可看到 SDKAppId，
  * 它是腾讯云用于区分客户的唯一标识。
  */
+// 测试 1400373427  正式 1400315046
 const SDKAPPID = 1400315046
 
 
@@ -28,7 +29,7 @@ const EXPIRETIME = 604800
  * 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
  * 文档：https://cloud.tencent.com/document/product/647/17275#Server
  */
-const SECRETKEY = '7b2a60886efca9541bd0fc4cc80a78683a2d45bfbf42be04d981f6f388c7d69d'
+const SECRETKEY = 'b35535591828182c62fce66055d3bda00bf2c2ad86fb4235f4cc3572607ae8f0'
 
 /*
  * Module:   GenerateTestUserSig

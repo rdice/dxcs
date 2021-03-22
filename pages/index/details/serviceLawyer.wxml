@@ -1,8 +1,7 @@
 <!--pages/index/details/serviceLawyer.wxml-->
-<view class="container subBox">
-  <view class="tabPge2">
-    <view class="lawyerList">
-      <view class="lawyerItem" wx:for="{{pgList}}">
+<view class="container ">
+  <view class="lawyerList">
+      <view class="boxScont lawyerItem" wx:for="{{pgList}}">
         <view class="flex-between lawyerItem1">
           <view class="flex-items lawyerItem1_1 ">
             <image src="{{item.headUrl}}"></image>
@@ -13,10 +12,10 @@
           </view>
           <view class="lawyerItem1_3">职业{{item.jobYear}}年</view>
         </view>
-        <!-- <view class="lawyerItem2 flex-around">
-          <view wx:for="{{item.professionaldirectionArr}}">{{item}}</view>
-        </view> -->
+        <view class="lawyerItem2 flex">
+          <view >你好</view>
+        </view>
+       
       </view>
     </view>
-  </view>
 </view>

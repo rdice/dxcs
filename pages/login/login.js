@@ -52,7 +52,6 @@ Page({
       validate: this.code,
 
     }, function (res) {
-      console.log(res)
 
       if (res.data.code == "1") {
 
@@ -85,7 +84,6 @@ Page({
       util.request(api.getMsgVaildate, {
         phone: this.phone
       }, function (res) {
-        console.log(res)
         if (res.data.res) {
 
 
@@ -122,6 +120,7 @@ Page({
    */
   onLoad: function (options) {
     // var accout = "123"
+    // console.log(gen.genTestUserSig(accout).userSig)
     // let promise = app.tim.login({
     //   userID: accout,
     //   userSig: gen.genTestUserSig(accout).userSig
@@ -153,7 +152,6 @@ Page({
               code: loginRes.code
             },
             success: function (res) {
-              console.log(res)
               app.openid = res.data.res;
               getuserInfo()
 
@@ -185,7 +183,6 @@ function getuserInfo() {
   util.request(api.getUserInfo, {
     openid: app.openid
   }, function (e) {
-    console.log(e)
     
     if (e.data.code == 1) {
       wx.showLoading({
@@ -193,7 +190,8 @@ function getuserInfo() {
       })
       var accout = e.data.bean.memberAccount
       app.accout = accout; 
-
+      console.log(e.data.bean)
+      console.log("===")
 
       app.globalData.userInfo = e.data.bean;
       app.memberId = e.data.bean.memberId;
@@ -210,15 +208,13 @@ function getTencentyunConfig(accout){
     memberAccount: accout
   }, function (e) {
 
-    console.log(e)
-    console.log(1111111)
     // 调用im同时登录
     let promise = app.tim.login({
       userID: accout,
       userSig: e.data.userSig
     });
     promise.then(function (imResponse) {
-      console.log(imResponse.data); // 登录成功
+      //console.log(imResponse.data); // 登录成功
       let onSdkReady = function(event) {
         wx.hideLoading()
         wx.redirectTo({

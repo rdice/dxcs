@@ -3,11 +3,12 @@ var util = require("../../../utils/util.js");
 var moreList = require("../../../utils/moreList.js");
 var api = require("../../../utils/API.js");
 function showData(that) {
+  var fileModule = that.data.tp==0?"shareCaseDoc":"receiveCaseDoc" 
   util.request(api.fileList, {
     lawCaseId: that.data.id,
     name: that.data.name,
     parentNodeId:that.data.pid,
-    fileModule:that.data.fileModule
+    fileModule:fileModule
   }, function(res) {
     console.log(res)
     that.setData({
@@ -27,11 +28,9 @@ Page({
     ajfj: ["项目接收", "项目发出"],
     pgList: [],
     id: "", //项目id
-    ajfjIdx: 0,
-    tp: 1, //1 律师上传的附件 2 用户发出的附3进展的附4待办的附件5工作记录的附件
+    tp: 0, //1 律师上传的附件 2 用户发出的附3进展的附4待办的附件5工作记录的附件
     name: "", //搜索的名字
     pid:"",//父类id
-    fileModule:"",//接收/发出
 
   },
   // 搜索
@@ -132,24 +131,14 @@ Page({
       })
     }
   },
-  // // 案件附件
-  // switchajfj: function (e) {
-  //   console.log(e)
-  //   var idx = e.detail.idx;
-  //   if (idx == 0) {//项目接收
-  //     this.setData({
-  //       tp: 1
-  //     })
-  //   } else {
-  //     this.setData({
-  //       tp: 2
-  //     })
-  //   }
-  //   this.setData({
-  //     ajfjIdx: e.detail.idx
-  //   })
-  //   showData(this)
-  // },
+  // 案件附件
+  switchajfj: function (e) {
+    console.log(e)
+    this.setData({
+      tp:e.detail.idx,
+    })
+    showData(this)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -160,7 +149,7 @@ Page({
       id: options.id,
       pid:options.pid,
       tp: idx,
-      fileModule:idx==1?"shareCaseDoc":"receiveCaseDoc" 
+    
     })
   },
 

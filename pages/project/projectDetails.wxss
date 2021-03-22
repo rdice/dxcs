@@ -1,5 +1,7 @@
 /* pages/project/projectDetails.wxss */
-
+.container{
+  padding: 20rpx;
+}
 .prd1 {
   font-size: 32rpx;
   color: #333;
@@ -8,8 +10,6 @@
 
 .prd2 {
   border-radius: 20rpx;
-  background: #f7f8fa;
-  padding: 20rpx 30rpx;
 }
 
 .prd2_1 {
@@ -29,18 +29,20 @@
 }
 
 .bline {
-  border-left: 2px solid #6b82f7;
-  height: 30rpx;
-  padding-right: 20rpx;
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  border: 2px solid #fb5e57;
 }
 
-.prd_ti>view:last-child {
+.showajList {
   font-size: 24rpx;
 }
-
-.prd_ti>view:last-child text {
+.showajList>text{
   padding-right: 10rpx;
 }
+
 
 .prd_ti>view:last-child image {
   width: 32rpx;
@@ -50,6 +52,61 @@
 
 .prd_ti .sMore {
   font-size: 24rpx;
+}
+
+/* --案件状况-- */
+
+
+.gwtitle1 {
+  padding-bottom: 20rpx;
+}
+
+.gwtitle1_1 text:last-child {
+  color: #555;
+}
+
+.gwtitle1 image {
+  width: 30rpx;
+}
+
+.gwtitle1_2 {
+  color: #6b67e2;
+  border-radius: 20px;
+  padding: 2px 20rpx;
+  border: 1px solid #eee;
+  font-size: 24rpx;
+}
+
+.gwtitle2_1 {
+  padding-bottom: 20rpx;
+  color: #222;
+}
+
+.gwtitle2_2>view text:first-child {
+  color: #737479;
+  padding-right: 5px;
+}
+
+.gwtitle2_2>view text:last-child {
+  color: #222;
+}
+
+.gwtitle2 {
+  background: #f4f5f9;
+  padding: 20rpx;
+}
+
+.gwtitle3 {
+  padding-top: 20rpx;
+}
+
+.gwtitle3 text {
+  padding-left: 10rpx;
+  font-size: 24rpx;
+}
+
+.gwtitle3 image {
+  width: 32rpx;
 }
 
 /* 案件进展 */
@@ -72,8 +129,8 @@
 }
 
 .dbItem1>view:first-child {
-  width: 30rpx;
-  height: 30rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-radius: 50%;
   background: #b1b4c5;
   margin-bottom: 10px;
@@ -81,7 +138,7 @@
 }
 
 .index2_2:first-child .dbItem1>view:first-child {
-  background: #6a82ff;
+  background: #ee3c30;
 }
 
 .dbItem1>view:last-child {
@@ -95,7 +152,7 @@
 }
 
 .dbItem2>view:first-child {
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 .dbItem2>view:last-child {
@@ -200,9 +257,12 @@
 .dbsx1 .dbsxItem:last-child {
   border: none;
 }
-.dbsxTitle{
-  word-wrap:break-word;width:510rpx;
+
+.dbsxTitle {
+  word-wrap: break-word;
+  width: 510rpx;
 }
+
 /* 案件附件 */
 
 .ajfj {
@@ -212,16 +272,18 @@
   margin-bottom: 20rpx;
 }
 
- .fileImg {
+.fileImg {
   width: 75rpx;
   height: 65rpx;
   margin-right: 30rpx;
 }
-.els{
+
+.els {
   width: 60rpx;
   height: 60rpx;
   margin-right: 0;
 }
+
 .ajfj>view view:last-child {
   color: #b8b9bf;
   font-size: 24rpx;
@@ -231,10 +293,69 @@
 .addXm {
   position: absolute;
   right: 20rpx;
-  top:18rpx;
+  top: 18rpx;
 }
 
 .addXm>image {
   width: 60rpx;
   height: 60rpx;
 }
+/* 工作记录 */
+.prWork{
+  border-bottom: 1px solid #eee;
+  padding: 20rpx 0;
+
+}
+.prWork:last-child{
+  border:none;
+}
+.prWork1{
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #fe0000;
+  margin-bottom: 10px;
+  margin-top: 14rpx;
+}
+.prWork2{
+  padding-left: 20rpx;
+}
+.prWork2_2{
+  color: #222;
+}
+.prWork2_1{
+  color: #b8b9bf;
+  padding-top: 20rpx ;
+  font-size: 26rpx;
+}
+.prWork2_1_1 image{
+  width: 26rpx;
+  vertical-align: middle;
+}
+
+.prWork2_1_2 text:first-child{
+  padding-right: 10rpx;
+}
+.prWork2_1_2 text:last-child {
+  background: #f7f8fc;
+  padding: 4rpx 10rpx;
+  border-radius: 20px;
+}
+/* --多个菜单-- */
+.pdMenu{
+  padding: 20rpx 0;
+  padding-top: 40rpx;
+}
+.pdMenu image{
+  width: 40rpx;
+  vertical-align: middle;
+}
+.pdMenu .pdmItem{
+  background:#fff;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+}
+.pdMenu text{
+  padding-left: 10rpx;
+}
+
