@@ -1,6 +1,5 @@
 <!--pages/discover/discover.wxml-->
 <view class="container">
-  <include src="/template/tabTop.wxml"/>
   <view class="tabPge2">
     
   </view>

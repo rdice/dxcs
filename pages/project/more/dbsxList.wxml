@@ -13,7 +13,7 @@
   </view>
   <navigator url="/pages/project/details/dbsxDetails1?xmid={{id}}" style="display:{{qhidx==1?'block':'none'}}"
     class="addLsdb">
-    <image src="/images/project/addFile.png"></image>
+    <image src="/images/addFile.png"></image>
   </navigator>
   <view class="dbsx">
     <navigator class="boxScont dbsxItem" wx:for="{{pgList}}"
@@ -22,11 +22,11 @@
       <view class="dbsxItem2 flex-between">
         <view class="dbsxItem2_1 flex-items">
           <image mode="widthFix" src="/images/index/clock.png"></image>
-          <text>{{item.created}}</text>
+          <text>{{item.completedate}}</text>
         </view>
-        <view class="dbsxItem2_2">
-          <text style="color:{{item.status==0?'#ee3c30':'#666'}}">{{item.status==0?'进行中':'已完成'}}</text>
-          
+        <view class="dbsxItem2_2" style="display:{{qhidx==1?'none':'block'}}">
+          <image src="{{item.headUrl}}"></image>
+          <text class="pl5">{{item.srcUserName}}律师</text>
         </view>
       </view>
     </navigator>

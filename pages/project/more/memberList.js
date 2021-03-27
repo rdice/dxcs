@@ -34,6 +34,13 @@ Page({
     currentMemberId:""
 
   },
+  // 聊天
+  toChat:function(e){
+    var id = e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/chatroom/index/chat?type=C2C&userid=' + id,
+    })
+  },
   // 管理员才有的操作  增删企业人员
   editMenu: function () {
     var that = this;

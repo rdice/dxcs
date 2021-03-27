@@ -2,8 +2,8 @@
 <view class=" subBox">
   <view class="tabPge2">
     <switchTab-component list="{{cyxz}}" bindmyevent="switchCyxz" />
-    <view style="margin-top:40rpx;">
-      <view class="cyry2 flex-items" wx:for="{{pgList}}">
+    <view style="margin-top:40rpx;" >
+      <view class="cyry2 flex-items" wx:for="{{pgList}}" catchtap="toChat" data-id="{{item.memberAccount}}">
         <image src="/images/index/fwls.png" class="headImg flex-none"></image>
         <view class="cyry2_1 flex-1">
           <view>
@@ -12,7 +12,7 @@
           </view>
           <view>{{item.phone}}</view>
         </view>
-        <image class="cyry2_2" src="/images/project/phone.png" bindtap="callPhone" data-phone="{{item.phone}}"></image>
+        <image class="cyry2_2" src="/images/project/phone.png" catchtap="callPhone" data-phone="{{item.phone}}"></image>
         <view style="padding:0;display:{{cyxzIdx==0?'block':'none'}}">
           <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}" style="display:{{currentMemberId==item.memberId?'none':'block'}}" data-id="{{item.memberId}}" ></image>
         </view>

@@ -13,7 +13,7 @@
   color: #ee3c30;
 }
 .dbSwitch0 image{
-  width: 40rpx;
+  width: 30rpx;
 }
 .dbSwitch0 text{
   padding-right: 10rpx;
@@ -64,4 +64,13 @@
   color: #6a67e4;
   padding-left: 10rpx;
 }
-
+.dbsxItem2_2 image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.dbsxItem2_2 text{
+  font-size: 24rpx;
+  color: #999;
+}

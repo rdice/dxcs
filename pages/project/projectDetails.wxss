@@ -1,7 +1,8 @@
 /* pages/project/projectDetails.wxss */
-.container{
+.container {
   padding: 20rpx;
 }
+
 .prd1 {
   font-size: 32rpx;
   color: #333;
@@ -39,7 +40,8 @@
 .showajList {
   font-size: 24rpx;
 }
-.showajList>text{
+
+.showajList>text {
   padding-right: 10rpx;
 }
 
@@ -81,9 +83,11 @@
   padding-bottom: 20rpx;
   color: #222;
 }
-
+.gwtitle2_2{
+  font-size: 24rpx;
+}
 .gwtitle2_2>view text:first-child {
-  color: #737479;
+  color: #8582a1;
   padding-right: 5px;
 }
 
@@ -300,16 +304,19 @@
   width: 60rpx;
   height: 60rpx;
 }
+
 /* 工作记录 */
-.prWork{
+.prWork {
   border-bottom: 1px solid #eee;
   padding: 20rpx 0;
 
 }
-.prWork:last-child{
-  border:none;
+
+.prWork:last-child {
+  border: none;
 }
-.prWork1{
+
+.prWork1 {
   width: 12rpx;
   height: 12rpx;
   border-radius: 50%;
@@ -317,45 +324,62 @@
   margin-bottom: 10px;
   margin-top: 14rpx;
 }
-.prWork2{
+
+.prWork2 {
   padding-left: 20rpx;
 }
-.prWork2_2{
+
+.prWork2_2 {
   color: #222;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
 }
-.prWork2_1{
+
+.prWork2_1 {
   color: #b8b9bf;
-  padding-top: 20rpx ;
+  padding-top: 20rpx;
   font-size: 26rpx;
 }
-.prWork2_1_1 image{
+
+.prWork2_1_1 image {
   width: 26rpx;
   vertical-align: middle;
 }
-
-.prWork2_1_2 text:first-child{
+.prWork2_1_2{
+  font-size: 24rpx;
+}
+.prWork2_1_2 text:first-child {
   padding-right: 10rpx;
 }
-.prWork2_1_2 text:last-child {
+
+.timebox{
   background: #f7f8fc;
   padding: 4rpx 10rpx;
   border-radius: 20px;
 }
+
 /* --多个菜单-- */
-.pdMenu{
+.pdMenu {
   padding: 20rpx 0;
   padding-top: 40rpx;
 }
-.pdMenu image{
-  width: 40rpx;
+
+.pdMenu image {
+  width: 36rpx;
   vertical-align: middle;
 }
-.pdMenu .pdmItem{
-  background:#fff;
+
+.pdMenu .pdmItem {
+  background: #fff;
   padding: 10rpx 20rpx;
   border-radius: 8rpx;
 }
-.pdMenu text{
+
+.pdMenu text {
   padding-left: 10rpx;
 }
-

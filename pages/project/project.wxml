@@ -3,29 +3,33 @@
 <view class="container">
   <view class="proList">
     <navigator url="projectDetails?id={{item.lawCaseId}}" class="boxScont proItem " wx:for="{{pgList}}">
+      <view class="status">{{item.statusName}}</view>
       <view class=" proItem1 flex-items">
         <image mode="widthFix" src="/images/index/qy.png"></image>
-        <text>企业名字</text>
+        <text>{{item.serviceTitle}}</text>
       </view>
       <view class="proItem2 flex-between">
         <view class="flex-items">
           <text></text>
-          <text>接收材料</text>
+          <text>{{item.stageLinkName}}</text>
         </view>
-        <view class="f12">2012-12-12</view>
+        <view class="f12">{{item.startTime}}</view>
       </view>
       <view class="proItem3 flex-items">
         <image mode="widthFix" src="/images/index/ls.png"></image>
-        <text>名字律师</text>
+        <text>{{item.dynamicBean.lawyerName}}</text>
       </view>
-      <view class="proItem4">{{item.serviceTitle}}</view>
-      <view class="proItem5 flex-between">
+      <view class="proItem4">{{item.dynamicBean.content}}</view>
+      <view class="proItem5 ">
         <view>
-          <text>{{item.created}}</text>
+          <text>{{item.dynamicBean.created}}</text>
           <text class="pl5"></text>
-          <text>2小时</text>
+          <text class="timebox" wx:if="{{item.dynamicBean.hours!=0&&item.dynamicBean.minutes!=0}}">
+            <block wx:if="{{item.dynamicBean.hours!=0}}">{{item.dynamicBean.hours}}时</block>
+            <block wx:if="{{item.dynamicBean.minutes!=0}}">{{item.dynamicBean.hours}}分</block>
+          </text>
         </view>
-        <view>进行中</view>
+        
       </view>
     </navigator>
   </view>

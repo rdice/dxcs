@@ -15,9 +15,9 @@
       <view class="flex-items gwtitle1_1">
         <image mode="widthFix" src="/images/project/wtr.png"></image>
         <text class="pl5">委托人：</text>
-        <text>中国电信</text>
+        <text>{{pageData.bean.proxyName}}</text>
       </view>
-      <view class="gwtitle1_2">进行中</view>
+      <view class="gwtitle1_2">{{pageData.bean.statusName}}</view>
     </view>
     <view class="gwtitle2">
       <view class="gwtitle2_1">{{pageData.bean.serviceTitle}}</view>
@@ -35,11 +35,11 @@
     <view class="flex-between gwtitle3">
       <view class="flex-items">
         <image mode="widthFix" src="/images/project/startTime.png"></image>
-        <text>{{pageData.bean.startTime}}2012-12-12</text>
+        <text>{{pageData.bean.startTime}}</text>
       </view>
-      <view class="flex-items">
+      <view class="flex-items" wx:if="{{pageData.bean.endTime!=''}}">
         <image mode="widthFix" src="/images/project/endTime.png"></image>
-        <text>{{pageData.bean.endTime}}2012-12-12</text>
+        <text>{{pageData.bean.endTime}}</text>
       </view>
     </view>
   </view>
@@ -85,154 +85,7 @@
       </navigator>
     </view>
   </view>
-  <view class="prd_ti flex-between flex-items">
-    <view class="flex-items">
-      <text class="bline"></text>
-      <text class="pl5">案件附件</text>
-    </view>
-    <navigator class="sMore" url="/pages/project/more/fileList?id={{pageData.bean.lawCaseId}}&idx={{ajfjIdx}}&pid=">
-      <text>+MORE</text>
-    </navigator>
-  </view>
-  <view class="boxScont prd2" style="position:relative">
-    <switchTab-component list="{{ajfj}}" bindmyevent="switchAjfj" />
-    <view style="display:{{ajfjIdx==1?'block':'none'}}" class="addXm" catchtap="addAjfjMenu">
-      <image src="/images/project/add.png"></image>
-    </view>
-    <view style="margin-top:30rpx;display:{{ajfjIdx==0?'block':'none'}}">
-      <view class="ajfj flex-items" wx:for="{{pageData.fileList1}}" catchtap="openFile"
-        data-isfile="{{item.isFile}}" data-id="{{item.isFile?item.allFileId:item.id}}">
-        <image src="{{item.iconUrl}}" class="fileImg flex-none"></image>
-        <view>
-          <view>{{tools.substring(item.name)}}</view>
-          <view>{{item.created}}</view>
-        </view>
-      </view>
-    </view>
-    <view style="margin-top:30rpx;display:{{ajfjIdx==1?'block':'none'}}">
-      <view class="ajfj flex-items" wx:for="{{pageData.fileList2}}" catchtap="openFile"
-        data-isfile="{{item.isFile}}" data-id="{{item.isFile?item.allFileId:item.id}}">
-        <image src="{{item.iconUrl}}" class="fileImg flex-none"></image>
-        <view class="flex-1">
-          <view>{{tools.substring(item.name)}}</view>
-          <view>{{item.created}}</view>
-        </view>
-        <image class="els flex-none" src="/images/els.png" catchtap="showAjfjMenu" data-idx="{{index}}"
-          data-id="{{item.id}}" data-name="{{item.name}}"></image>
-      </view>
-    </view>
-  </view>
-  <view class="prd_ti flex-between flex-items">
-    <view class="flex-items">
-      <text class="bline"></text>
-      <text class="pl5">成员列表</text>
-    </view>
-  </view>
-  <view class="boxScont prd2">
-    <view class="flex-between">
-      <view class="cyry1">
-        <image src="/images/project/cyry.png"></image>
-        <text>企业人员（{{pageData.serviceMemberList1.length}}）</text>
-      </view>
-      <navigator class="sMore" url="/pages/project/more/memberList?id={{pageData.bean.lawCaseId}}">
-        <text>+MORE</text>
-      </navigator>
-    </view>
-    <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList1}}">
-      <image src="/images/index/fwls.png" class="headImg flex-none" bindtap="aloneChat"
-        data-accout="{{item.memberAccount}}"></image>
-      <view class="cyry2_1 flex-1">
-        <view>
-          <text class="t1">{{item.name}}</text>
-          <text class="t2">{{item.identity}}</text>
-        </view>
-        <view>{{item.phone}}</view>
-      </view>
-      <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
-      </image>
-    </view>
-  </view>
-  <view class="boxScont prd2" style="margin:30rpx 0;">
-    <view class="cyry1">
-      <image src="/images/project/lstd.png"></image>
-      <text>律师团队（{{pageData.serviceMemberList2.length}}）</text>
-    </view>
-    <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList2}}">
-      <image src="{{item.headUrl}}" class="headImg flex-none" bindtap="aloneChat" data-accout="{{item.memberAccount}}">
-      </image>
-      <view class="cyry2_1 flex-1">
-        <view>
-          <text class="t1">{{item.realname}}</text>
-          <text class="t2">{{item.identity}}</text>
-        </view>
-        <view>{{item.phone}}</view>
-      </view>
-      <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
-      </image>
-    </view>
-  </view>
-  <view class="boxScont prd2">
-    <view class="cyry1">
-      <image src="/images/project/qt.png"></image>
-      <text>其他人员（{{pageData.serviceMemberList3.length}}）</text>
-    </view>
-    <view class="cyry2 flex-items" wx:for="{{pageData.serviceMemberList3}}">
-      <image src="/images/index/fwls.png" class="headImg flex-none" bindtap="aloneChat"
-        data-accout="{{item.memberAccount}}"></image>
-      <view class="cyry2_1 flex-1">
-        <view>
-          <text class="t1">{{item.name}}</text>
-          <text class="t2">{{item.identity}}</text>
-        </view>
-        <view>{{item.phone}}</view>
-      </view>
-      <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
-      </image>
-    </view>
-  </view>
-  <view class="prd_ti flex-between flex-items">
-    <view class="flex-items">
-      <text class="bline"></text>
-      <text class="pl5">待办事项</text>
-    </view>
-    <navigator class="sMore" url="/pages/project/more/dbsxList?id={{pageData.bean.lawCaseId}}&idx={{dbsxIdx}}">
-      <text>+MORE</text>
-    </navigator>
-  </view>
-  <view class="boxScont prd2" style="position:relative">
-    <switchTab-component list="{{dbsx}}" bindmyevent="switchDbsx" />
-    <navigator url="/pages/project/details/dbsxDetails1?xmid={{pageData.bean.lawCaseId}}"
-      style="display:{{dbsxIdx==1?'block':'none'}}" class="addXm">
-      <image src="/images/project/add.png"></image>
-    </navigator>
-    <view class="dbsx">
-      <view class="dbsx1" style="display:{{dbsxIdx==0?'block':'none'}}">
-        <navigator
-          url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is={{dbsxIdx}}"
-          class=" dbsxItem" wx:for="{{pageData.todoListList1}}">
-          <view class="dbsxItem1 flex ">
-            <view class="dbsxRound flex-none"></view>
-            <view>{{item.name}}</view>
-          </view>
-          <view class="dbsxItem2">{{item.created}}</view>
-        </navigator>
-      </view>
-      <view class="dbsx1" style="display:{{dbsxIdx==1?'block':'none'}}">
-        <navigator
-          url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is={{dbsxIdx}}"
-          class="dbsxItem" wx:for="{{pageData.todoListList2}}">
-          <view class="dbsxItem1 flex">
-            <view class="dbsxRound flex-none"></view>
-            <view>{{tools.substring(item.name)}}</view>
-          </view>
-          <view class="dbsxItem2 flex-between">
-            <view style="color:#{{item.status==0?'6b82f7':'b8b9bf'}}">{{item.status==0?'进行中':'已提醒'}}</view>
-            <view>{{item.created}}</view>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
+  
   <view class="prd_ti flex-between flex-items">
     <view class="flex-items">
       <text class="bline"></text>
@@ -251,11 +104,14 @@
         <view class="prWork2_1 flex-between">
           <view class="flex-items prWork2_1_1">
             <image mode="widthFix" src="/images/index/ls.png"></image>
-            <text class="pl5">名字律师</text>
+            <text class="pl5">{{item.lawyerName}}</text>
           </view>
           <view class="prWork2_1_2">
             <text>{{item.created}}</text>
-            <text>2小时</text>
+            <text class="timebox" wx:if="{{item.hours!=0&&item.minutes!=0}}">
+              <block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
+              <block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
+            </text>
           </view>
         </view>
       </view>

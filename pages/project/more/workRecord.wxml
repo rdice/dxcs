@@ -1,12 +1,12 @@
 <!--pages/project/more/workRecord.wxml-->
 <view class="container workList">
-  <navigator wx:for="{{pgList}}" wx:key="*this" class="workItem "
+  <navigator wx:for="{{pgList}}" wx:key="*this" class="workItem boxScont "
     url="/pages/project/details/workRecordDetails?id={{item.id}}">
     <view class="workItem1 flex-items">
       <image mode="widthFix" src="/images/index/qy.png"></image>
       <text>地址</text>
     </view>
-    <view class="workItem2">{{item.content}}</view>
+    <view class="workItem2"><view>{{item.content}}</view></view>
     <view class="workItem3 flex-between">
       <view class="flex-items workItem3_1">
         <image mode="widthFix" src="/images/index/ls.png"></image>

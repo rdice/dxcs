@@ -42,11 +42,15 @@
   font-size: 24rpx;
   padding-top: 10rpx;
 }
-.proItem5>view text:last-child{
+.timebox{
   background:#f7f8fc;
   padding: 4rpx 10rpx;
   border-radius: 20px;
 }
-.proItem5>view:last-child{
+.status{
   color: #6a67e4;
+  text-align: right;
+  font-size: 24rpx;
+  position: relative;
+  top: -12rpx;
 }

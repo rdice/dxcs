@@ -11,14 +11,14 @@
 				<view>15</view>
 				<view>消息</view>
 			</navigator>
-			<navigator class="index1_2item" url="/pages/index/details/toDoTask">
+			<navigator class="index1_2item" url="/pages/project/more/dbsxList?id=&idx=">
 				<view>{{totleNum.caseTaskNum1}}</view>
 				<view>待办任务</view>
 			</navigator>
-			<navigator class="index1_2item">
+			<!-- <navigator class="index1_2item">
 				<view>15</view>
 				<view>合同</view>
-			</navigator>
+			</navigator> -->
 			<image mode="widthFix" class="index1_2img" src="/images/index1img.png"></image>
 		</view>
 		<view class="index1_3 flex">
@@ -71,18 +71,21 @@
 									<!-- <text>8/11</text> -->
 									<text class="f12 pl5">{{item.created}}</text>
 								</view>
-								<view class="f12 ">2小时</view>
+								<view class="f12 dbItem2_1v_1" wx:if="{{item.hours!=0&&item.minutes!=0}}">
+									<block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
+									<block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
+								</view>
 							</view>
 							<view class="dbItem2_2v flex-items">
 								<image src="/images/index/qy.png" mode="widthFix"></image>
-								<text>公司名字</text>
+								<text>{{item.caseName}}</text>
 							</view>
 						</view>
 						<view class="dbsxTitle">
-							<view>{{item.content}}</view>
+							<view class="dbsxTitle1">{{item.content}}</view>
 							<view class="flex-items">
 								<image mode="widthFix" src="/images/index/ls.png"></image>
-								<text>名字律师</text>
+								<text>{{item.lawyerName}}</text>
 							</view>
 						</view>
 					</view>
