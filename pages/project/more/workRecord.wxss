@@ -51,7 +51,7 @@
   font-size: 26rpx;
 }
 
-.workItem3_2 text:last-child {
+.timebox {
   background: #f7f8fc;
   padding: 4rpx 10rpx;
   border-radius: 20px;

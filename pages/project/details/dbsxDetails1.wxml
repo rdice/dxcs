@@ -14,18 +14,27 @@
           <textarea class="flex-1" name="description" value=""></textarea>
         </view>
         <view class="dbItem flex">
-          <text class="flex-none">选择律师：</text>
-          <input class="flex-1"  disabled="true" bindtap='chooseLawyer' value="{{lawyerStr}}" data-value="{{lawyerStr}}"></input>
-        
+          <text class="flex-none">到期时间</text>
+          <picker name="completedate" mode="date" value="" start="{{date}}" end="2050-09-01" bindchange="bindDateChange">
+            <view class="picker" style="height:40rpx;">
+              {{date}}
+            </view>
+          </picker>
         </view>
-  
+        <view class="dbItem flex">
+          <text class="flex-none">选择律师：</text>
+          <input class="flex-1" disabled="true" bindtap='chooseLawyer' value="{{lawyerStr}}"
+            data-value="{{lawyerStr}}"></input>
+        </view>
+
         <view class="dbItem" style="border:none">
-        <view class="dbItem1">
+          <view class="dbItem1">
             <view bindtap="chooseFile">上传附件</view>
           </view>
           <view class='imgList'>
-            <image wx:for="{{tempFilePaths}}" src="{{item}}" class="temImg" data-url="{{item}}" catchtap="prevOrdelImage" data-idx="{{index}}"></image>
-            
+            <image wx:for="{{tempFilePaths}}" src="{{item}}" class="temImg" data-url="{{item}}"
+              catchtap="prevOrdelImage" data-idx="{{index}}"></image>
+
           </view>
         </view>
         <view style="margin-top:30rpx;">

@@ -2,36 +2,44 @@
 <wxs src="../../wxs/common.wxs" module="tools" />
 <view class="container">
   <view class="proList">
-    <navigator url="projectDetails?id={{item.lawCaseId}}" class="boxScont proItem " wx:for="{{pgList}}">
-      <view class="status">{{item.statusName}}</view>
-      <view class=" proItem1 flex-items">
-        <image mode="widthFix" src="/images/index/qy.png"></image>
-        <text>{{item.serviceTitle}}</text>
-      </view>
-      <view class="proItem2 flex-between">
-        <view class="flex-items">
-          <text></text>
-          <text>{{item.stageLinkName}}</text>
+    <block wx:if="{{pgList.length>0}}">
+      <navigator url="projectDetails?id={{item.lawCaseId}}" class="boxScont proItem " wx:for="{{pgList}}">
+        <view class="status">{{item.statusName}}</view>
+        <view class=" proItem1 flex-items">
+          <image mode="widthFix" src="/images/index/qy.png"></image>
+          <text>{{item.serviceTitle}}</text>
         </view>
-        <view class="f12">{{item.startTime}}</view>
-      </view>
-      <view class="proItem3 flex-items">
-        <image mode="widthFix" src="/images/index/ls.png"></image>
-        <text>{{item.dynamicBean.lawyerName}}</text>
-      </view>
-      <view class="proItem4">{{item.dynamicBean.content}}</view>
-      <view class="proItem5 ">
-        <view>
-          <text>{{item.dynamicBean.created}}</text>
-          <text class="pl5"></text>
-          <text class="timebox" wx:if="{{item.dynamicBean.hours!=0&&item.dynamicBean.minutes!=0}}">
-            <block wx:if="{{item.dynamicBean.hours!=0}}">{{item.dynamicBean.hours}}时</block>
-            <block wx:if="{{item.dynamicBean.minutes!=0}}">{{item.dynamicBean.hours}}分</block>
-          </text>
+        <view class="proItem2 flex-between">
+          <view class="flex-items">
+            <text wx:if="{{item.stageLinkName!=''}}" class="rRound"></text>
+            <text class="pl5">{{item.stageLinkName}}</text>
+          </view>
+          <view class="f12">{{item.startTime}}</view>
         </view>
-        
+        <view class="proItem3 flex-items">
+          <image mode="widthFix" src="/images/index/ls.png"></image>
+          <text>{{item.dynamicBean.lawyerName}}</text>
+        </view>
+        <view class="proItem4">{{item.dynamicBean.content}}</view>
+        <view class="proItem5 ">
+          <view>
+            <text>{{item.dynamicBean.created}}</text>
+            <text class="pl5"></text>
+            <text class="timebox" wx:if="{{item.dynamicBean.hours!=0&&item.dynamicBean.minutes!=0}}">
+              <block wx:if="{{item.dynamicBean.hours!=0}}">{{item.dynamicBean.hours}}时</block>
+              <block wx:if="{{item.dynamicBean.minutes!=0}}">{{item.dynamicBean.hours}}分</block>
+            </text>
+          </view>
+
+        </view>
+      </navigator>
+    </block>
+    <block wx:else>
+      <view class="nfile">
+        <image mode="widthFix" src="/images/nFile.png"></image>
+        <view>暂无数据</view>
       </view>
-    </navigator>
+    </block>
   </view>
 
 </view>

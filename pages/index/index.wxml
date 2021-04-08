@@ -2,13 +2,13 @@
 <view class="container">
 	<!-- <include src="/template/tabTop.wxml" /> -->
 	<view class="index1">
-		<navigator class="index1_1" url="/pages/personal/personalDatas">
-			<view>下午好，{{userInfo.name}}</view>
+		<view class="index1_1">
+			<view>你好，{{userInfo.name}}</view>
 			<view>{{userInfo.position}}</view>
-		</navigator>
+		</view>
 		<view class="flex-around index1_2">
 			<navigator class="index1_2item" url="/pages/chatroom/index/index">
-				<view>15</view>
+				<view>{{unreadCount}}</view>
 				<view>消息</view>
 			</navigator>
 			<navigator class="index1_2item" url="/pages/project/more/dbsxList?id=&idx=">
@@ -38,58 +38,48 @@
 				工作记录
 				<text>{{totleNum.workRecordNum}}</text>
 			</navigator>
-			<!-- 
-			<view wx:if="{{idx==0||idx==1}}">
-				<navigator hover-class="none" class="index2_2" wx:for="{{pgList}}" wx:key="item"
-					url="/pages/project/details/dbsxDetails?id={{item.taskId}}&legalid={{pageData.bean.lawCaseId}}&is=0">
 
-					<view class="dbItem flex">
+			<view>
+				<block wx:if="{{pgList.length>0}}">
+					<navigator wx:for="{{pgList}}" wx:key="item" class="index2_2 dbItem flex"
+						url="/pages/project/details/workRecordDetails?id={{item.id}}">
 						<view class="dbItem1">
-							<view style="background: #6b82f7"></view>
+							<view></view>
 							<view></view>
 						</view>
 						<view class="dbItem2">
-							<view>{{item.created}}
-								<text class="dbsxTime" style="color:#6b82f7">进行中</text>
-							</view>
-							<view class="dbsxTitle">{{item.name}}</view>
-						</view>
-					</view>
-				</navigator>
-			</view> -->
-			<view>
-				<navigator wx:for="{{pgList}}" wx:key="item" class="index2_2 dbItem flex"
-					url="/pages/project/details/workRecordDetails?id={{item.id}}">
-					<view class="dbItem1">
-						<view></view>
-						<view></view>
-					</view>
-					<view class="dbItem2">
-						<view class="dbItem2_1">
-							<view class="flex-between dbItem2_1v">
-								<view class="">
-									<!-- <text>8/11</text> -->
-									<text class="f12 pl5">{{item.created}}</text>
+							<view class="dbItem2_1">
+								<view class="flex-between dbItem2_1v">
+									<view class="">
+										<!-- <text>8/11</text> -->
+										<text class="f12 pl5">{{item.created}}</text>
+									</view>
+									<view class="f12 dbItem2_1v_1" wx:if="{{item.hours!=0||item.minutes!=0}}">
+										<block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
+										<block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
+									</view>
 								</view>
-								<view class="f12 dbItem2_1v_1" wx:if="{{item.hours!=0&&item.minutes!=0}}">
-									<block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
-									<block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
+								<view class="dbItem2_2v flex-items">
+									<image src="/images/index/qy.png" mode="widthFix"></image>
+									<text>{{item.caseName}}</text>
 								</view>
 							</view>
-							<view class="dbItem2_2v flex-items">
-								<image src="/images/index/qy.png" mode="widthFix"></image>
-								<text>{{item.caseName}}</text>
+							<view class="dbsxTitle">
+								<view class="dbsxTitle1">{{item.content}}</view>
+								<view class="flex-items">
+									<image mode="widthFix" src="/images/index/ls.png"></image>
+									<text>{{item.lawyerName}}</text>
+								</view>
 							</view>
 						</view>
-						<view class="dbsxTitle">
-							<view class="dbsxTitle1">{{item.content}}</view>
-							<view class="flex-items">
-								<image mode="widthFix" src="/images/index/ls.png"></image>
-								<text>{{item.lawyerName}}</text>
-							</view>
-						</view>
+					</navigator>
+				</block>
+				<block wx:else>
+					<view class="nfile">
+						<image mode="widthFix" src="/images/nFile.png"></image>
+						<view>暂无数据</view>
 					</view>
-				</navigator>
+				</block>
 			</view>
 		</view>
 	</view>

@@ -37,7 +37,7 @@ Page({
   // 聊天
   toChat:function(e){
     var id = e.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/chatroom/index/chat?type=C2C&userid=' + id,
     })
   },

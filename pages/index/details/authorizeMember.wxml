@@ -17,8 +17,8 @@
 
         </view>
         <view class="flex meItem2 ">
-          <view catchtap="showEdit" data-idx="{{index}}">编辑</view>
-          <view catchtap="delItem" data-idx="{{index}}" data-id="{{item.memberId}}">删除</view>
+          <view class="meItem2_edit" catchtap="showEdit" data-idx="{{index}}">编辑</view>
+          <view class="meItem2_del" wx:if="{{item.memberId!=cmemberId}}" catchtap="delItem" data-idx="{{index}}" data-id="{{item.memberId}}">删除</view>
         </view>
       </view>
 

@@ -22,16 +22,15 @@
   border-bottom: 1px solid #eee;
   padding: 15rpx 0;
 }
-.proItem2 text:first-child{
+
+.rRound{
   display: inline-block;
   background:#ee3c30;
   border-radius: 50%;
   width: 6px;
   height: 6px;
 }
-.proItem2 text:last-child{
-  padding-left: 10rpx;
-}
+
 
 .proItem3{
   color:  #b2b5c0;

@@ -1,11 +1,27 @@
 <!--pages/project/details/workRecordDetails.wxml-->
 <wxs src="../../../wxs/common.wxs" module="tools" />
-<view class="container subBox">
-  <view class="tabPge2">
-    <view class="wrd1">{{pageData.title}}</view>
-    <view class="wrd2">{{pageData.created}}</view>
-    <view class="wrd3">{{pageData.content}}</view>
-    
-    <include src="../fileTem.wxml"/>
+<view class="container">
+  <view class="wrd">
+    <view class="wrd1 flex-items">
+      <image src="/images/index/qy.png" mode="widthFix"></image>
+      <text class="pl5">{{pageData.caseName}}</text>
+    </view>
+    <view class="wrd2">{{pageData.content}}</view>
+    <view class="wrd3 flex-between">
+      <view>
+        <image mode="widthFix" src="/images/index/ls.png"></image>
+        <text class="pl5">{{pageData.lawyerName}}</text>
+      </view>
+      <view>
+        <text>{{pageData.created}}</text>
+        <text class="pl5"></text>
+        <text class="timebox" wx:if="{{pageData.hours!=0&&pageData.minutes!=0}}">
+          <block wx:if="{{pageData.hours!=0}}">{{pageData.hours}}时</block>
+          <block wx:if="{{pageData.minutes!=0}}">{{pageData.hours}}分</block>
+        </text>
+      </view>
+    </view>
+
+    <include src="../fileTem.wxml" />
   </view>
 </view>

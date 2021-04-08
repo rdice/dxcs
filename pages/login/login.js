@@ -54,8 +54,8 @@ Page({
     }, function (res) {
 
       if (res.data.code == "1") {
-
-        getuserInfo()
+        var opi = {};
+        getuserInfo(opi)
       } else { //
 
         wx.showToast({
@@ -119,28 +119,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var accout = "123"
-    // console.log(gen.genTestUserSig(accout).userSig)
-    // let promise = app.tim.login({
-    //   userID: accout,
-    //   userSig: gen.genTestUserSig(accout).userSig
-    // });
-    // promise.then(function (imResponse) {
-    //   console.log(imResponse.data); // 登录成功
-    //   let onSdkReady = function(event) {
-    //     wx.redirectTo({
-    //       url: '/pages/chatroom/index/index',
-    //     })
-        
-    //   };
-    //   tim.on(TIM.EVENT.SDK_READY, onSdkReady);
-
-    // }).catch(function (imError) {
-    //   console.warn('login error:', imError); // 登录失败的相关信息
-    // });
-    // return
-
-
+    var opi = options;
     wx.login({
       success: function (loginRes) {
 
@@ -153,7 +132,7 @@ Page({
             },
             success: function (res) {
               app.openid = res.data.res;
-              getuserInfo()
+              getuserInfo(opi)
 
             }
           })
@@ -179,53 +158,97 @@ Page({
 
 })
 
-function getuserInfo() {
+function getuserInfo(opi) {
   util.request(api.getUserInfo, {
     openid: app.openid
   }, function (e) {
-    
+
     if (e.data.code == 1) {
       wx.showLoading({
         title: '正在加载中',
       })
       var accout = e.data.bean.memberAccount
-      app.accout = accout; 
+      app.accout = accout;
       console.log(e.data.bean)
-      console.log("===")
+
 
       app.globalData.userInfo = e.data.bean;
       app.memberId = e.data.bean.memberId;
       app.manager = e.data.manager;
-      getTencentyunConfig(accout)
+      getTencentyunConfig(accout, opi)
 
-      
-      
+
+
     }
   })
 }
-function getTencentyunConfig(accout){
+
+function getTencentyunConfig(accout, opi) {
   util.request(api.getTencentyunConfig, {
     memberAccount: accout
   }, function (e) {
-
+    console.log("===")
+    tim.on(TIM.EVENT.SDK_READY, function (event) {
+      console.log(event)
+      console.log("==============")
+      if (JSON.stringify(opi) == "{}") {
+        wx.redirectTo({
+          url: '/pages/index/index',
+        })
+      } else {
+        navType(opi)
+      }
+    });
     // 调用im同时登录
     let promise = app.tim.login({
       userID: accout,
       userSig: e.data.userSig
     });
     promise.then(function (imResponse) {
-      //console.log(imResponse.data); // 登录成功
-      let onSdkReady = function(event) {
-        wx.hideLoading()
-        wx.redirectTo({
-          url: '/pages/index/index',
-        })
-        
-      };
-      tim.on(TIM.EVENT.SDK_READY, onSdkReady);
+      wx.hideLoading();
+      if(imResponse.data.repeatLogin){
+        if (JSON.stringify(opi) == "{}") {
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        } else {
+          navType(opi)
+        }
+      }
+      
+      
 
     }).catch(function (imError) {
       console.warn('login error:', imError); // 登录失败的相关信息
     });
   })
+}
+
+function navType(opi) {
+  console.log(opi)
+  if (opi.pushType == 301) {
+    wx.redirectTo({
+      url: '/pages/project/details/dbsxDetails?id=' + opi.mainId + '&is=0',
+    })
+  } else if (opi.pushType == 302) {
+    wx.redirectTo({
+      url: '/pages/project/details/dbsxDetails?id=' + opi.mainId + '&is=1',
+    })
+  } else if (opi.pushType == 303) {
+    wx.redirectTo({
+      url: '/pages/project/details/workRecordDetails?id=' + opi.mainId,
+    })
+  } else if (opi.pushType == 304 || opi.pushType == 305 || opi.pushType == 306 || opi.pushType == 307) {
+    wx.redirectTo({
+      url: '/pages/project/projectDetails?id=' + opi.mainId,
+    })
+  } else if (options.pushType == 308) {
+    wx.redirectTo({
+      url: '/pages/chatroom/index/chat?type=C2C&userid=' + opi.mainId,
+    })
+  } else if (options.pushType == 309) {
+    wx.redirectTo({
+      url: '/pages/chatroom/index/chat?type=GROUP&userid=' + opi.mainId,
+    })
+  }
 }

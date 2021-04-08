@@ -27,7 +27,7 @@ Page({
   chatRoom: function () {
     var that = this;
     var bean = that.data.pageData.bean;
-    
+
     wx.navigateTo({
       url: '/pages/chatroom/index/chat?type=GROUP&userid=' + bean.groupId,
     })
@@ -37,7 +37,7 @@ Page({
 
   },
   // 一对一聊天
-  aloneChat:function(e){
+  aloneChat: function (e) {
     console.log(e.currentTarget.dataset)
     var accout = e.currentTarget.dataset.accout;
     wx.navigateTo({
@@ -66,12 +66,12 @@ Page({
             success: function (res) {
               console.log(res.tempFilePaths)
 
-              utils.uploadFiles(that.data.id, res.tempFilePaths)
-              setTimeout(function () {
+              utils.uploadFiles(that.data.id, res.tempFilePaths, function () {
                 wx.redirectTo({
                   url: '/pages/project/projectDetails?id=' + that.data.id,
                 })
-              }, 100)
+              })
+
             }
           })
         } else if (res.tapIndex == 1) {

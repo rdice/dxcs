@@ -141,9 +141,7 @@
   margin-top: 14rpx;
 }
 
-.index2_2:first-child .dbItem1>view:first-child {
-  background: #ee3c30;
-}
+
 
 .dbItem1>view:last-child {
   border-left: 1px solid #ddd;
@@ -266,7 +264,10 @@
   word-wrap: break-word;
   width: 510rpx;
 }
-
+.dbsxTitle image{
+  width: 15px;
+  height: 15px;
+}
 /* 案件附件 */
 
 .ajfj {

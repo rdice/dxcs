@@ -39,7 +39,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f7f8fc",
-    "navigationBarTitleText": "法智星掌上智能法务系统",
+    "navigationBarTitleText": "掌上智能法务系统",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

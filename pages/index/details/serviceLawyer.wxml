@@ -1,7 +1,7 @@
 <!--pages/index/details/serviceLawyer.wxml-->
 <view class="container ">
   <view class="lawyerList">
-      <view class="boxScont lawyerItem" wx:for="{{pgList}}">
+      <navigator class="boxScont lawyerItem" wx:for="{{pgList}}" url="/pages/chatroom/index/chat?type=C2C&userid={{item.memberAccount}}">
         <view class="flex-between lawyerItem1">
           <view class="flex-items lawyerItem1_1 ">
             <image src="{{item.headUrl}}"></image>
@@ -10,12 +10,12 @@
               <view>{{item.officename}}</view>
             </view>
           </view>
-          <view class="lawyerItem1_3">职业{{item.jobYear}}年</view>
+          <!-- <view class="lawyerItem1_3 flex-none">执业{{item.year}}年</view> -->
         </view>
-        <view class="lawyerItem2 flex">
+        <!-- <view class="lawyerItem2 flex">
           <view >你好</view>
-        </view>
+        </view> -->
        
-      </view>
+      </navigator>
     </view>
 </view>

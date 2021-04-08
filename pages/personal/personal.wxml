@@ -1,16 +1,16 @@
 <!--pages/personal/personal.wxml-->
 <view class="container">
   <view class="usercont">
-    <view class="flex-between flex-items userSet">
-      <view class="flex-items userSet1">
-        <image src="/images/headImg.png"></image>
-        <text>{{userInfo.name}}</text>
-      </view>
-      <navigator class="userSet2" url="/pages/personal/personalDatas">
+    <view class="userSet">
+      <!-- <view class="userSet1">
+        <view>{{userInfo.unitName}}</view>
+        <view style="fong-size:16px;color:#333;padding:5px 0">你好，{{userInfo.name}}</view>
+      </view> -->
+      <!-- <navigator class="userSet2" url="/pages/personal/personalDatas">
         <image src="/images/set.png" mode="widthFix"></image>
-      </navigator>
+      </navigator> -->
     </view>
-    <view class="flex-around userMenu">
+    <!-- <view class="flex-around userMenu">
       <view class="userMenu1">
         <image src="/images/ll.png" mode="widthFix"></image>
         <text>我的浏览</text>
@@ -19,21 +19,29 @@
         <image src="/images/sc.png" mode="widthFix"></image>
         <text>我的收藏</text>
       </view>
-    </view>
+    </view> -->
     <view class="personal1">通讯录</view>
     <view class="mailList">
-      <view class="cyry2 flex-items" wx:for="{{mailList}}">
-        <image src="{{item.headUrl}}" class="headImg flex-none"></image>
-        <view class="cyry2_1 flex-1">
-          <view>
-            <text class="t1">{{item.realname}}</text>
-            <text class="t2">{{item.officename}}</text>
+      <block wx:if="{{mailList.length>0}}">
+        <view class="cyry2 flex-items" wx:for="{{mailList}}">
+          <image src="{{item.headUrl}}" class="headImg flex-none"></image>
+          <view class="cyry2_1 flex-1">
+            <view>
+              <text class="t1">{{item.realname}}</text>
+              <text class="t2">{{item.officename}}</text>
+            </view>
+            <view>{{item.phone}}</view>
           </view>
-          <view>{{item.phone}}</view>
+          <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
+          </image>
         </view>
-        <image class="cyry2_2" src="/images/project/phone.png" data-phone="{{item.phone}}" catchtap="callPhoneback">
-        </image>
-      </view>
+      </block>
+      <block wx:else>
+        <view class="nfile">
+          <image mode="widthFix" src="/images/nFile.png"></image>
+          <view>暂无数据</view>
+        </view>
+      </block>
     </view>
   </view>
 

@@ -14,7 +14,9 @@
         </view>
         <image class="cyry2_2" src="/images/project/phone.png" catchtap="callPhone" data-phone="{{item.phone}}"></image>
         <view style="padding:0;display:{{cyxzIdx==0?'block':'none'}}">
-          <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}" style="display:{{currentMemberId==item.memberId?'none':'block'}}" data-id="{{item.memberId}}" ></image>
+          <block wx:if="{{item.id!=currentMemberId}}">
+            <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}" style="display:{{currentMemberId==item.memberId?'none':'block'}}" data-id="{{item.memberId}}" ></image>
+          </block>
         </view>
       </view>
     </view>

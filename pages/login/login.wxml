@@ -1,23 +1,29 @@
 <view class="login">
+  <image class="loginbg" src="/images/login/loginbg.jpg"></image>
   <form>
-    <view style="padding:0 72rpx;padding-top:40%; ">
-      <view style="border-bottom:1px solid #efefef;display:flex;">
-        <image src="../../images/user.png" style="width:40rpx;height:48rpx;vertical-align:top;"></image>
-        <input bindinput="phoneBlur" name="phone" type="number" placeholder="请输入手机号" placeholder-style="color:#efefef" class="paw" maxlength="11" />
+    <view class="loginbox">
+      <view class="loginbox1">
+        <view class="loginbox1_1 flex" >
+          <image src="/images/login/user.png" class="flex-none" mode="widthFix"></image>
+          <input bindinput="phoneBlur" name="phone" type="number" placeholder="请输入手机号" placeholder-style="color:#aaa"
+            class="paw" maxlength="11" />
+        </view>
+        <view class="loginbox1_1 flex-items">
+          <image src="/images/login/paw.png" class="flex-none" mode="widthFix" ></image>
+          <input class="paw" bindinput="codeBlur" name="code" type="number" placeholder="请输入验证码" maxlength="6"
+            placeholder-style="color:#aaa" />
+          <button hidden="{{issendcode==false?'':true}}" class="login_btn2 flex-none" catchtap="getPhoneCode">
+            获取验证码
+          </button>
+          <button class="login_btn2" hidden="{{issendcode==false?true:''}}">{{second}}秒</button>
+        </view>
       </view>
-      <view style="border-bottom:1px solid #efefef;padding-top:70rpx;display:flex;">
-        <image src="../../images/paw.png" style="width:44rpx;height:48rpx;vertical-align:top;"></image>
-        <input class="paw" bindinput="codeBlur" name="code" type="number" placeholder="请输入验证码" maxlength="6" placeholder-style="color:#efefef" />
-        <button hidden="{{issendcode==false?'':true}}" class="login_btn2" catchtap="getPhoneCode">
-          获取验证码
-        </button>
-        <button class="login_btn2" hidden="{{issendcode==false?true:''}}">{{second}}秒</button>
+      <view class="loginbox2">
+        <button bindtap="submitForm" class="login_btn">登录</button>
       </view>
     </view>
 
-    <view>
-      <button bindtap="submitForm" class="login_btn">登录</button>
-    </view>
+
   </form>
 
 </view>

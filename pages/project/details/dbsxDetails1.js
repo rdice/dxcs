@@ -14,6 +14,14 @@ Page({
     tempFilePaths: [], //附件list
     lawyerStr: "", //选择律师
     lawyerStrId: "", //选择律师 id
+    date: '',
+  },
+  // 日期
+  bindDateChange:function(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
   },
   // 选择律师
   chooseLawyer: function(e) {
@@ -50,7 +58,7 @@ Page({
 
       if (res.data.result) {
         // 暂时取消
-        // utils.uploadTaskFiles(res.data.id, 4, that.data.legalServiceId, that.data.tempFilePaths)
+        // utils.uploadTaskFiles(that.data.legalServiceId, that.data.tempFilePaths)
         setTimeout(function() {
           // wx.redirectTo({
           //   url: '/pages/project/projectDetails?id=' + that.data.legalServiceId,
@@ -88,10 +96,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    var date1 = new Date();
     this.setData({
-      legalServiceId: options.xmid
+      legalServiceId: options.xmid,
+      date:utils.formatTime(date1)
     })
+    
+
   },
 
   /**

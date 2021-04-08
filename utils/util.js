@@ -4,11 +4,12 @@ const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+  // const hour = date.getHours()
+  // const minute = date.getMinutes()
+  // const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-')
 }
 
 const formatNumber = n => {
@@ -25,13 +26,13 @@ function request(baseurl, parameters, success) {
   console.log(parameters)
 
   wx.request({
-    url:  baseurl,
+    url: baseurl,
     data: parameters,
     method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     header: {
       'content-type': 'application/x-www-form-urlencoded'
     },
-    success: function(res) {
+    success: function (res) {
       // console.log(res)
       if (res.statusCode == 200) {
         success(res);
@@ -45,7 +46,7 @@ function request(baseurl, parameters, success) {
       }
 
     },
-    fail: function() {
+    fail: function () {
       wx.showToast({
         title: "网络异常",
         icon: "none",
@@ -53,7 +54,7 @@ function request(baseurl, parameters, success) {
         mask: true
       })
     },
-    complete: function() {
+    complete: function () {
       // complete
 
     }
@@ -77,84 +78,75 @@ function checkMobile(phoneNum) {
   }
 }
 // 待办上传文件
-function uploadTaskFiles(id="",  tempFilePaths) {
-  console.log(id)
+function uploadTaskFiles(id = "", tempFilePaths) {
+  var pList = [];
   for (var i = 0; i < tempFilePaths.length; i++) {
-    wx.uploadFile({
-      url: api.uploadTaskFiles,
-      filePath: tempFilePaths[i],
-      name: 'uploaded_file',
-      formData: {
-        'taskId': id,//栏目id 待办要传
-        'currentMemberId': app.memberId,//当前用户id
-      },
-      success: function(res) {
-        console.log(res)
-        //do something
-        var str = JSON.parse(res.data)
-        console.log(str)
-        if(str.result){
-          wx.showToast({
-            title: '上传成功',
-            duration: 1000
-          })
-        }else{
-          wx.showToast({
-            title: '上传失败',
-            duration: 1000
-          })
+    pList.push(new Promise(function (resolve, reject) {
+      wx.uploadFile({
+        url: api.uploadTaskFiles,
+        filePath: tempFilePaths[i],
+        name: 'uploaded_file',
+        formData: {
+          'taskId': id, //栏目id 待办要传
+          'currentMemberId': app.memberId, //当前用户id
+        },
+        success: function (res) {
+          resolve()
         }
-
-      }
-    })
+      })
+    }))
   }
+  Promise.all(pList).then(function (res) {
+    wx.showToast({
+      title: '上传成功',
+      duration: 1000
+    })
+  })
 }
 
 // 案件附件上传文件
-function uploadFiles(id="", tempFilePaths, parentNodeId="") {
-  console.log(id)
+function uploadFiles(id = "", tempFilePaths, parentNodeId = "",success) {
+  var pList = [];
   for (var i = 0; i < tempFilePaths.length; i++) {
-    wx.uploadFile({
-      url: api.uploadFiles,
-      filePath: tempFilePaths[i],
-      name: 'uploaded_file',
-      formData: {
-        'lawCaseId': id,//栏目id 待办要传
-        'currentMemberId': app.memberId,//当前用户id
-        'parentNodeId':parentNodeId,//父类id
-      },
-      success: function(res) {
-        console.log(res)
-        //do something
-        
-        var str = JSON.parse(res.data)
-        console.log(str)
-        if(str.result){
-          wx.showToast({
-            title: '上传成功',
-            duration: 1000
-          })
-        }else{
-          wx.showToast({
-            title: '上传失败',
-            duration: 1000
-          })
+    pList.push(new Promise(function (resolve, reject) {
+      wx.uploadFile({
+        url: api.uploadFiles,
+        filePath: tempFilePaths[i],
+        name: 'uploaded_file',
+        formData: {
+          'lawCaseId': id, //栏目id 待办要传
+          'currentMemberId': app.memberId, //当前用户id
+          'parentNodeId': parentNodeId, //父类id
+        },
+        success: function (res) {
+          console.log(res)
+          //do something
+          resolve()
         }
-
-      }
-    })
+      })
+    }))
   }
+  Promise.all(pList).then(function (res) {
+    wx.showToast({
+      title: '上传成功',
+      duration: 1000
+    })
+    success()
+  })
 }
+
 // 删除附件
-function deleteFile(id,success){
-  request(api.deleteFile,{id:id},function(res){
-    if(res.data){
+function deleteFile(id, success) {
+  request(api.deleteFile, {
+    id: id
+  }, function (res) {
+    if (res.data) {
       success(res)
       wx.showToast({
         title: '删除成功',
         duration: 1000
       })
-    }else{
+    } else {
       wx.showToast({
         title: '删除失败',
         duration: 500
@@ -165,7 +157,9 @@ function deleteFile(id,success){
 // 打开文件
 function openFile(id) {
   console.log(id)
-  request(api.fileInfo, { allFileId:id},function(res){
+  request(api.fileInfo, {
+    allFileId: id
+  }, function (res) {
     console.log(res.data)
     var url = res.data;
     var images = false;
@@ -213,16 +207,16 @@ function openFile(id) {
       })
     }
   })
-  
+
 
 
 }
 // 上传文件夹
-function addFolder(id,  name,success,  parentNodeId=""){
+function addFolder(id, name, success, parentNodeId = "") {
   request(api.addFolder, {
-    lawCaseId: id,//项目id
-    name:name,//文件夹名
-    parentNodeId: parentNodeId,//父层名字
+    lawCaseId: id, //项目id
+    name: name, //文件夹名
+    parentNodeId: parentNodeId, //父层名字
   }, function (res) {
     console.log(res)
     if (res.data) {
@@ -239,13 +233,15 @@ function addFolder(id,  name,success,  parentNodeId=""){
     }
   })
 }
-function showToast(title = "加载中", duration = 1000, icon ="success"){
+
+function showToast(title = "加载中", duration = 1000, icon = "success") {
   wx.showToast({
     title: title,
     duration: duration,
-    icon:icon
+    icon: icon
   })
 }
+
 function callPhoneback(phone) {
   wx.makePhoneCall({
     phoneNumber: phone //客服电话

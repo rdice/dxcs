@@ -11,16 +11,19 @@
     </view>
   </view>
   <view class="boxScont prd2">
-    <view class="gwtitle1 flex-between">
-      <view class="flex-items gwtitle1_1">
-        <image mode="widthFix" src="/images/project/wtr.png"></image>
-        <text class="pl5">委托人：</text>
+    <view class="gwtitle1 flex-between ">
+      <view class="flex gwtitle1_1">
+        <view class="flex-none">
+          <image mode="widthFix" src="/images/project/wtr.png"></image>
+          <text class="pl5">委托人：</text>
+        </view>
         <text>{{pageData.bean.proxyName}}</text>
       </view>
-      <view class="gwtitle1_2">{{pageData.bean.statusName}}</view>
+      <view class=" flex-none"><text class="gwtitle1_2">{{pageData.bean.statusName}}</text></view>
     </view>
     <view class="gwtitle2">
       <view class="gwtitle2_1">{{pageData.bean.serviceTitle}}</view>
+      <view class="gwtitle2_1" style="color:#666">{{pageData.bean.description}}</view>
       <view class="gwtitle2_2">
         <view>
           <text>主办律师</text>
@@ -44,11 +47,13 @@
     </view>
   </view>
   <view class="pdMenu flex-between">
-    <navigator class="pdmItem" hover-class="none" url="/pages/project/more/dbsxList?id={{pageData.bean.lawCaseId}}&idx={{dbsxIdx}}">
+    <navigator class="pdmItem" hover-class="none"
+      url="/pages/project/more/dbsxList?id={{pageData.bean.lawCaseId}}&idx={{dbsxIdx}}">
       <image mode="widthFix" src="/images/index/clock.png"></image>
       <text>待办事项</text>
     </navigator>
-    <navigator class="pdmItem" hover-class="none" url="/pages/project/more/fileList?id={{pageData.bean.lawCaseId}}&idx={{ajfjIdx}}&pid=">
+    <navigator class="pdmItem" hover-class="none"
+      url="/pages/project/more/fileList?id={{pageData.bean.lawCaseId}}&idx={{ajfjIdx}}&pid=">
       <image mode="widthFix" src="/images/project/wjq.png"></image>
       <text>项目文件</text>
     </navigator>
@@ -79,13 +84,16 @@
           </view>
           <view class="dbItem2">
             <view>{{item.created}}</view>
-            <view class="dbsxTitle">{{item.name}}</view>
+            <view class="dbsxTitle flex-items">
+              <image wx:if="{{item.status==1}}" class="flex-none" src="/images/project/select.png"></image>
+              <text class="c0 pl5">{{item.name }}</text>
+            </view>
           </view>
         </view>
       </navigator>
     </view>
   </view>
-  
+
   <view class="prd_ti flex-between flex-items">
     <view class="flex-items">
       <text class="bline"></text>
@@ -108,7 +116,7 @@
           </view>
           <view class="prWork2_1_2">
             <text>{{item.created}}</text>
-            <text class="timebox" wx:if="{{item.hours!=0&&item.minutes!=0}}">
+            <text class="timebox" wx:if="{{item.hours!=0||item.minutes!=0}}">
               <block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
               <block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
             </text>

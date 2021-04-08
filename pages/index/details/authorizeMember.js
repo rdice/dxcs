@@ -1,6 +1,7 @@
 // pages/index/details/authorizeMember.js
 var utils = require("../../../utils/util.js");
 var api = require("../../../utils/API.js");
+var app = getApp()
 Page({
 
   /**
@@ -22,7 +23,8 @@ Page({
     dwlist: [], //单位
     dwidx: 0,
     pageData: [], //单位人员
-    mbData: {}, //选择成员 赋值弹框
+    mbData: {}, //选择成员 赋值弹框,
+    cmemberId:"",//当前用户id
   },
   // 删除成员
   delItem: function(e) {
@@ -113,7 +115,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      cmemberId:app.memberId
+    })
   },
 
   /**

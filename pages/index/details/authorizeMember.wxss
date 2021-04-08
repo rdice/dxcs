@@ -67,12 +67,12 @@
   text-align: center;
 }
 
-.meItem2>view:first-child {
+.meItem2 .meItem2_edit {
   border-top-left-radius: 20rpx;
   border-bottom-left-radius: 20rpx;
 }
 
-.meItem2>view:last-child {
+.meItem2 .meItem2_del {
   color: #e43;
   margin-left: 10rpx;
   border-top-right-radius: 20rpx;
@@ -135,8 +135,8 @@
 }
 
 .edit2 text {
-  padding-right: 20rpx;
   color: #fff;
+  width: 110rpx;
 }
 
 .edit2 input {

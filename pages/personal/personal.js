@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabList1: ["我的收藏", "我的浏览", "通讯录"],
     idx:0,
     mailList:[],//通讯录
     userInfo: null

@@ -1,21 +1,43 @@
 /* pages/project/details/workRecordDetails.wxss */
 @import "../fileTem.wxss";
+.container{
+  padding: 20rpx 40rpx;
+  color: #9c9fac;
+}
+.wrd{
+  box-shadow: 0 5px 5px #e6e6e6;
+  border-radius: 5px;
+  background:#fff;
+  padding: 20rpx 30rpx;
+  padding-top: 50rpx;
+}
 .wrd1{
   font-size: 36rpx;
-  text-align: center;
+}
+.wrd1 image{
+  width:26rpx;
+}
+.wrd1 text{
+  font-size: 26rpx;
+  color: #9c9fac;
 }
 .wrd2{
-  text-align: right;
   padding: 30rpx 0;
+  color: #333;
 }
-.wrd4{
-  padding-top: 30rpx;
+.wrd3{
+  border-top: 1px solid #eee;
+  padding:20rpx 0;
+  font-size: 24rpx;
 }
-.wrd4 image{
-  width: 60rpx;
-  height: 80rpx;
-  vertical-align: middle
+.wrd3 image{
+  width: 20rpx;
+  vertical-align: middle;
 }
-.wrd4>view{
-  padding-bottom: 20rpx;
+
+.timebox{
+  background:#f7f8fc;
+  padding: 4rpx 10rpx;
+  border-radius: 20px;
 }
+

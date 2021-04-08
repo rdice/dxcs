@@ -185,3 +185,14 @@ page {
 .tab-bar1 .active1{
   color: #3a7df0;
 }
+/* 暂无数据 */
+.nfile{
+  text-align: center;
+}
+.nfile image{
+  width: 50%;
+}
+.nfile view{
+  color: #c9c8c9;
+  padding-top: 20rpx;
+}

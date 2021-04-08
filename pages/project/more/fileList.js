@@ -56,12 +56,12 @@ Page({
             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
               console.log(res.tempFilePaths)
-              util.uploadFiles( that.data.id, res.tempFilePaths,that.data.pid)
-              setTimeout(function () {
+              util.uploadFiles( that.data.id, res.tempFilePaths,that.data.pid,function(){
                 wx.redirectTo({
                   url: '/pages/project/more/fileList?id=' + that.data.id + '&idx=' + that.data.tp +'&pid='+that.data.pid,
                 })
-              }, 100)
+              })
+             
             }
           })
         } else if (res.tapIndex == 1) {

@@ -4,17 +4,22 @@
     url="/pages/project/details/workRecordDetails?id={{item.id}}">
     <view class="workItem1 flex-items">
       <image mode="widthFix" src="/images/index/qy.png"></image>
-      <text>地址</text>
+      <text>{{item.caseName}}</text>
     </view>
-    <view class="workItem2"><view>{{item.content}}</view></view>
+    <view class="workItem2">
+      <view>{{item.content}}</view>
+    </view>
     <view class="workItem3 flex-between">
       <view class="flex-items workItem3_1">
         <image mode="widthFix" src="/images/index/ls.png"></image>
-        <text>名字律师</text>
+        <text>{{item.lawyerName}}律师</text>
       </view>
       <view class="workItem3_2">
         <text>{{item.created}}</text>
-        <text>2小时</text>
+        <text class="timebox" wx:if="{{item.hours!=0||item.minutes!=0}}">
+          <block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
+          <block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
+        </text>
       </view>
     </view>
   </navigator>
