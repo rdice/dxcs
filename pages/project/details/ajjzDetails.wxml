@@ -1,16 +1,17 @@
 <!--pages/project/details/ajjzDetails.wxml-->
-<wxs src="../../../wxs/common.wxs" module="tools" />
-<view class="container subBox">
-  <view class="tabPge2">
+
+<view class="container">
+  <view class="wrd">
+    <view class="status">{{pageData.status==0?"进行中":"已完成"}}</view>
     <view class="wrd1">{{pageData.name}}</view>
-    <view class="wrd2">{{pageData.created}}</view>
-    <view class="wrd3">{{pageData.content}}</view>
-    <view class="wrd4">
-      <view wx:for="{{pageData.fileList}}">
-        <image src="{{item.format}}"></image>
-        <text>{{item.name}}</text>
-      </view>
+    <view class="wrd2">{{pageData.content}}</view>
+    <view class="wrd3 flex-between">
+      <text>{{pageData.created}}</text>
+      <text class="timebox" wx:if="{{pageData.hours!=0&&pageData.minutes!=0}}">
+        <block wx:if="{{pageData.hours!=0}}">{{pageData.hours}}时</block>
+        <block wx:if="{{pageData.minutes!=0}}">{{pageData.hours}}分</block>
+      </text>
     </view>
-    <include src="../fileTem.wxml"/>
+    <include src="../fileTem.wxml" />
   </view>
 </view>

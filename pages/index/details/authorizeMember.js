@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    manager:false,//是不是管理员
+
     startX: 0, //开始的坐标
     itemIdx: 0, //下标
     isTouch: false, //是否左滑
@@ -25,6 +27,7 @@ Page({
     pageData: [], //单位人员
     mbData: {}, //选择成员 赋值弹框,
     cmemberId:"",//当前用户id
+    
   },
   // 删除成员
   delItem: function(e) {
@@ -116,7 +119,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      cmemberId:app.memberId
+      cmemberId:app.memberId,
+      manager:app.manager
     })
   },
 
@@ -283,12 +287,15 @@ Page({
   },
   // 左滑操作
   touchStart: function(e) {
-    var pageX = e.changedTouches[0].clientX
-    this.setData({
-      startX: pageX,
-      itemIdx: e.currentTarget.dataset.idx,
-      isTouch: false
-    })
+    if(this.data.manager){
+      var pageX = e.changedTouches[0].clientX
+      this.setData({
+        startX: pageX,
+        itemIdx: e.currentTarget.dataset.idx,
+        isTouch: false
+      })
+    }
+    
   },
   touchMove: function(e) {
     var startX = this.data.startX;

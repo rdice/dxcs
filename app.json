@@ -33,7 +33,9 @@
     "pages/chatroom/index/login",
     "pages/chatroom/contact/createGroup",
     "pages/chatroom/contact/groups",
-    "pages/chatroom/contact/contactDetails"
+    "pages/chatroom/contact/contactDetails",
+    "pages/chatroom/contact/group-profile",
+    "pages/chatroom/system/main"
     
   ],
   "window": {

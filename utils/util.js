@@ -4,12 +4,11 @@ const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
-  // const hour = date.getHours()
-  // const minute = date.getMinutes()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
   // const second = date.getSeconds()
 
-  // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-  return [year, month, day].map(formatNumber).join('-')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -78,7 +77,7 @@ function checkMobile(phoneNum) {
   }
 }
 // 待办上传文件
-function uploadTaskFiles(id = "", tempFilePaths) {
+function uploadTaskFiles(id = "", tempFilePaths, success) {
   var pList = [];
   for (var i = 0; i < tempFilePaths.length; i++) {
     pList.push(new Promise(function (resolve, reject) {
@@ -101,11 +100,14 @@ function uploadTaskFiles(id = "", tempFilePaths) {
       title: '上传成功',
       duration: 1000
     })
+    setTimeout(function () {
+      success()
+    }, 1000)
   })
 }
 
 // 案件附件上传文件
-function uploadFiles(id = "", tempFilePaths, parentNodeId = "",success) {
+function uploadFiles(id = "", tempFilePaths, parentNodeId = "", success) {
   var pList = [];
   for (var i = 0; i < tempFilePaths.length; i++) {
     pList.push(new Promise(function (resolve, reject) {
@@ -156,16 +158,17 @@ function deleteFile(id, success) {
 }
 // 打开文件
 function openFile(id) {
-  console.log(id)
   request(api.fileInfo, {
     allFileId: id
   }, function (res) {
     console.log(res.data)
     var url = res.data;
     var images = false;
-    var url1 = url.substring(url.lastIndexOf(".") + 1, url.length);
-    if (url1 != "png" || url1 != "jpeg" || url1 != "bmp" || url1 != "jpg") {
+    var url1 = url.substring(url.lastIndexOf(".") + 1, url.length).toLowerCase();
+    if (url1 == "png" || url1 == "jpeg" || url1 == "bmp" || url1 == "jpg" || url1 == "svg" || url1 == "pic") {
       images = true
+    } else {
+      images = false
     }
     if (images) {
       var showList = [];
@@ -178,20 +181,23 @@ function openFile(id) {
       var downloadTask = wx.downloadFile({
         url: url,
         success: function (res) {
-          console.log(res)
+          // console.log(res)
           if (res.statusCode == 404) {
             showToast("文件下载失败");
           } else {
             wx.openDocument({
               filePath: res.tempFilePath,
               success: function (res) {
-                console.log('打开文档成功')
+                // console.log('打开文档成功')
               },
               fail: function (res) {
                 showToast("暂不支持打开改文件类型");
               }
             })
           }
+        },
+        fail:function(res){
+          showToast("暂不支持打开改文件类型");
         }
       })
       downloadTask.onProgressUpdate((res) => {

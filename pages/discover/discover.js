@@ -6,8 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-    userInfo: null
+    userInfo: null,
+    cyzlList: ["证据标准", "文书格式", "交通事故"],
+    dxzxList: ["法律法规", "最新法条", "电信相关"],
   },
 
   /**

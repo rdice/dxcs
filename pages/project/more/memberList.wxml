@@ -2,9 +2,10 @@
 <view class=" subBox">
   <view class="tabPge2">
     <switchTab-component list="{{cyxz}}" bindmyevent="switchCyxz" />
-    <view style="margin-top:40rpx;" >
+    <view style="margin-top:40rpx;">
       <view class="cyry2 flex-items" wx:for="{{pgList}}" catchtap="toChat" data-id="{{item.memberAccount}}">
-        <image src="/images/index/fwls.png" class="headImg flex-none"></image>
+        <image wx:if="{{item.headUrl!=''&&item.headUrl!=undefined}}" class="headImg flex-none" src="{{item.headUrl}}"></image>
+        <image wx:else src="/images/headImg.png" class="headImg flex-none"></image>
         <view class="cyry2_1 flex-1">
           <view>
             <text class="t1">{{item.name}}</text>
@@ -13,13 +14,15 @@
           <view>{{item.phone}}</view>
         </view>
         <image class="cyry2_2" src="/images/project/phone.png" catchtap="callPhone" data-phone="{{item.phone}}"></image>
-        <view style="padding:0;display:{{cyxzIdx==0?'block':'none'}}">
+        <view style="padding:0;display:{{cyxzIdx==1?'block':'none'}}">
           <block wx:if="{{item.id!=currentMemberId}}">
-            <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}" style="display:{{currentMemberId==item.memberId?'none':'block'}}" data-id="{{item.memberId}}" ></image>
+            <image class="del" src="/images/del.png" catchtap="delqyMember" wx:if="{{manager}}"
+              style="display:{{currentMemberId==item.memberId?'none':'block'}}" data-id="{{item.id}}"></image>
           </block>
         </view>
       </view>
     </view>
   </view>
 </view>
-<image class="addfile" src="/images/addFile.png" catchtap="editMenu" wx:if="{{manager}}"  style="display:{{cyxzIdx==0?'block':'none'}}"></image>
+<image class="addfile" src="/images/addFile.png" catchtap="editMenu" wx:if="{{manager}}"
+  style="display:{{cyxzIdx==1?'block':'none'}}"></image>

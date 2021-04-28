@@ -6,7 +6,7 @@ App({
 
 
     let options = {
-      SDKAppID: 1400373427 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID  测试 1400373427  正式 1400315046
+      SDKAppID: 1400315046 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID  测试 1400373427  正式 1400315046
     };
     // 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
      this.tim = TIM.create(options); // SDK 实例通常用 tim 表示
@@ -28,11 +28,11 @@ App({
   openid:"",
   memberId:"",//服务用户id
   accout:"",//聊天用户id
-  root: 'http://htb.smartlaw.cn/',
-  rootquery: 'http://htb.smartlaw.cn/znfw/',//查询
-  roothd: 'http://110.84.129.48:8281/fzx/controller/',//提交
-  // root: 'https://lawfile.cn/',
-  // rootquery: 'https://lawfile.cn/znfw/',//查询
-  // roothd: 'https://lawfile.cn/fzx/controller/',//提交
+  // root: 'http://htb.smartlaw.cn/',
+  // rootquery: 'http://htb.smartlaw.cn/znfw/',//查询
+  // roothd: 'http://110.84.129.48:8281/fzx/controller/',//提交
+  root: 'https://lawfile.cn/',
+  rootquery: 'https://lawfile.cn/znfw/',//查询
+  roothd: 'https://lawfile.cn/fzx/controller/',//提交
 
 })

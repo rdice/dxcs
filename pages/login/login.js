@@ -84,6 +84,7 @@ Page({
       util.request(api.getMsgVaildate, {
         phone: this.phone
       }, function (res) {
+        console.log(res)
         if (res.data.res) {
 
 
@@ -162,7 +163,7 @@ function getuserInfo(opi) {
   util.request(api.getUserInfo, {
     openid: app.openid
   }, function (e) {
-
+    console.log(e)
     if (e.data.code == 1) {
       wx.showLoading({
         title: '正在加载中',
@@ -189,8 +190,8 @@ function getTencentyunConfig(accout, opi) {
   }, function (e) {
     console.log("===")
     tim.on(TIM.EVENT.SDK_READY, function (event) {
-      console.log(event)
-      console.log("==============")
+      // console.log(event)
+      // console.log("==============")
       if (JSON.stringify(opi) == "{}") {
         wx.redirectTo({
           url: '/pages/index/index',
@@ -242,11 +243,11 @@ function navType(opi) {
     wx.redirectTo({
       url: '/pages/project/projectDetails?id=' + opi.mainId,
     })
-  } else if (options.pushType == 308) {
+  } else if (opi.pushType == 308) {
     wx.redirectTo({
       url: '/pages/chatroom/index/chat?type=C2C&userid=' + opi.mainId,
     })
-  } else if (options.pushType == 309) {
+  } else if (opi.pushType == 309) {
     wx.redirectTo({
       url: '/pages/chatroom/index/chat?type=GROUP&userid=' + opi.mainId,
     })

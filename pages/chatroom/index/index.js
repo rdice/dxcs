@@ -93,6 +93,12 @@ Page({
       })
     }
   },
+  // 点击系统通知时，处理notification
+  checkoutNotification:function(){
+    wx.navigateTo({
+      url: "../system/main"
+    })
+  },
   // 底下tabbar跳转
   tabBarNav: function (e) {
     console.log(e.currentTarget.dataset.idx)

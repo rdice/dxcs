@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-avatar":"../component/avatar/index",
+    "i-modal": "../component/modal/index",
+    "icon": "../component/icon/index",
+    "i-cell": "../component/cell/index",
+    "i-cell-group": "../component/cell-group/index"
+  }
+}

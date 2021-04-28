@@ -16,7 +16,7 @@
           <view class="meItem1_2">{{item.role!='admin'?'成员':'管理员'}}</view>
 
         </view>
-        <view class="flex meItem2 ">
+        <view class="flex meItem2 " >
           <view class="meItem2_edit" catchtap="showEdit" data-idx="{{index}}">编辑</view>
           <view class="meItem2_del" wx:if="{{item.memberId!=cmemberId}}" catchtap="delItem" data-idx="{{index}}" data-id="{{item.memberId}}">删除</view>
         </view>
@@ -76,4 +76,4 @@
     </form>
   </view>
 </view>
-<image class="addfile" src="/images/addFile.png" catchtap="addMember"></image>
+<image wx:if="{{manager}}" class="addfile" src="/images/addFile.png" catchtap="addMember"></image>

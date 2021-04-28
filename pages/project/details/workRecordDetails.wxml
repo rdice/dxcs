@@ -1,5 +1,4 @@
 <!--pages/project/details/workRecordDetails.wxml-->
-<wxs src="../../../wxs/common.wxs" module="tools" />
 <view class="container">
   <view class="wrd">
     <view class="wrd1 flex-items">
@@ -15,9 +14,9 @@
       <view>
         <text>{{pageData.created}}</text>
         <text class="pl5"></text>
-        <text class="timebox" wx:if="{{pageData.hours!=0&&pageData.minutes!=0}}">
-          <block wx:if="{{pageData.hours!=0}}">{{pageData.hours}}时</block>
-          <block wx:if="{{pageData.minutes!=0}}">{{pageData.hours}}分</block>
+        <text class="timebox" wx:if="{{pageData.hours!=0||pageData.minutes!=0}}">
+          <block wx:if="{{pageData.hours!=0}}">{{pageData.hours}}小时</block>
+          <block wx:if="{{pageData.minutes!=0}}">{{pageData.hours}}分钟</block>
         </text>
       </view>
     </view>

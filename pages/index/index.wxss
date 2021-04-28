@@ -25,13 +25,15 @@
 }
 .index1_2 .index1_2item{
   text-align: center;
+  width: 33%;
 }
-.index1_2 .index1_2item>view:first-child{
+.index1_2 .index1_2item .index1_2item1{
   font-size: 40rpx;
   font-weight: bold;
 }
-.index1_2 .index1_2item>view:last-child{
+.index1_2 .index1_2item .index1_2item2{
   background:#ef4b41;
+  display: inline-block;
   border-radius: 50px;
   padding: 4rpx 20rpx;
 }

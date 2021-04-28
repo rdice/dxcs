@@ -9,7 +9,7 @@
   border-radius: 5px;
   background:#fff;
   padding: 20rpx 30rpx;
-  padding-top: 50rpx;
+  padding-top: 40rpx;
 }
 .wrd1{
   font-size: 36rpx;

@@ -1,15 +1,15 @@
 <!--pages/personal/personal.wxml-->
 <view class="container">
   <view class="usercont">
-    <view class="userSet">
-      <!-- <view class="userSet1">
+    <!-- <view class="userSet flex-items flex-between">
+      <view class="userSet1 ">
         <view>{{userInfo.unitName}}</view>
         <view style="fong-size:16px;color:#333;padding:5px 0">你好，{{userInfo.name}}</view>
-      </view> -->
-      <!-- <navigator class="userSet2" url="/pages/personal/personalDatas">
+      </view>
+      <navigator class="userSet2" url="/pages/personal/personalDatas">
         <image src="/images/set.png" mode="widthFix"></image>
-      </navigator> -->
-    </view>
+      </navigator>
+    </view> -->
     <!-- <view class="flex-around userMenu">
       <view class="userMenu1">
         <image src="/images/ll.png" mode="widthFix"></image>
@@ -24,7 +24,9 @@
     <view class="mailList">
       <block wx:if="{{mailList.length>0}}">
         <view class="cyry2 flex-items" wx:for="{{mailList}}">
-          <image src="{{item.headUrl}}" class="headImg flex-none"></image>
+          <image wx:if="{{item.headUrl!=''&&item.headUrl!=undefined}}" class="headImg flex-none" src="{{item.headUrl}}">
+          </image>
+          <image wx:else src="/images/headImg.png" class="headImg flex-none"></image>
           <view class="cyry2_1 flex-1">
             <view>
               <text class="t1">{{item.realname}}</text>

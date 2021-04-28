@@ -4,7 +4,8 @@
       <navigator class="boxScont lawyerItem" wx:for="{{pgList}}" url="/pages/chatroom/index/chat?type=C2C&userid={{item.memberAccount}}">
         <view class="flex-between lawyerItem1">
           <view class="flex-items lawyerItem1_1 ">
-            <image src="{{item.headUrl}}"></image>
+            <image wx:if="{{item.headUrl!=''&&item.headUrl!=undefined}}" src="{{item.headUrl}}"></image>
+            <image wx:else src="/images/headImg.png"></image>
             <view class="lawyerItem1_2">
               <view>{{item.realname}}</view>
               <view>{{item.officename}}</view>

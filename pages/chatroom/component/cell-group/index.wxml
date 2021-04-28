@@ -1,4 +1,3 @@
-<!--pages/chatroom/component/cell-group/index.wxml-->
 <view class="i-class i-cell-group">
     <slot></slot>
 </view>

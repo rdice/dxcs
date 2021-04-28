@@ -5,8 +5,8 @@
 }
 
 ._li {
-  margin-top: 36rpx;
   padding: 0 24rpx;
+  padding-top: 36rpx;
 }
 
 /* 自己 */

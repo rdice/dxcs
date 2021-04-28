@@ -6,6 +6,14 @@ var api = require("../../../utils/API.js");
 var pagenum = 1;
 
 function showData(that) {
+  var roleType;//1企业用户 2律师 3其他
+  if(that.data.cyxzIdx==0){
+    roleType=2
+  }else if(that.data.cyxzIdx==1){
+    roleType=1
+  }else{
+    roleType=3
+  }
   moreList.getList(that.data.pgList, that, api.memberList, pagenum, function (res) {
     console.log(res)
     that.setData({
@@ -16,7 +24,7 @@ function showData(that) {
     }, 500)
   }, 10, {
     lawCaseId: that.data.id,
-    roleType: that.data.cyxzIdx + 1
+    roleType: roleType
   })
 }
 Page({
@@ -25,7 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cyxz: ["企业人员", "律师团队", "其他人员"],
+    cyxz: [ "律师团队", "企业人员","其他人员"],
     cyxzIdx: 0,
     pgList: [],
     id: "", //项目id
@@ -71,9 +79,6 @@ Page({
             console.log(res)
             if (res.data) {
 
-              that.setData({
-                cyxzIdx: 0
-              })
               pagenum = 1;
               showData(that);
               utils.showToast("删除成功")

@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-    "i-avatar": "../component/avatar/avatar",
+    "i-avatar": "../component/avatar/index",
     "i-cell-group": "../component/cell-group/index",
-    "i-cell": "../component/cell/cell"
+    "i-cell": "../component/cell/index"
   },
   "navigationBarTitleText": "详细信息"
 }

@@ -30,6 +30,22 @@
           <textarea class="flex-1" name="description" value="{{pageData.description}}"></textarea>
         </view>
         <view class="dbItem flex">
+          <text class="flex-none">到期日期：</text>
+          <picker  class="flex-1" mode="date" value="{{date}}" start="2000-01-01" end="2050-09-01" bindchange="bindDateChange">
+            <view class="picker" style="height:40rpx;">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="dbItem flex">
+          <text class="flex-none">到期时间：</text>
+          <picker  class="flex-1" mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+            <view class="picker" style="height:40rpx;">
+              {{time}}
+            </view>
+          </picker>
+        </view>
+        <view class="dbItem flex">
           <text class="flex-none">选择律师：</text>
           <input class="flex-1" disabled="true" bindtap='chooseLawyer' value="{{lawyerStr}}" data-value="{{lawyerStr}}"></input>
         </view>

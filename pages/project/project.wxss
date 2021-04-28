@@ -53,3 +53,34 @@
   position: relative;
   top: -12rpx;
 }
+.endStatus{
+  color: #008000;
+
+}
+/* 搜索 */
+.search-input {
+  position: relative;
+  background: #efefef;
+  padding: 10rpx 20rpx;
+  margin-top: 20rpx;
+  z-index: 100;
+}
+
+.searchImg {
+  width: 38rpx;
+  height: 38rpx;
+  position: absolute;
+  left: 38rpx;
+  top: 16rpx;
+}
+
+.search-input input {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 2rpx 20rpx;
+  padding-left: 70rpx;
+  background: #fff;
+}
+.c9{
+  color: #999;
+}

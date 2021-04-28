@@ -43,7 +43,7 @@
 					</view>
 				</view>
 			</view>
-		<view class=" chat" bindtap="handleProxy" wx:elif="{{item.type === '@TIM#SYSTEM'}}" key="{{item.conversationID}}" bindlongpress="handleProxy">
+		<!-- <view class=" chat" bindtap="checkoutNotification" wx:elif="{{item.type === '@TIM#SYSTEM'}}" key="{{item.conversationID}}" bindlongpress="handleProxy">
 			<view class=" avatar-container">
 				<image src="/images/static/system.png" class=" avatar"></image>
 			</view>
@@ -53,7 +53,7 @@
 					<view class=" content">点击查看</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</block>
 
 </view>

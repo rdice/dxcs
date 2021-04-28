@@ -8,35 +8,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taskId: "",//当前待办id
-    lawCaseId:"",//项目id
+    taskId: "", //当前待办id
+    lawCaseId: "", //项目id
     pageData: {},
     isEdit: 0,
     lawyerStr: "", //选择律师
-    lawyerStrId: "",//选择律师 id
-    showFileList:[],//要展示的附件
-    tempFilePaths:[],//要提交的附件
-    delFileIdList:[],//要删除的附件
+    lawyerStrId: "", //选择律师 id
+    showFileList: [], //要展示的附件
+    tempFilePaths: [], //要提交的附件
+    delFileIdList: [], //要删除的附件
 
+    date: "", //日期
+    time: "", //时间
   },
+  // 日期
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  // 日期
+  bindTimeChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
+    })
+  },
+
+
   // 待办结束
-  remindDbxs:function(){
+  remindDbxs: function () {
     var that = this;
     utils.request(api.endTask, {
-      taskId:that.data.taskId,
+      taskId: that.data.taskId,
     }, function (res) {
       console.log(res)
       var data = that.data.pageData;
-      if(res.data.result){
+      if (res.data.result) {
         data.status = 1;
-        utils.showToast("提醒成功",1000,function(){
+        utils.showToast("提醒成功", 1000, function () {
           wx.redirectTo({
             url: '/pages/project/details/dbsxDetails?id=' + that.data.taskId + '&legalid=' + that.data.lawCaseId + '&is=0',
           })
         })
-        
+
       }
-      
+
     })
   },
   // 选择律师
@@ -49,44 +67,68 @@ Page({
     })
   },
   // 删除待办
-  delDbsx:function(e){
+  delDbsx: function (e) {
     var that = this;
-    utils.request(api.deleteTodoList, {id:that.data.taskId}, function (res) {
+    utils.request(api.deleteTodoList, {
+      taskId: that.data.taskId
+    }, function (res) {
       console.log(res)
-      if (res.data) {
-        wx.redirectTo({
-          url: '/pages/project/projectDetails?id=' + that.data.lawCaseId,
+      if (res.data.result) {
+        wx.showToast({
+          title: '删除成功',
+          duration: 1000
+        })
+        setTimeout(function(){
+          wx.navigateBack({
+            delta:1
+          })
+        },1000)
+      }else{
+        wx.showToast({
+          title: '删除失败',
+          duration: 1000,
+          icon:"error"
         })
       }
     })
   },
   // 提交
-  formSubmit:function(e){
+  formSubmit: function (e) {
     console.log(e)
     var that = this;
     var data = e.detail.value;
+    if (data.title == "") {
+      utils.showToast("请输入标题")
+      return
+    }
+    if (data.content == "") {
+      utils.showToast("请输入内容")
+      return
+    }
+    if (that.data.lawyerStrId == "") {
+      utils.showToast("请选择律师")
+      return
+    }
+    data.completedate = that.data.date + " " + that.data.time;
     data.userList = JSON.stringify(that.data.lawyerStrId.split(","))
     data.taskId = that.data.taskId;
     data.lawCaseId = that.data.lawCaseId;
     data.delFileIdList = JSON.stringify(that.data.delFileIdList);
-    utils.request(api.editTask, data, function(res) {
+    utils.request(api.editTask, data, function (res) {
       console.log(res)
-      console.log(that.data.tempFilePaths)
       if (res.data.result) {
         // ==============
-        utils.uploadTaskFiles(that.data.taskId,that.data.tempFilePaths)
-        wx.redirectTo({
-          url: '/pages/project/details/dbsxDetails?id=' + that.data.taskId + '&legalid=' + that.data.lawCaseId+'&is=1',
+        utils.uploadTaskFiles(res.data.bean.id, that.data.tempFilePaths, function () {
+          wx.redirectTo({
+            url: '/pages/project/details/dbsxDetails?id=' + that.data.taskId + '&legalid=' + that.data.lawCaseId + '&is=1',
+          })
         })
-        // setTimeout(function(){
-        //   updateData(that)
-        // },200)
       }
     })
-    
+
   },
   // 只预览
-  openFile1:function(e){
+  openFile1: function (e) {
     var that = this
     wx.showActionSheet({
       itemList: ['预览'],
@@ -99,52 +141,49 @@ Page({
     })
   },
   // 删除或预览
-  openFile: function(e) {
+  openFile: function (e) {
     const num = e.currentTarget.dataset.num;
-    var that =this
+    var that = this
     wx.showActionSheet({
       itemList: ['预览', '删除'],
       itemColor: '#3cbd30',
-      success: function(res) {
-        
-        if(num==1){
+      success: function (res) {
+
+        if (num == 1) {
           if (res.tapIndex == 0) {
             utils.openFile(e.currentTarget.dataset.id)
-            
+
           } else if (res.tapIndex == 1) {
-            // utils.deleteFile(e.currentTarget.dataset.id,function(res){
-            //   console.log(res)
-            //   updateData(that)
-            // })
+
             let list3 = that.data.showFileList;
             let list4 = that.data.delFileIdList;
-            for(let i in list3){
-              if(list3[i].allFileId==e.currentTarget.dataset.id){
+            for (let i in list3) {
+              if (list3[i].allFileId == e.currentTarget.dataset.id) {
                 list4.push(list3[i].allFileId)
-                list3.splice(i,1)
+                list3.splice(i, 1)
               }
             }
             that.setData({
-              showFileList:list3,
-              delFileIdList:list4
+              showFileList: list3,
+              delFileIdList: list4
             })
           }
-        }else{
+        } else {
           if (res.tapIndex == 0) {
             wx.previewImage({
               current: e.currentTarget.dataset.id, // 当前显示图片的http链接
               urls: that.data.tempFilePaths // 需要预览的图片http链接列表
             })
-            
+
           } else if (res.tapIndex == 1) {
             let list3 = that.data.tempFilePaths;
-            for(let i in list3){
-              if(list3[i]==e.currentTarget.dataset.id){
-                list3.splice(i,1)
+            for (let i in list3) {
+              if (list3[i] == e.currentTarget.dataset.id) {
+                list3.splice(i, 1)
               }
             }
             that.setData({
-              tempFilePaths:list3
+              tempFilePaths: list3
             })
           }
         }
@@ -152,78 +191,78 @@ Page({
     })
   },
   // 上传
-  chooseFile: function() {
+  chooseFile: function () {
     var that = this;
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
+      success: function (res) {
         console.log(res.tempFilePaths)
         let list = that.data.tempFilePaths;
         list.push(res.tempFilePaths[0])
         that.setData({
-          tempFilePaths:list
+          tempFilePaths: list
         })
-        // utils.uploadTaskFiles(that.data.taskId,res.tempFilePaths)
-        // setTimeout(function(){
-        //   updateData(that)
-        // },200)
+
       }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     console.log(options)
+
     this.setData({
       taskId: options.id,
       isEdit: options.is,
-      lawCaseId: options.legalid
+      lawCaseId: options.legalid,
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
     var that = this;
-    updateData(that)
+    if (that.data.taskId != "") {
+      updateData(that)
+    }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
   // 回调
@@ -247,7 +286,8 @@ Page({
     })
   }
 })
-function updateData(that){
+
+function updateData(that) {
   wx.showLoading({
     title: '加载中',
   })
@@ -257,7 +297,7 @@ function updateData(that){
     console.log(res)
     wx.hideLoading();
     var userList = res.data.userList;
-    if (userList.length>0){
+    if (userList.length > 0) {
       var strId = "";
       for (var i = 0; i < userList.length; i++) {
 
@@ -268,18 +308,28 @@ function updateData(that){
         }
       }
       that.setData({
-        lawyerStrId:strId,
-        lawyerStr:res.data.cooperator
+        lawyerStrId: strId,
+        lawyerStr: res.data.cooperator
       })
     }
-    
+    var completedate = res.data.completedate;
+    var date = "",
+      time = "";
+    if (completedate != "") {
+      date = completedate.substring(0, 10);
+      time = completedate.substring(11, 16);
+    }
+    console.log(date)
+    console.log(time)
+
     that.setData({
       pageData: res.data,
-      showFileList:res.data.fileList
-      
+      showFileList: res.data.fileList,
+      date: date,
+      time: time
     })
 
-   
+
   })
 
 }

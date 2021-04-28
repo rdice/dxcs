@@ -13,6 +13,9 @@ function showData(that) {
     setTimeout(function () {
       wx.hideToast()
     }, 500)
+  },10,{
+    keyword:that.data.keyword,
+    status:that.data.status
   })
 }
 Page({
@@ -22,8 +25,35 @@ Page({
    */
   data: {
     pgList:[],
+    xmlist:["所有项目","进行中","已结束"],//切换
+    keyword:"",
+    status:""
   },
+  switchXm:function(e){
+    console.log(e.detail.idx);
+    if(e.detail.idx==0){
+      this.setData({
+        status:""
+      })
+    }else if(e.detail.idx==1){
+      this.setData({
+        status:2101
+      })
+    }else{
+      this.setData({
+        status:2102
+      })
+    }
+    showData(this)
 
+  },
+  searchSubject:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      keyword:e.detail.value
+    })
+    showData(this)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

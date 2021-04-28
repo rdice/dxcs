@@ -22,7 +22,7 @@ const api = {
   // 结束待办
   endTask: app.roothd + 'legalService/endTask',
   // 删除待办
-  deleteTodoList: app.roothd + 'xcx/legalService/deleteTodoList',
+  deleteTodoList: app.roothd + 'legalService/deleteTask',
 
   // 提交待办
   editTask: app.roothd + '/legalService/editTask',

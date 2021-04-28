@@ -14,10 +14,18 @@
           <textarea class="flex-1" name="description" value=""></textarea>
         </view>
         <view class="dbItem flex">
-          <text class="flex-none">到期时间</text>
-          <picker name="completedate" mode="date" value="" start="{{date}}" end="2050-09-01" bindchange="bindDateChange">
+          <text class="flex-none">到期日期：</text>
+          <picker  class="flex-1" mode="date" value="{{date}}" start="{{date}}" end="2050-09-01" bindchange="bindDateChange">
             <view class="picker" style="height:40rpx;">
               {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="dbItem flex">
+          <text class="flex-none">到期时间：</text>
+          <picker  class="flex-1" mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+            <view class="picker" style="height:40rpx;">
+              {{time}}
             </view>
           </picker>
         </view>

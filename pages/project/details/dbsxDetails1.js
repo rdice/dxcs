@@ -15,12 +15,20 @@ Page({
     lawyerStr: "", //选择律师
     lawyerStrId: "", //选择律师 id
     date: '',
+    time:'',
   },
   // 日期
   bindDateChange:function(e){
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
+    })
+  },
+  // 日期
+  bindTimeChange:function(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
     })
   },
   // 选择律师
@@ -50,23 +58,19 @@ Page({
       return
     }
     console.log(JSON.stringify(that.data.lawyerStrId.split(",")))
-    
+    data.completedate = that.data.date+" "+that.data.time;
     data.userList = JSON.stringify(that.data.lawyerStrId.split(","))
     data.lawCaseId = that.data.legalServiceId;
     utils.request(api.editTask, data, function(res) {
       console.log(res)
 
       if (res.data.result) {
-        // 暂时取消
-        // utils.uploadTaskFiles(that.data.legalServiceId, that.data.tempFilePaths)
-        setTimeout(function() {
-          // wx.redirectTo({
-          //   url: '/pages/project/projectDetails?id=' + that.data.legalServiceId,
-          // })
+        utils.uploadTaskFiles(res.data.bean.id, that.data.tempFilePaths,function(){
           wx.navigateBack({
             delta:1
           })
-        }, 100)
+        })
+     
       }
     })
   },
@@ -97,9 +101,13 @@ Page({
    */
   onLoad: function(options) {
     var date1 = new Date();
+    var date,time;
+    date = utils.formatTime(date1).substring(0, 10);
+    time = utils.formatTime(date1).substring(11, 16);
     this.setData({
       legalServiceId: options.xmid,
-      date:utils.formatTime(date1)
+      date:date,
+      time:time
     })
     
 

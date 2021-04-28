@@ -1,0 +1,23 @@
+<!--pages/chatroom/system/main.wxml-->
+<view class=" container">
+  <view wx:if="{{currentMessageList.length === 0}}" >
+    <view class=" card">
+      暂无系统消息
+    </view>
+  </view>
+  <view wx:key="message.ID" key="{{message.ID}}" wx:for="{{currentMessageList}}" wx:for-index="index"
+    wx:for-item="message" >
+    <view wx:if="{{message.payload.operationType === 1}}" class=" card handle">
+      <view >
+        <view class=" time">{{message.newtime}}</view>
+        {{message.virtualDom[0].text}}
+      </view>
+      <view class=" choose"><button type="button" class=" button"
+          bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}">处理</button></view>
+    </view>
+    <view class=" card" wx:else>
+      <view class=" time">{{message.newtime}}</view>
+      {{message.virtualDom[0].text}}
+    </view>
+  </view>
+</view>

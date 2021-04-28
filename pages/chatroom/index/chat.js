@@ -1,10 +1,10 @@
 // pages/chat/chat.js
 import TIM from 'tim-wx-sdk';
-import COS from "cos-wx-sdk-v5";
+// import COS from "cos-wx-sdk-v5";
 
 var item = require("../../../debug/emoji.js");
 var tim = getApp().tim;
-
+var de = require("../../../utils/decodeElement")
 // 1. 获取全局唯一的录音管理器 RecorderManager
 const recorderManager = wx.getRecorderManager();
 // 录音部分参数
@@ -49,10 +49,15 @@ Page({
   // 打开资料
   handleDetails: function (e) {
     var that = this;
-    wx.redirectTo({
-      url: '../contact/contactDetails?userid='+that.data.userid,
-    })
-    
+    if (that.data.chatType == "C2C") {
+      wx.redirectTo({
+        url: '../contact/contactDetails?userid=' + that.data.userid,
+      })
+    } else {
+      wx.redirectTo({
+        url: '../contact/group-profile?userid=' + that.data.userid,
+      })
+    }
   },
   //  发送消息
   sendText: function (e) {
@@ -194,7 +199,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
     console.log(options)
     var that = this;
     let promise1 = tim.getMyProfile();
@@ -232,7 +237,6 @@ Page({
         groupCustomFieldFilter: ['key1', 'key2']
       });
       promise2.then(function (imResponse) {
-        console.log(imResponse.data.group);
         wx.setNavigationBarTitle({
           title: imResponse.data.group.name
         })
@@ -258,12 +262,10 @@ Page({
     // 监听消息回调
     let onMessageReceived = function (event) {
       // event.data - 存储 Message 对象的数组 - [Message]
-      console.log(event.data)
       var list1 = event.data;
       var list2 = that.data.msgList.concat(list1);
-      console.log(list2)
       that.setData({
-        msgList: list2
+        msgList: decodeList(list2)
       })
       pageScrollTo();
 
@@ -289,11 +291,10 @@ Page({
 
   },
   // 接听语音
-  listeningToVoice:function(e){
-    console.log(e.currentTarget.dataset.url)
+  listeningToVoice: function (e) {
     wx.playVoice({
       filePath: e.currentTarget.dataset.url,
-      complete () { }
+      complete() {}
     })
   },
   /**
@@ -329,7 +330,7 @@ Page({
       sendMessage(message, that, function () {
         console.log("发送成功")
       })
-      
+
     });
   },
 
@@ -378,7 +379,7 @@ Page({
       })
       wx.stopPullDownRefresh()
     }
-  
+
   },
 
   /**
@@ -496,14 +497,13 @@ function getMessageList(that, success, fistid = "") {
     console.log(imResponse)
     if (fistid != "") {
       var list = imResponse.data.messageList.concat(that.data.msgList);
-      console.log(list)
       that.setData({
-        msgList: list, // 消息列表。
+        msgList: decodeList(list), // 消息列表。
 
       })
     } else {
       that.setData({
-        msgList: imResponse.data.messageList, // 消息列表。
+        msgList: decodeList(imResponse.data.messageList), // 消息列表。
       })
     }
     // console.log(parseText(imResponse.data.messageList[3].payload))
@@ -523,3 +523,17 @@ function pageScrollTo() {
     duration: 300
   })
 }
+
+function decodeList(list) {
+  for (let i = 0; i < list.length; i++) {
+    // 群组通话消息解析
+    if (list[i].conversationID.indexOf('GROUP') === 0 && list[i].type === 'TIMGroupTipElem') {
+      list[i].type = 'TIMGroupTipElem' // 将自定义消息类型重置为群提示消息做渲染
+      list[i].virtualDom = de.decodeElement(list[i])
+
+    }
+
+  }
+  return list
+}
+

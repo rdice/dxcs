@@ -1,4 +1,3 @@
-// pages/chatroom/component/avatar.js
 Component({
   externalClasses: ['i-class'],
 

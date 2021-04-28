@@ -62,67 +62,71 @@
       <text>成员列表</text>
     </navigator>
   </view>
-  <view class="prd_ti flex-between flex-items">
-    <view class="flex-items">
-      <text class="bline"></text>
-      <text class="pl5">案件进展</text>
+  <block wx:if="{{pageData.serviceStageList.length>0}}">
+    <view class="prd_ti flex-between flex-items">
+      <view class="flex-items">
+        <text class="bline"></text>
+        <text class="pl5">案件进展</text>
+      </view>
+      <view bindtap="showajList" class="showajList">
+        <text>全部展开</text>
+        <image src="/images/project/{{isOpen?'b':'t'}}Arrow.png"></image>
+      </view>
     </view>
-    <view bindtap="showajList" class="showajList">
-      <text>全部展开</text>
-      <image src="/images/project/{{isOpen?'b':'t'}}Arrow.png"></image>
-    </view>
-  </view>
-  <view class="boxScont prd2" style="display:{{isOpen?'block':'none'}}">
-    <switchTab-component list="{{ajjz}}" bindmyevent="switchAjjz" />
-    <view>
-      <navigator hover-class="none" class="index2_2" wx:for="{{pageData.serviceStageList[ajjzIdx].stageLinkList}}"
-        url="/pages/project/details/ajjzDetails?id={{item.id}}" wx:key="item">
-        <view class="dbItem flex">
-          <view class="dbItem1">
-            <view></view>
-            <view></view>
+    <view class="boxScont prd2" style="display:{{isOpen?'block':'none'}}">
+      <switchTab-component list="{{ajjz}}" bindmyevent="switchAjjz" />
+      <view>
+        <navigator hover-class="none" class="index2_2" wx:for="{{pageData.serviceStageList[ajjzIdx].stageLinkList}}"
+          url="/pages/project/details/ajjzDetails?id={{item.id}}" wx:key="item">
+          <view class="dbItem flex">
+            <view class="dbItem1">
+              <view></view>
+              <view></view>
+            </view>
+            <view class="dbItem2">
+              <view>{{item.created}}</view>
+              <view class="dbsxTitle flex-items">
+                <image wx:if="{{item.status==1}}" class="flex-none" src="/images/project/select.png"></image>
+                <text class="c0 pl5">{{item.name }}</text>
+              </view>
+            </view>
           </view>
-          <view class="dbItem2">
-            <view>{{item.created}}</view>
-            <view class="dbsxTitle flex-items">
-              <image wx:if="{{item.status==1}}" class="flex-none" src="/images/project/select.png"></image>
-              <text class="c0 pl5">{{item.name }}</text>
+        </navigator>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{pageData.workRecordList.length>0}}">
+    <view class="prd_ti flex-between flex-items">
+      <view class="flex-items">
+        <text class="bline"></text>
+        <text class="pl5">工作记录</text>
+      </view>
+      <navigator class="sMore" url="/pages/project/more/workRecord?id={{pageData.bean.lawCaseId}}">
+        <text>+MORE</text>
+      </navigator>
+    </view>
+    <view class="boxScont prd2">
+      <navigator class="prWork flex" wx:for="{{pageData.workRecordList}}" wx:key="*this" hover-class="none"
+        url="/pages/project/details/workRecordDetails?id={{item.id}}">
+        <view class="prWork1 flex-none"></view>
+        <view class="prWork2 flex-1">
+          <view class="prWork2_2">{{item.content}}</view>
+          <view class="prWork2_1 flex-between">
+            <view class="flex-items prWork2_1_1">
+              <image mode="widthFix" src="/images/index/ls.png"></image>
+              <text class="pl5">{{item.lawyerName}}</text>
+            </view>
+            <view class="prWork2_1_2">
+              <text>{{item.created}}</text>
+              <text class="timebox" wx:if="{{item.hours!=0||item.minutes!=0}}">
+                <block wx:if="{{item.hours!=0}}">{{item.hours}}小时</block>
+                <block wx:if="{{item.minutes!=0}}">{{item.hours}}分钟</block>
+              </text>
             </view>
           </view>
         </view>
       </navigator>
     </view>
-  </view>
-
-  <view class="prd_ti flex-between flex-items">
-    <view class="flex-items">
-      <text class="bline"></text>
-      <text class="pl5">工作记录</text>
-    </view>
-    <navigator class="sMore" url="/pages/project/more/workRecord?id={{pageData.bean.lawCaseId}}">
-      <text>+MORE</text>
-    </navigator>
-  </view>
-  <view class="boxScont prd2">
-    <navigator class="prWork flex" wx:for="{{pageData.workRecordList}}" wx:key="*this" hover-class="none"
-      url="/pages/project/details/workRecordDetails?id={{item.id}}">
-      <view class="prWork1 flex-none"></view>
-      <view class="prWork2">
-        <view class="prWork2_2">{{item.content}}</view>
-        <view class="prWork2_1 flex-between">
-          <view class="flex-items prWork2_1_1">
-            <image mode="widthFix" src="/images/index/ls.png"></image>
-            <text class="pl5">{{item.lawyerName}}</text>
-          </view>
-          <view class="prWork2_1_2">
-            <text>{{item.created}}</text>
-            <text class="timebox" wx:if="{{item.hours!=0||item.minutes!=0}}">
-              <block wx:if="{{item.hours!=0}}">{{item.hours}}时</block>
-              <block wx:if="{{item.minutes!=0}}">{{item.hours}}分</block>
-            </text>
-          </view>
-        </view>
-      </view>
-    </navigator>
-  </view>
+  </block>
 </view>
