@@ -1,0 +1,11 @@
+<!--pages/discover/discoverInfo.wxml-->
+<view class="container" wx:if="{{info.type==1}}"> 
+  <view class="title">{{info.title}}</view>
+  <view class="synopsis">{{info.synopsis}}</view>
+  <view class="content">{{info.content}}</view>
+</view>
+<view class="container" wx:if="{{info.type==2}}"> 
+  <view class="title">{{info.title}}</view>
+  <view class="synopsis">{{info.synopsis}}</view>
+  <video src="{{info.videoFileUrl}}" style="width:100%;"></video>
+</view>

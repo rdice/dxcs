@@ -19,6 +19,8 @@
     "pages/project/add/rename",
     "pages/project/add/addFolder",
     "pages/discover/discover",
+    "pages/discover/discoverList",
+    "pages/discover/discoverInfo",
     "pages/personal/personal",
     "pages/personal/personalDatas",
     "pages/personal/upload/upload",

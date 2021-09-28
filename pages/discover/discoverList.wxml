@@ -1,0 +1,15 @@
+<!--pages/discover/discoverList.wxml-->
+<view class="container">
+  <navigator class="boxScont cyzl" wx:for="{{pgList}}" url="./discoverInfo?id={{item.legalDatabaseContentId}}">
+      <view class="flex-between cyzl1">
+        <view class="cyzl1_1">{{item.updated}}</view>
+      </view>
+      <view class="flex-items cyzl2">
+        <image class="flex-none" src="{{item.imgFileUrl}}"></image>
+        <view class="cyzl2_1">
+          <view>{{item.title}}</view>
+          <view style="color:#9f9f9f">{{item.synopsis}}</view>
+        </view>
+      </view>
+    </navigator>
+</view>

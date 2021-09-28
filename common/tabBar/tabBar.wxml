@@ -1,4 +1,5 @@
 <view style='padding-bottom:100rpx;'></view>
+<!-- 聊天用的导航栏 -->
 <view class="tab-bar1">
 	<block wx:for="{{tabBar}}" wx:key="pagePath">
 		<navigator open-type="redirect" hover-class="none" url="{{item.url}}" class="tab-item1 {{idx==index?'active1':''}}" >

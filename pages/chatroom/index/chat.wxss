@@ -1,7 +1,9 @@
 /* pages/chat/chat.wxss */
+
 .chat {
   background-color: #fff;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 ._li {

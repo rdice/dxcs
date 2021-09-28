@@ -1,0 +1,30 @@
+/* template/components/switch-labels.wxss */
+.switchTab{
+  display: -webkit-flex;
+  display: flex;
+  
+}
+.switchTab>view{
+  font-size: 28rpx;
+  
+  text-align: center;
+}
+.activeTab{
+  color: #ee3c30;
+  border-bottom: 2px solid #ee3c30;
+  padding-bottom: 10rpx;
+  display: inline-block;
+}
+.flex-none{
+  -webkit-flex:none;
+  flex:none;
+}
+.switem{
+  margin:0 10rpx
+}
+.tabItem1{
+  width: 33.3%;
+}
+.tabItem2{
+  width: 40%;
+}

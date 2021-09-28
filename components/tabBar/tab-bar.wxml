@@ -1,5 +1,6 @@
 <!--components/tabBar/tab-bar.wxml-->
 <view style='height:120rpx;'></view>
+<!-- 首页底部导航栏 -->
 <view class="tab-bar">
   <view wx:for="{{list}}" bindtap="navTabBar" data-url="{{item.url}}"
     class="tab-item {{active==index? 'tab-active':''}}" >

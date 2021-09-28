@@ -26,6 +26,7 @@ Component({
         url:"/pages/discover/discover",
         title:"发现"
       },
+     
       {
         url:"/pages/personal/personal",
         title:"我的"

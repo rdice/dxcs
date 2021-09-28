@@ -82,6 +82,13 @@ const api = {
   // 我的----
   lawyerList: app.rootquery + "/xcx/legalService/lawyerList",
 
+  // 发现资料库----
+  legalDatabase: app.rootquery + "/xcx/legalService/legalDatabase",
+  // 资料库文章列表
+  legalDatabaseContentData: app.rootquery + "/xcx/legalService/legalDatabaseContentData",
+  // 查看文章信息
+  legalDatabaseContentInfo: app.rootquery + "/xcx/legalService/legalDatabaseContentInfo",
+
 }
 
 module.exports = api;

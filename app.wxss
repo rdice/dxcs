@@ -157,6 +157,10 @@ page {
   -webkit-flex: 1;
   flex: 1;
 }
+.ff-w{
+  display: flex;
+  flex-flow: wrap;
+}
 /* 聊天室tabBar样式 */
 .tab-bar1{
   display: -webkit-flex;

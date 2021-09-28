@@ -1,39 +1,23 @@
-// pages/discover/discover.js
+// pages/discover/discoverInfo.js
 var app = getApp();
 var utils = require("../../utils/util.js");
 var api = require("../../utils/API.js");
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: null,
-    pageData: {},
-    cyzlList: ["证据标准", "文书格式", "交通事故"],
-    dxzxList: ["法律法规", "最新法条", "电信相关"],
-    idx:0
+    id: "",
+    info:{}
   },
-  switchlabel: function (e) {
-    console.log(e)
-    this.setData({
-      idx:e.detail.idx
-    })
-  },
-  navList:function(e){
-    console.log(e)
-    wx.navigateTo({
-      url: './discoverList?baseid='+e.currentTarget.dataset.baseid+'&typeid='+e.currentTarget.dataset.typeid,
-  
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     this.setData({
-      userInfo: app.globalData.userInfo
+      id:options.id
     })
   },
 
@@ -42,12 +26,15 @@ Page({
    */
   onReady: function () {
     var that = this;
-    utils.request(api.legalDatabase, {}, function (res) {
+    utils.request(api.legalDatabaseContentInfo, {
+      legalDatabaseContentId: that.data.id
+    }, function (res) {
       console.log(res)
-      console.log("=========")
       that.setData({
-        pageData: res.data
+        info: res.data
       })
+      console.log("-============")
+
     });
   },
 
@@ -89,7 +76,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  // onShareAppMessage: function () {
+  onShareAppMessage: function () {
 
-  // }
+  }
 })

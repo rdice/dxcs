@@ -1,44 +1,35 @@
 <!--pages/discover/discover.wxml-->
 <view class="container">
-  <view class="flex-between dcTitle">
-    <view class="dcTitle1">常用资料</view>
-    <view class="dcTitle2">+MORE</view>
-  </view>
-  <switchTab-component list="{{cyzlList}}" bindmyevent="switchAjjz" />
-  <view class="fxCont">
-    <view class="boxScont cyzl">
-      <view class="flex-between cyzl1">
-        <view class="cyzl1_1">2019-12-12</view>
-        <view class="bq">标签</view>
-      </view>
-      <view class="flex-items cyzl2">
-        <image src="/images/headImg.png"></image>
-        <view class="cyzl2_1">内容啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
-      </view>
+  <block wx:for="{{pageData}}">
+    <!-- <view class="flex-between dcTitle">
+      <view class="dcTitle1">{{item.name}}</view>
     </view>
-  </view>
-  <view class="flex-between dcTitle">
-    <view class="dcTitle1">电信资讯</view>
-    <view class="dcTitle2">+MORE</view>
-  </view>
-  <switchTab-component list="{{dxzxList}}" bindmyevent="switchAjjz" />
-  <view class="fxCont">
-    <view class="boxScont dxzx">
-      <view class="dxzxItem">
-        <view class="dxzxItem1">内容水电费得得得多多多多多多多多多多多</view>
-        <view class="flex-between flex-items dxzxItem2">
-          <view class="bq">标签</view>
-          <view class="dxzxItem2_2">2012-12-12</view>
+    <switch-labels list="{{item.typeList}}" bindmyevent="switchlabel" />
+    <view class="fxCont ff-w " wx:for="{{item.typeList}}" wx:for-item="sub" wx:for-index="subidx" 
+    wx:if="{{sub.legalDatabaseTypeId==subid}}" >
+      <view class="boxScont fx-item"  wx:for="{{sub.typeList}}" wx:for-item="slabel" bindtap="navList"
+       data-baseid="{{slabel.legalDatabaseId}}" data-typeid="{{slabel.legalDatabaseTypeId}}">{{slabel.name}}</view>
+    </view> -->
+  </block>
+  <switch-labels list="{{pageData}}" bindmyevent="switchlabel" />
+  <view class="container">
+    <block wx:for="{{pageData}}" wx:if="{{idx==index}}">
+      <view class="ditem" wx:for="{{item.typeList}}" wx:for-item="sub">
+        <view class="ditem_title">{{sub.name}}</view>
+        <view class="ditem_list ff-w">
+          <view wx:for="{{sub.typeList}}" wx:for-item="slabel" bindtap="navList"
+            data-baseid="{{slabel.legalDatabaseId}}" data-typeid="{{slabel.legalDatabaseTypeId}}">{{slabel.name}}
+          </view>
         </view>
       </view>
-    </view>
+    </block>
   </view>
-  <view class="flex-between dcTitle">
+  <!-- <view class="flex-between dcTitle">
     <view class="dcTitle1">法务工具</view>
     <view class="dcTitle2">+MORE</view>
   </view>
   <view class="fxCont">
     <view class="boxScont">222</view>
-  </view>
+  </view> -->
 </view>
 <tab-bar active="2" />

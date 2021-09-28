@@ -2,9 +2,9 @@
 <view class="container">
 	<view class="_div data-v-6b29caac methods">
 		<i-cell-group>
-			<i-cell title="发起会话" is-link url="/pages/chatroom/contact/search?type=user"></i-cell>
+			<!-- <i-cell title="发起会话" is-link url="/pages/chatroom/contact/search?type=user"></i-cell>
 			<i-cell title="加入群聊" is-link url="/pages/chatroom/contact/search?type=group"></i-cell>
-			<i-cell title="新建群聊" is-link url="/pages/chatroom/contact/createGroup"></i-cell>
+			<i-cell title="新建群聊" is-link url="/pages/chatroom/contact/createGroup"></i-cell> -->
 			<!-- <i-cell title="我的黑名单" is-link url="/pages/blacklist/main"></i-cell> -->
 			<i-cell title="我的群组" is-link url="/pages/chatroom/contact/groups"></i-cell>
 		</i-cell-group>

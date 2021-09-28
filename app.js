@@ -28,8 +28,8 @@ App({
   openid:"",
   memberId:"",//服务用户id
   accout:"",//聊天用户id
-  // root: 'http://htb.smartlaw.cn/',
-  // rootquery: 'http://htb.smartlaw.cn/znfw/',//查询
+  // root: 'http://192.168.2.175:8081/',
+  // rootquery: 'http://192.168.2.175:8081/znfw/',//查询
   // roothd: 'http://110.84.129.48:8281/fzx/controller/',//提交
   root: 'https://lawfile.cn/',
   rootquery: 'https://lawfile.cn/znfw/',//查询

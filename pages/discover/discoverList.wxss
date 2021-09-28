@@ -1,0 +1,26 @@
+/* pages/discover/discoverList.wxss */
+.cyzl{
+  margin-bottom: 20rpx;
+}
+.cyzl1{
+  padding-bottom: 20rpx;
+  color: #b0b1b6;
+  font-size: 26rpx;
+}
+
+.cyzl2>view{
+  padding-left: 20rpx;
+  color: #4c536a;
+}
+.cyzl2 image{
+  width: 50px;
+  height: 50px;
+  border-radius:5px;
+}
+.cyzl1_1{
+  font-weight: bold;
+  color: #abacb1;
+}
+.container{
+  padding: 20rpx;
+}

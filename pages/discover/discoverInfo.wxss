@@ -1,0 +1,16 @@
+/* pages/discover/discoverInfo.wxss */
+.container{
+  padding: 20rpx;
+}
+.title{
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+
+}
+.synopsis{
+  padding: 30rpx;
+}
+.content{
+  text-indent: 32rpx;
+}
